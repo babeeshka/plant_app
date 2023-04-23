@@ -1,11 +1,12 @@
 import requests
 from models import Plant
 from config import TREFLE_API_BASE_URL
+import os
 
 
 def get_plant_info(plant_name):
     """Fetches plant information from the Trefle API"""
-    url = f"{TREFLE_API_BASE_URL}/plants/search?q={plant_name}&token=U2oeu3BcSYHatrK26lyLtbzsOryHf0hfDVoJ20jxFwA"
+    url = f"{TREFLE_API_BASE_URL}/plants/search?q={plant_name}&token={os.environ.get('TREFLE_TOKEN')}"
     response = requests.get(url)
 
     if response.status_code != 200:
