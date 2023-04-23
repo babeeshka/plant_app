@@ -10,9 +10,10 @@ from random import randrange
 from plant_info import get_plant_info
 import logging
 from logging.handlers import RotatingFileHandler
+import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:WbMa01523@localhost/plant_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 app.config['SECRET_KEY'] = secrets.token_hex(16)  # generate a random 16-byte string and use it as the secret key
@@ -91,7 +92,6 @@ def add_plant():
             flash(f"Error adding plant {plant_name}: {str(e)}", "danger")
 
     return render_template('add_plant.html')
-
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
