@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if plant %}
+<div class="container">
+    <div class="card my-3">
+        <div class="card-header">
+            <h5 class="card-title">{{ plant.common_name }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ plant.name }}</h6>
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{ plant.description }}</p>
+            <ul class="list-group list-group-flush">
+                {% if plant.sunlight %}
+                <li class="list-group-item"><strong>Sunlight:</strong> {{ plant.sunlight }}</li>
+                {% endif %}
+                {% if plant.water %}
+                <li class="list-group-item"><strong>Water:</strong> {{ plant.water }}</li>
+                {% endif %}
+                {% if plant.temperature %}
+                <li class="list-group-item"><strong>Temperature:</strong> {{ plant.temperature }}</li>
+                {% endif %}
+                {% if plant.humidity %}
+                <li class="list-group-item"><strong>Humidity:</strong> {{ plant.humidity }}</li>
+                {% endif %}
+            </ul>
+            <a href="{{ url_for('edit', id=plant.id) }}" class="btn btn-primary">Edit</a>
+            <form action="{{ url_for('delete_plant', id=plant.id) }}" method="POST" class="d-inline">
+                <input type="hidden" name="_method" value="DELETE">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% else %}
+<p>No plants found in the database.</p>
+{% endif %}
+{% endblock %}

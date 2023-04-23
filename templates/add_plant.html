@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}Add a Plant{% endblock %}
+
+{% block content %}
+
+<div class="container d-flex flex-column justify-content-center align-items-center">
+    <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Add a new plant</h1>
+    <form class="form-inline d-flex flex-column justify-content-center align-items-center" method="post" action="{{ url_for('add_plant') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..." style="min-width: 250px; font-style: italic;">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3" style="font-size: 18px;">Add new plant</button>
+    </form>
+
+    {% if plant %}
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>Common Name</th>
+                    <th>Scientific Name</th>
+                    <th>Family</th>
+                    <th>Genus</th>
+                    <th>Sunlight Care</th>
+                    <th>Water Care</th>
+                    <th>Temperature Care</th>
+                    <th>Humidity Care</th>
+                    <th>Growing Tips</th>
+                    <th>Propagation Tips</th>
+                    <th>Common Pests</th>
+                    <th>Image URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ plant.common_name }}</td>
+                    <td>{{ plant.scientific_name }}</td>
+                    <td>{{ plant.family }}</td>
+                    <td>{{ plant.genus }}</td>
+                    <td>{{ plant.sunlight_care }}</td>
+                    <td>{{ plant.water_care }}</td>
+                    <td>{{ plant.temperature_care }}</td>
+                    <td>{{ plant.humidity_care }}</td>
+                    <td>{{ plant.growing_tips }}</td>
+                    <td>{{ plant.propagation_tips }}</td>
+                    <td>{{ plant.common_pests }}</td>
+                    <td>{{ plant.image_url }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-center">
+            <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+            <a href="{{ url_for('add_to_database', id=plant.id) }}" class="btn btn-success">Submit to Database</a>
+        </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}

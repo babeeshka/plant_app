@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mt-5">plants!</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card mb-4 shadow-sm">
+        <img src="{{ plants[0].image_url }}" class="card-img-top" alt="{{ plants[0].name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ plants[0].name }}</h5>
+          <p class="card-text">{{ plants[0].description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

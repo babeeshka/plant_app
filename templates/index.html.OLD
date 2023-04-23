@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Plant Database</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Plant Database</h1>
+	<h2>Search for a plant</h2>
+	<form action="{{ url_for('search') }}" method="GET">
+		<label for="plant_name">Plant Name:</label>
+		<input type="text" id="plant_name" name="q">
+		<input type="submit" value="Search">
+	</form>
+
+	<h2>Add a plant</h2>
+	<form action="{{ url_for('add') }}" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br>
+
+		<label for="common_name">Common Name:</label>
+		<input type="text" id="common_name" name="common_name" required><br>
+
+		<label for="description">Description:</label>
+		<textarea id="description" name="description" required></textarea><br>
+
+		<label for="image_url">Image URL:</label>
+		<input type="text" id="image_url" name="image_url" required><br>
+
+		<label for="care_instructions">Care Instructions:</label>
+		<textarea id="care_instructions" name="care_instructions" required></textarea><br>
+
+		<input type="submit" value="Add Plant">
+	</form>
+
+	<h2>Edit a plant</h2>
+	<form action="{{ url_for('edit', id=plant.id) }}" method="POST">
+		<label for="id">ID:</label>
+		<input type="text" id="id" name="id" required><br>
+
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required><br>
+
+		<label for="common_name">Common Name:</label>
+		<input type="text" id="common_name" name="common_name" required><br>
+
+		<label for="description">Description:</label>
+		<textarea id="description" name="description" required></textarea><br>
+
+		<label for="image_url">Image URL:</label>
+		<input type="text" id="image_url" name="image_url" required><br>
+
+		<label for="care_instructions">Care Instructions:</label>
+		<textarea id="care_instructions" name="care_instructions" required></textarea><br>
+
+		<input type="submit" value="Edit Plant">
+	</form>
+
+	<h2>Delete a plant</h2>
+	<form action="{{ url_for('delete_plant', id=plant.id) }}" method="POST">
+		<label for="id">ID:</label>
+		<input type="text" id="id" name="id" required><br>
+
+		<input type="submit" value="Delete Plant">
+	</form>
+
+	<h2>Random Plant:</h2>
+	{% if plant %}
+		<h3>{{ plant.name }}</h3>
+		<img src="{{ plant.image_url }}" alt="{{ plant.name }} image">
+		<p><strong>Common Name:</strong> {{ plant.common_name }}</p>
+		<p><strong>Description:</strong> {{ plant.description }}</p>
+		<p><strong>Care Instructions:</strong> {{ plant.care_instructions }}</p>
+	{% else %}
+		<p>No plants found in the database.</p>
+	{% endif %}
+</body>
+</html>

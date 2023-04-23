@@ -1,0 +1,62 @@
+.container {
+  padding-top: 80px;
+}
+
+.my-header {
+  font-size: 32px;
+  font-family: courier;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+#search-icon {
+  display: block;
+  padding: 0 10px;
+}
+
+#search-box {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #search-icon {
+    display: none;
+  }
+
+  #search-box {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #search-box {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    z-index: 9999;
+    background-color: #fff;
+    padding: 10px;
+  }
+
+  #search-box form {
+    display: flex;
+  }
+
+  #search-box input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+
+  #search-box button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+  }
+}

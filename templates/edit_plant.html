@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Edit Plant</h1>
+  <form method="post">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" class="form-control" value="{{ plant.name }}" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea name="description" id="description" class="form-control">{{ plant.description }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="sunlight">Sunlight:</label>
+      <input type="text" name="sunlight" id="sunlight" class="form-control" value="{{ plant.sunlight }}">
+    </div>
+    <div class="form-group">
+      <label for="water">Water:</label>
+      <input type="text" name="water" id="water" class="form-control" value="{{ plant.water }}">
+    </div>
+    <div class="form-group">
+      <label for="temperature">Temperature:</label>
+      <input type="text" name="temperature" id="temperature" class="form-control" value="{{ plant.temperature }}">
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+  </form>
+{% endblock %}

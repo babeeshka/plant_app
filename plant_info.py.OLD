@@ -1,0 +1,39 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+def get_plant_info(plant_name):
+    """Scrapes thespruce.com for information on the given plant name"""
+    url = f"https://www.thespruce.com/search?q={plant_name.replace(' ', '+')}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    results = soup.find_all("div", class_="comp mntl-sc-block mntl-sc-block-html")
+
+    if not results:
+        return None
+
+    data = {}
+
+    for item in results[0].find_all("a"):
+        if item.text.strip().lower() == plant_name.lower():
+            url = item["href"]
+            break
+    else:
+        url = results[0].find("a")["href"]
+
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+    image = soup.find("img", class_="mntl-sc-page-nav-image")
+    if image and "src" in image.attrs:
+        data["image"] = image["src"]
+    data["url"] = url
+    data["name"] = soup.find("h1", class_="heading__title").text.strip()
+
+    details = soup.find_all("div", class_="comp mntl-sc-block mntl-sc-block-html")
+    for detail in details:
+        heading = detail.find("h2")
+        if heading and heading.text.strip().lower() == "plant details":
+            for item in detail.find_all("div", class_="comp mntl-sc-block-html"):
+                data[item.find("strong").text.strip()] = item.find("span").text.strip()
+
+    return data
