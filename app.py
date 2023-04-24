@@ -86,37 +86,73 @@ def search_plant():
 
 @app.route('/add_plant', methods=['GET', 'POST'])
 def add_plant():
+    plant = Plant(common_name="Plant A", scientific_name="Scientific Name A")
     if request.method == 'POST':
-        plant_info = {
-            'common_name': request.form['common_name'],
-            'scientific_name': request.form['scientific_name'],
-            'sunlight_care': request.form['sunlight_care'],
-            'water_care': request.form['water_care'],
-            'temperature_care': request.form['temperature_care'],
-            'humidity_care': request.form['humidity_care'],
-            'growing_tips': request.form['growing_tips'],
-            'propagation_tips': request.form['propagation_tips'],
-            'common_pests': request.form['common_pests'],
-            'image_url': request.form['image_url'],
-            'family': request.form['family'],
-            'genus': request.form['genus'],
-            'year': request.form['year'],
-            'edible': request.form['edible'],
-            'edible_part': request.form['edible_part'],
-            'edible_notes': request.form['edible_notes'],
-            'medicinal': request.form['medicinal'],
-            'medicinal_notes': request.form['medicinal_notes'],
-            'toxicity': request.form['toxicity'],
-            'synonyms': request.form['synonyms'],
-            'native_status': request.form['native_status'],
-            'conservation_status': request.form['conservation_status']
-        }
-        plant = Plant(**plant_info)
-        db.session.add(plant)
-        db.session.commit()
-        flash('Plant added successfully', 'success')
-        return redirect(url_for('index'))
-    return render_template('add_plant.html')
+        try:
+            plant_name = request.form['name']
+            plant_info = get_plant_info(plant_name)
+            if plant_info:
+                new_plant = Plant(
+                    common_name=plant_info.get(
+                        'common_name', plant_info['scientific_name']),
+                    scientific_name=plant_info['scientific_name'],
+                    sunlight_care=request.form.get('sunlight'),
+                    water_care=request.form.get('water'),
+                    temperature_care=request.form.get('temperature'),
+                    image_url=plant_info.get('image_url'),
+                    family=plant_info.get('family'),
+                    genus=plant_info.get('genus'),
+                    year=plant_info.get('year'),
+                    edible=plant_info.get('edible'),
+                    edible_part=plant_info.get('edible_part'),
+                    edible_notes=plant_info.get('edible_notes'),
+                    medicinal=plant_info.get('medicinal'),
+                    medicinal_notes=plant_info.get('medicinal_notes'),
+                    toxicity=plant_info.get('toxicity'),
+                    synonyms=plant_info.get('synonyms'),
+                    native_status=plant_info.get('native_status'),
+                    conservation_status=plant_info.get('conservation_status')
+                )
+                print(new_plant)
+
+                db.session.add(new_plant)
+                db.session.commit()
+
+                flash(f"{new_plant.common_name} has been added", "success")
+                return redirect(url_for('index'))
+            else:
+                manual_info = {
+                    'common_name': request.form.get('common_name'),
+                    'scientific_name': request.form.get('scientific_name'),
+                    'sunlight_care': request.form.get('sunlight'),
+                    'water_care': request.form.get('water'),
+                    'temperature_care': request.form.get('temperature'),
+                    'image_url': request.form.get('image_url'),
+                    'family': request.form.get('family'),
+                    'genus': request.form.get('genus'),
+                    'year': request.form.get('year'),
+                    'edible': request.form.get('edible'),
+                    'edible_part': request.form.get('edible_part'),
+                    'edible_notes': request.form.get('edible_notes'),
+                    'medicinal': request.form.get('medicinal'),
+                    'medicinal_notes': request.form.get('medicinal_notes'),
+                    'toxicity': request.form.get('toxicity'),
+                    'synonyms': request.form.get('synonyms'),
+                    'native_status': request.form.get('native_status'),
+                    'conservation_status': request.form.get('conservation_status')
+                }
+                new_plant = Plant(**manual_info)
+                db.session.add(new_plant)
+                db.session.commit()
+
+                flash(f"{new_plant.common_name} has been added", "success")
+                return redirect(url_for('index'))
+        except Exception as e:
+            db.session.rollback()
+            print(str(e))
+            flash(f"Error adding plant {plant_name}: {str(e)}", "danger")
+
+    return render_template('add_plant.html', plant=plant)
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
