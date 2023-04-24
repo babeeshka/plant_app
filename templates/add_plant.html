@@ -5,7 +5,7 @@
 {% block content %}
 
 <form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
-    action="{{ url_for('add_plant') }}">
+    action="/add_plant">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
@@ -13,7 +13,6 @@
     </div>
     <button type="button" class="btn btn-primary" id="search-button" onclick="searchPlant()">Search</button>
 </form>
-
 
 <div class="mt-5" id="search-results">
     <h2>Search Results:</h2>

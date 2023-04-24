@@ -38,8 +38,6 @@ file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
 # app.py
-
-
 @app.route('/')
 def home():
     plants = Plant.query.all()
@@ -86,10 +84,39 @@ def search_plant():
     return jsonify(results)
 
 
-@app.route('/add_plant')
+@app.route('/add_plant', methods=['GET', 'POST'])
 def add_plant():
-    plant = Plant(common_name=request.form['common_name'], scientific_name=request.form['scientific_name'])
-    return render_template('add_plant.html', plant=plant)
+    if request.method == 'POST':
+        plant_info = {
+            'common_name': request.form['common_name'],
+            'scientific_name': request.form['scientific_name'],
+            'sunlight_care': request.form['sunlight_care'],
+            'water_care': request.form['water_care'],
+            'temperature_care': request.form['temperature_care'],
+            'humidity_care': request.form['humidity_care'],
+            'growing_tips': request.form['growing_tips'],
+            'propagation_tips': request.form['propagation_tips'],
+            'common_pests': request.form['common_pests'],
+            'image_url': request.form['image_url'],
+            'family': request.form['family'],
+            'genus': request.form['genus'],
+            'year': request.form['year'],
+            'edible': request.form['edible'],
+            'edible_part': request.form['edible_part'],
+            'edible_notes': request.form['edible_notes'],
+            'medicinal': request.form['medicinal'],
+            'medicinal_notes': request.form['medicinal_notes'],
+            'toxicity': request.form['toxicity'],
+            'synonyms': request.form['synonyms'],
+            'native_status': request.form['native_status'],
+            'conservation_status': request.form['conservation_status']
+        }
+        plant = Plant(**plant_info)
+        db.session.add(plant)
+        db.session.commit()
+        flash('Plant added successfully', 'success')
+        return redirect(url_for('index'))
+    return render_template('add_plant.html')
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
