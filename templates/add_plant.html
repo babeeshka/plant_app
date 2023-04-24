@@ -46,12 +46,28 @@
     <div class="d-flex justify-content-center mt-3">
         <a href="#" class="btn btn-primary mr-3" onclick="reviewPlant()">Modify</a>
         <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
+            <input type="hidden" name="id" value="{{ next_id }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="plant_id" id="plant-id-input">
-            <!-- all other plant information fields -->
+            <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+            <input type="text" name="plant_info[common_name]" value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}">
+            <input type="text" name="plant_info[sunlight_care]" value="{{ request.form.get('sunlight') }}">
+            <input type="text" name="plant_info[water_care]" value="{{ request.form.get('water') }}">
+            <input type="text" name="plant_info[temperature_care]" value="{{ request.form.get('temperature') }}">
+            <input type="text" name="plant_info[image_url]" value="{{ plant_info.get('image_url') }}">
+            <input type="text" name="plant_info[family]" value="{{ plant_info.get('family') }}">
+            <input type="text" name="plant_info[genus]" value="{{ plant_info.get('genus') }}">
+            <input type="text" name="plant_info[year]" value="{{ plant_info.get('year') }}">
+            <input type="text" name="plant_info[edible]" value="{{ plant_info.get('edible') }}">
+            <input type="text" name="plant_info[edible_part]" value="{{ plant_info.get('edible_part') }}">
+            <input type="text" name="plant_info[edible_notes]" value="{{ plant_info.get('edible_notes') }}">
+            <input type="text" name="plant_info[medicinal]" value="{{ plant_info.get('medicinal') }}">
+            <input type="text" name="plant_info[medicinal_notes]" value="{{ plant_info.get('medicinal_notes') }}">
+            <input type="text" name="plant_info[toxicity]" value="{{ plant_info.get('toxicity') }}">
+            <input type="text" name="plant_info[synonyms]" value="{{ plant_info.get('synonyms') }}">
+            <input type="text" name="plant_info[native_status]" value="{{ plant_info.get('native_status') }}">
+            <input type="text" name="plant_info[conservation_status]" value="{{ plant_info.get('conservation_status') }}">
         </form>
-    </div>
-
+    </div>    
     <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modal-label"
         aria-hidden="true">
         <div class="modal-dialog" role="document">

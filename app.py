@@ -7,6 +7,7 @@ from flask_wtf.csrf import CSRFProtect
 from random import randint, randrange
 import secrets
 import datetime
+import jsonify
 
 from database import db
 from models import Plant
@@ -37,6 +38,8 @@ file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
 # app.py
+
+
 @app.route('/')
 def home():
     plants = Plant.query.all()
@@ -83,76 +86,10 @@ def search_plant():
     return jsonify(results)
 
 
-@app.route('/add_plant', methods=['GET', 'POST'])
+@app.route('/add_plant')
 def add_plant():
-    plant = Plant(common_name="Plant A", scientific_name="Scientific Name A")
-    if request.method == 'POST':
-        try:
-            plant_name = request.form['name']
-            plant_info = get_plant_info(plant_name)
-            if plant_info:
-                new_plant = Plant(
-                    common_name=plant_info.get(
-                        'common_name', plant_info['scientific_name']),
-                    scientific_name=plant_info['scientific_name'],
-                    sunlight_care=request.form.get('sunlight'),
-                    water_care=request.form.get('water'),
-                    temperature_care=request.form.get('temperature'),
-                    image_url=plant_info.get('image_url'),
-                    family=plant_info.get('family'),
-                    genus=plant_info.get('genus'),
-                    year=plant_info.get('year'),
-                    edible=plant_info.get('edible'),
-                    edible_part=plant_info.get('edible_part'),
-                    edible_notes=plant_info.get('edible_notes'),
-                    medicinal=plant_info.get('medicinal'),
-                    medicinal_notes=plant_info.get('medicinal_notes'),
-                    toxicity=plant_info.get('toxicity'),
-                    synonyms=plant_info.get('synonyms'),
-                    native_status=plant_info.get('native_status'),
-                    conservation_status=plant_info.get('conservation_status')
-                )
-                print(new_plant)
-
-                db.session.add(new_plant)
-                db.session.commit()
-
-                flash(f"{new_plant.common_name} has been added", "success")
-                return redirect(url_for('index'))
-            else:
-                manual_info = {
-                    'common_name': request.form.get('common_name'),
-                    'scientific_name': request.form.get('scientific_name'),
-                    'sunlight_care': request.form.get('sunlight'),
-                    'water_care': request.form.get('water'),
-                    'temperature_care': request.form.get('temperature'),
-                    'image_url': request.form.get('image_url'),
-                    'family': request.form.get('family'),
-                    'genus': request.form.get('genus'),
-                    'year': request.form.get('year'),
-                    'edible': request.form.get('edible'),
-                    'edible_part': request.form.get('edible_part'),
-                    'edible_notes': request.form.get('edible_notes'),
-                    'medicinal': request.form.get('medicinal'),
-                    'medicinal_notes': request.form.get('medicinal_notes'),
-                    'toxicity': request.form.get('toxicity'),
-                    'synonyms': request.form.get('synonyms'),
-                    'native_status': request.form.get('native_status'),
-                    'conservation_status': request.form.get('conservation_status')
-                }
-                new_plant = Plant(**manual_info)
-                db.session.add(new_plant)
-                db.session.commit()
-
-                flash(f"{new_plant.common_name} has been added", "success")
-                return redirect(url_for('index'))
-        except Exception as e:
-            db.session.rollback()
-            print(str(e))
-            flash(f"Error adding plant {plant_name}: {str(e)}", "danger")
-
+    plant = Plant(common_name=request.form['common_name'], scientific_name=request.form['scientific_name'])
     return render_template('add_plant.html', plant=plant)
-
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
@@ -214,13 +151,33 @@ def modify_plant(id):
     return render_template('modify_plant.html', plant=plant)
 
 
-@app.route('/add_to_database/<int:id>', methods=['POST'])
-def add_to_database(id):
-    plant = Plant.query.get_or_404(id)
-    db.session.add(plant)
+@app.route('/add_to_database', methods=['POST'])
+def add_to_database():
+    plant_info = request.json
+    new_plant = Plant(
+        common_name=plant_info.get(
+            'common_name', plant_info['scientific_name']),
+        scientific_name=plant_info['scientific_name'],
+        sunlight_care=plant_info.get('sunlight_care'),
+        water_care=plant_info.get('water_care'),
+        temperature_care=plant_info.get('temperature_care'),
+        image_url=plant_info.get('image_url'),
+        family=plant_info.get('family'),
+        genus=plant_info.get('genus'),
+        year=plant_info.get('year'),
+        edible=plant_info.get('edible'),
+        edible_part=plant_info.get('edible_part'),
+        edible_notes=plant_info.get('edible_notes'),
+        medicinal=plant_info.get('medicinal'),
+        medicinal_notes=plant_info.get('medicinal_notes'),
+        toxicity=plant_info.get('toxicity'),
+        synonyms=plant_info.get('synonyms'),
+        native_status=plant_info.get('native_status'),
+        conservation_status=plant_info.get('conservation_status')
+    )
+    db.session.add(new_plant)
     db.session.commit()
-    flash(f"{plant.common_name} has been added to the database", "success")
-    return redirect(url_for('home'))
+    return jsonify({'id': new_plant.id})
 
 
 @app.route('/delete/<int:id>', methods=['POST'])
