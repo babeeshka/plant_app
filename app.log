@@ -1,0 +1,791 @@
+2023-04-23 18:01:56,140 - app - ERROR - Exception on /add_plant [POST]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 70, in add_plant
+    plant_name = request.form['name']
+                 ~~~~~~~~~~~~^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/datastructures.py", line 375, in __getitem__
+    raise exceptions.BadRequestKeyError(key)
+werkzeug.exceptions.BadRequestKeyError: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 94, in add_plant
+    flash(f"Error adding plant {plant_name}: {str(e)}", "danger")
+                                ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'plant_name' where it is not associated with a value
+2023-04-23 18:51:59,368 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 15, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('index') }}">plants</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'delete' instead?
+2023-04-23 18:51:59,563 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 15, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('index') }}">plants</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'delete' instead?
+2023-04-23 18:52:33,887 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 15, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('index') }}">plants</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'delete' instead?
+2023-04-23 18:52:34,554 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 15, in top-level template code
+    <a class="navbar-brand" href="{{ url_for('index') }}">plants</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'index'. Did you mean 'delete' instead?
+2023-04-23 19:36:14,478 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 108, in add_plant
+    return render_template('add_plant.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 47, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant' is undefined
+2023-04-23 19:39:36,202 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 111, in add_plant
+    return render_template('add_plant.html', plant_info=plant_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 47, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant' is undefined
+2023-04-23 19:41:44,667 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 108, in add_plant
+    return render_template('add_plant.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 47, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant' is undefined
+2023-04-23 19:43:11,715 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 72, in add_plant
+    plant = Plant()
+            ^^^^^^^
+TypeError: __init__() missing 2 required positional arguments: 'common_name' and 'scientific_name'
+2023-04-23 19:44:29,588 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 114, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 47, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 19:49:11,023 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 114, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 60, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 19:54:34,574 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 114, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 60, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 19:55:56,459 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 114, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 60, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 19:58:22,640 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 114, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 59, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 20:00:52,102 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 138, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 59, in block 'content'
+    <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'modify_plant'. Did you forget to specify values ['id']?
+2023-04-23 21:52:49,346 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 32, in top-level template code
+    <form class="form-inline my-2 my-lg-0" action="{{ url_for('plant_search') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'plant_search'. Did you mean 'list_plants' instead?
+2023-04-23 21:53:59,976 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 32, in top-level template code
+    <form class="form-inline my-2 my-lg-0" action="{{ url_for('plant_search') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'plant_search'. Did you mean 'list_plants' instead?
+2023-04-23 21:57:05,400 - app - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 48, in home
+    return render_template('home.html', plants=plants, random_plant=random_plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/home.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 32, in top-level template code
+    <form class="form-inline my-2 my-lg-0" action="{{ url_for('search_plants') }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'search_plants'. Did you mean 'search_plant' instead?
+2023-04-23 21:57:28,767 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 154, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 47, in block 'content'
+    <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'add_to_database'. Did you forget to specify values ['id']?
+2023-04-23 21:59:00,706 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 154, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 48, in block 'content'
+    <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'add_to_database'. Did you forget to specify values ['id']?

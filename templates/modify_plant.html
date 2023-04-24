@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="mb-4">Edit {{ plant.common_name }}</h1>
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.common_name.label(class_='form-label') }}
+      {{ form.common_name(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.scientific_name.label(class_='form-label') }}
+      {{ form.scientific_name(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.sunlight_care.label(class_='form-label') }}
+      {{ form.sunlight_care(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.water_care.label(class_='form-label') }}
+      {{ form.water_care(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.temperature_care.label(class_='form-label') }}
+      {{ form.temperature_care(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.image_url.label(class_='form-label') }}
+      {{ form.image_url(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.family.label(class_='form-label') }}
+      {{ form.family(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.genus.label(class_='form-label') }}
+      {{ form.genus(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.year.label(class_='form-label') }}
+      {{ form.year(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.edible.label(class_='form-label') }}
+      {{ form.edible(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.edible_part.label(class_='form-label') }}
+      {{ form.edible_part(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.edible_notes.label(class_='form-label') }}
+      {{ form.edible_notes(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.medicinal.label(class_='form-label') }}
+      {{ form.medicinal(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.medicinal_notes.label(class_='form-label') }}
+      {{ form.medicinal_notes(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.toxicity.label(class_='form-label') }}
+      {{ form.toxicity(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.synonyms.label(class_='form-label') }}
+      {{ form.synonyms(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.native_status.label(class_='form-label') }}
+      {{ form.native_status(class_='form-control') }}
+    </div>
+    <div class="form-group">
+      {{ form.conservation_status.label(class_='form-label') }}
+      {{ form.conservation_status(class_='form-control') }}
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+    <a href="{{ url_for('home') }}" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+{% end block content %}

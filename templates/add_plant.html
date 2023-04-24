@@ -4,58 +4,136 @@
 
 {% block content %}
 
-<div class="container d-flex flex-column justify-content-center align-items-center">
-    <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Add a new plant</h1>
-    <form class="form-inline d-flex flex-column justify-content-center align-items-center" method="post" action="{{ url_for('add_plant') }}">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..." style="min-width: 250px; font-style: italic;">
-        </div>
-        <button type="submit" class="btn btn-primary mt-3" style="font-size: 18px;">Add new plant</button>
-    </form>
+<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
+    action="{{ url_for('add_plant') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <div class="form-group">
+        <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
+            style="min-width: 250px; font-style: italic;">
+    </div>
+    <button type="button" class="btn btn-primary" id="search-button" onclick="searchPlant()">Search</button>
+</form>
 
-    {% if plant %}
-        <table class="table table-striped mt-5">
-            <thead>
-                <tr>
-                    <th>Common Name</th>
-                    <th>Scientific Name</th>
-                    <th>Family</th>
-                    <th>Genus</th>
-                    <th>Sunlight Care</th>
-                    <th>Water Care</th>
-                    <th>Temperature Care</th>
-                    <th>Humidity Care</th>
-                    <th>Growing Tips</th>
-                    <th>Propagation Tips</th>
-                    <th>Common Pests</th>
-                    <th>Image URL</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ plant.common_name }}</td>
-                    <td>{{ plant.scientific_name }}</td>
-                    <td>{{ plant.family }}</td>
-                    <td>{{ plant.genus }}</td>
-                    <td>{{ plant.sunlight_care }}</td>
-                    <td>{{ plant.water_care }}</td>
-                    <td>{{ plant.temperature_care }}</td>
-                    <td>{{ plant.humidity_care }}</td>
-                    <td>{{ plant.growing_tips }}</td>
-                    <td>{{ plant.propagation_tips }}</td>
-                    <td>{{ plant.common_pests }}</td>
-                    <td>{{ plant.image_url }}</td>
-                </tr>
-            </tbody>
-        </table>
 
-        <div class="d-flex justify-content-center">
-            <a href="{{ url_for('modify_plant', id=plant.id) }}" class="btn btn-primary mr-3">Modify</a>
-            <a href="{{ url_for('add_to_database', id=plant.id) }}" class="btn btn-success">Submit to Database</a>
-        </div>
-    {% endif %}
-
+<div class="mt-5" id="search-results">
+    <h2>Search Results:</h2>
+    <ul class="list-group" id="search-results-list"></ul>
 </div>
 
+<div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info"
+    style="display: none;">
+    <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plant Information</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Common Name</th>
+                <th>Scientific Name</th>
+                <th>Family</th>
+                <th>Genus</th>
+                <th>Sunlight Care</th>
+                <th>Water Care</th>
+                <th>Temperature Care</th>
+                <th>Humidity Care</th>
+                <th>Growing Tips</th>
+                <th>Propagation Tips</th>
+                <th>Common Pests</th>
+                <th>Image URL</th>
+            </tr>
+        </thead>
+        <tbody id="plant-info-body">
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-center mt-3">
+        <a href="#" class="btn btn-primary mr-3" onclick="reviewPlant()">Modify</a>
+        <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="plant_id" id="plant-id-input">
+            <!-- all other plant information fields -->
+        </form>
+    </div>
+
+    <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modal-label"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="review-modal-label">Review Plant Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Review the following information for the plant:</p>
+                    <table class="table">
+                        <!-- plant information will be inserted here -->
+                    </table>
+                    <hr>
+                    <p>If any information is incorrect or missing, please make the necessary changes:</p>
+                    <form id="review-form">
+                        <!-- plant information fields will be inserted here -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitPlant()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function searchPlant() {
+        let query = $('#name').val();
+
+        $.ajax({
+            url: "{{ url_for('search_plant') }}",
+            method: "POST",
+            data: JSON.stringify({ query: query }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                let resultList = $('#search-results-list');
+                resultList.empty();
+
+                if (response.length === 0) {
+                    resultList.append('<li class="list-group-item">No results found</li>');
+                } else {
+                    response.forEach(function (result) {
+                        resultList.append('<li class="list-group-item">' + result.common_name + '</li>');
+                    });
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+    $('#search-button').click(searchPlant);
+
+    function reviewPlant() {
+        // get the plant ID from the hidden input field
+        let plantId = $('#plant-id-input').val();
+
+        // make an AJAX request to fetch the plant information
+        $.ajax({
+            url: "{{ url_for('get_plant') }}",
+            method: "POST",
+            data: JSON.stringify({ plant_id: plantId }),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                // populate the modal dialog table with the plant information
+                let table = $('<table>').addClass('table');
+                let tbody = $('<tbody>');
+                tbody.append($('<tr>').append($('<td>').text('Common Name'), $('<td>').text(response.common_name)));
+                tbody.append($('<tr>').append($('<td>').text
+
+</script>
 {% endblock %}
