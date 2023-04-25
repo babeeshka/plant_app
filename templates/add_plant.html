@@ -3,9 +3,40 @@
 {% block title %}Add a Plant{% endblock %}
 
 {% block content %}
+<h1>
+    <style>
+        #plant-info,
+        #submit-form {
+            display: none;
+        }
 
-<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
-    action="/add_plant">
+        /* Center the search field and button */
+        #search-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #search-form input[type="text"],
+        #search-form button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hide the search results */
+        #search-results {
+            display: none;
+        }
+    </style>
+</h1>
+
+<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST" action="/add_plant">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
@@ -14,10 +45,13 @@
     <button type="button" class="btn btn-primary" id="search-button" onclick="searchPlant()">Search</button>
 </form>
 
-<div class="mt-5" id="search-results">
+
+
+<div class="mt-5" id="search-results" style="display: none;">
     <h2>Search Results:</h2>
     <ul class="list-group" id="search-results-list"></ul>
 </div>
+
 
 <div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info"
     style="display: none;">
@@ -47,8 +81,9 @@
         <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
             <input type="hidden" name="id" value="{{ next_id }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
-            <input type="text" name="plant_info[common_name]" value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}">
+            <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info.scientific_name }}">
+            <input type="text" name="plant_info[common_name]"
+                value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}">
             <input type="text" name="plant_info[sunlight_care]" value="{{ request.form.get('sunlight') }}">
             <input type="text" name="plant_info[water_care]" value="{{ request.form.get('water') }}">
             <input type="text" name="plant_info[temperature_care]" value="{{ request.form.get('temperature') }}">
@@ -64,9 +99,10 @@
             <input type="text" name="plant_info[toxicity]" value="{{ plant_info.get('toxicity') }}">
             <input type="text" name="plant_info[synonyms]" value="{{ plant_info.get('synonyms') }}">
             <input type="text" name="plant_info[native_status]" value="{{ plant_info.get('native_status') }}">
-            <input type="text" name="plant_info[conservation_status]" value="{{ plant_info.get('conservation_status') }}">
+            <input type="text" name="plant_info[conservation_status]"
+                value="{{ plant_info.get('conservation_status') }}">
         </form>
-    </div>    
+    </div>
     <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modal-label"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -80,12 +116,69 @@
                 <div class="modal-body">
                     <p>Review the following information for the plant:</p>
                     <table class="table">
-                        <!-- plant information will be inserted here -->
+                        {% if plant_info %}
+                        <tr>
+                            <td>{{ plant_info['common_name'] }}</td>
+                            <td>{{ plant_info['scientific_name'] }}</td>
+                            <td>{{ plant_info['family'] }}</td>
+                            <td>{{ plant_info['genus'] }}</td>
+                            <td>{{ request.form.get('sunlight') }}</td>
+                            <td>{{ request.form.get('water') }}</td>
+                            <td>{{ request.form.get('temperature') }}</td>
+                            <td>{{ request.form.get('humidity') }}</td>
+                            <td>{{ plant_info.get('growing_tips') }}</td>
+                            <td>{{ plant_info.get('propagation_tips') }}</td>
+                            <td>{{ plant_info.get('common_pests') }}</td>
+                            <td><img src="{{ plant_info.get('image_url') }}" alt="{{ plant_info['scientific_name'] }}"
+                                    style="max-width: 100px;"></td>
+                        </tr>
+                        {% endif %}
                     </table>
                     <hr>
                     <p>If any information is incorrect or missing, please make the necessary changes:</p>
                     <form id="review-form">
-                        <!-- plant information fields will be inserted here -->
+                        <form id="review-form">
+                            <div class="form-group">
+                                <label for="common-name">Common Name:</label>
+                                <input type="text" class="form-control" id="common-name" name="common_name"
+                                    value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sunlight-care">Sunlight Care:</label>
+                                <input type="text" class="form-control" id="sunlight-care" name="sunlight_care"
+                                    value="{{ request.form.get('sunlight') }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="water-care">Water Care:</label>
+                                <input type="text" class="form-control" id="water-care" name="water_care"
+                                    value="{{ request.form.get('water') }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="temperature-care">Temperature Care:</label>
+                                <input type="text" class="form-control" id="temperature-care" name="temperature_care"
+                                    value="{{ request.form.get('temperature') }}" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="growing-tips">Growing Tips:</label>
+                                <textarea class="form-control" id="growing-tips" name="growing_tips"
+                                    required>{{ plant_info.get('growing_tips') }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="propagation-tips">Propagation Tips:</label>
+                                <textarea class="form-control" id="propagation-tips" name="propagation_tips"
+                                    required>{{ plant_info.get('propagation_tips') }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="common-pests">Common Pests:</label>
+                                <textarea class="form-control" id="common-pests"
+                                    name="common_pests">{{ plant_info.get('common_pests') }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="image-url">Image URL:</label>
+                                <input type="text" class="form-control" id="image-url" name="image_url"
+                                    value="{{ plant_info.get('image_url') }}">
+                            </div>
+                        </form>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -105,50 +198,80 @@
 {% block scripts %}
 <script>
     function searchPlant() {
-        let query = $('#name').val();
-
-        $.ajax({
-            url: "{{ url_for('search_plant') }}",
-            method: "POST",
-            data: JSON.stringify({ query: query }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                let resultList = $('#search-results-list');
-                resultList.empty();
-
-                if (response.length === 0) {
-                    resultList.append('<li class="list-group-item">No results found</li>');
-                } else {
-                    response.forEach(function (result) {
-                        resultList.append('<li class="list-group-item">' + result.common_name + '</li>');
+        const name = document.getElementById('name').value;
+        fetch(`/search_plant/${name}`)
+            .then(response => response.json())
+            .then(data => {
+                const resultsList = document.getElementById('search-results-list');
+                resultsList.innerHTML = '';
+                if (data.length > 0) {
+                    data.forEach(plant => {
+                        const listItem = document.createElement('li');
+                        listItem.classList.add('list-group-item');
+                        listItem.innerHTML = `${plant.common_name} (${plant.scientific_name})`;
+                        listItem.style.cursor = 'pointer';
+                        listItem.addEventListener('click', () => {
+                            displayPlantInfo(plant);
+                        });
+                        resultsList.appendChild(listItem);
                     });
+                } else {
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('list-group-item');
+                    listItem.innerHTML = 'No results found.';
+                    resultsList.appendChild(listItem);
                 }
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
+            });
     }
-    $('#search-button').click(searchPlant);
+
+    function displayPlantInfo(plant) {
+        const plantInfoBody = document.getElementById('plant-info-body');
+        plantInfoBody.innerHTML = '';
+        for (const [key, value] of Object.entries(plant)) {
+            if (key !== 'id' && key !== 'image_url') {
+                const row = document.createElement('tr');
+                const keyCell = document.createElement('td');
+                const valueCell = document.createElement('td');
+                keyCell.innerHTML = key.replace('_', ' ');
+                valueCell.innerHTML = value;
+                row.appendChild(keyCell);
+                row.appendChild(valueCell);
+                plantInfoBody.appendChild(row);
+            }
+        }
+        const plantInfo = document.getElementById('plant-info');
+        plantInfo.style.display = 'block';
+        const submitForm = document.getElementById('submit-form');
+        submitForm.elements['id'].value = plant.id;
+        submitForm.elements['plant_info[common_name]'].value = plant.common_name;
+        submitForm.elements['plant_info[scientific_name]'].value = plant.scientific_name;
+        plantInfo.scrollIntoView();
+    }
 
     function reviewPlant() {
-        // get the plant ID from the hidden input field
-        let plantId = $('#plant-id-input').val();
-
-        // make an AJAX request to fetch the plant information
-        $.ajax({
-            url: "{{ url_for('get_plant') }}",
-            method: "POST",
-            data: JSON.stringify({ plant_id: plantId }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: function (response) {
-                // populate the modal dialog table with the plant information
-                let table = $('<table>').addClass('table');
-                let tbody = $('<tbody>');
-                tbody.append($('<tr>').append($('<td>').text('Common Name'), $('<td>').text(response.common_name)));
-                tbody.append($('<tr>').append($('<td>').text
+        const modifyButton = document.getElementById('modify-button');
+        modifyButton.style.display = 'none';
+        const submitButton = document.createElement('button');
+        submitButton.type = 'submit';
+        submitButton.classList.add('btn', 'btn-primary', 'mr-3');
+        submitButton.innerHTML = 'Submit';
+        submitButton.addEventListener('click', () => {
+            const submitForm = document.getElementById('submit-form');
+            submitForm.submit();
+        });
+        const cancelButton = document.createElement('button');
+        cancelButton.type = 'button';
+        cancelButton.classList.add('btn', 'btn-secondary');
+        cancelButton.innerHTML = 'Cancel';
+        cancelButton.addEventListener('click', () => {
+            modifyButton.style.display = 'block';
+            submitButton.remove();
+            cancelButton.remove();
+        });
+        const submitForm = document.getElementById('submit-form');
+        submitForm.appendChild(submitButton);
+        submitForm.appendChild(cancelButton);
+    }
 
 </script>
 {% endblock %}

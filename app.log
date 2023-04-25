@@ -1545,3 +1545,231 @@ Traceback (most recent call last):
     return obj[argument]
            ~~~^^^^^^^^^^
 jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-24 21:12:03,972 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 155, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 50, in block 'content'
+    <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-25 08:21:09,402 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 155, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 50, in block 'content'
+    <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-25 08:34:23,373 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 143, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 50, in block 'content'
+    <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-25 09:00:03,055 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 144, in add_plant
+    return render_template('add_plant.html', plant=plant)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 50, in block 'content'
+    <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-25 09:01:12,280 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 94, in add_plant
+    return render_template('add_plant.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 50, in block 'content'
+    <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info['scientific_name'] }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 466, in getitem
+    return obj[argument]
+           ~~~^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'plant_info' is undefined
+2023-04-25 09:02:37,859 - app - ERROR - Exception on /add_plant [GET]
+Traceback (most recent call last):
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/app.py", line 94, in add_plant
+    return render_template('add_plant.html', plant_info=plant_info)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/base.html", line 45, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/Documents/plantApp/plant_app/templates/add_plant.html", line 52, in block 'content'
+    value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/Documents/plantApp/plant_app/venv/lib/python3.11/site-packages/jinja2/utils.py", line 83, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'None' has no attribute 'get'
