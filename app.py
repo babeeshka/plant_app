@@ -38,6 +38,11 @@ formatter = logging.Formatter(
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+console_handler.setFormatter(formatter)
+logging.getLogger().addHandler(console_handler)
+
 # app.py
 @app.route('/')
 def home():
@@ -58,10 +63,20 @@ def list_plants():
 
 @app.route('/search_plant', methods=['POST'])
 def search_plant():
+    print("Inside search_plant function")
+
     data = request.get_json()
+    if not data or 'query' not in data:
+        # Return a 400 Bad Request response
+        app.logger.warning('Invalid request data: %s', data)
+        return jsonify({'message': 'Invalid request data'}), 400
+
     query = data['query']
+    app.logger.info('Received search query: %s', query)
 
     plants = Plant.query.filter(Plant.common_name.ilike(f'%{query}%')).all()
+
+    app.logger.debug('Found %d plants for query: %s', len(plants), query)
 
     results = []
     for plant in plants:
@@ -82,7 +97,9 @@ def search_plant():
         }
         results.append(result)
 
+    app.logger.debug('Returning %d results for query: %s', len(results), query)
     return jsonify(results)
+
 
 @app.route('/add_plant')
 def add_plant():

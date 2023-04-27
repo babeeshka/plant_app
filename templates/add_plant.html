@@ -4,58 +4,29 @@
 
 {% block content %}
 <h1>
-    <style>
-        #plant-info,
-        #submit-form {
-            display: none;
-        }
-
-        /* Center the search field and button */
-        #search-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        #search-form input[type="text"],
-        #search-form button {
-            margin: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: none;
-            box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Hide the search results */
-        #search-results {
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_plant.css') }}">
+    <script src="{{ url_for('static', filename='js/plantFunctions.js') }}"></script>
 </h1>
 
-<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
-    action="/add_plant">
+<form id="search-form" class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
+action="{{ url_for('search_plant') }}">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
             style="min-width: 250px; font-style: italic;">
     </div>
-    <button type="button" class="btn btn-primary" id="search-button" onclick="searchPlant()">Search</button>
+    <button type="submit" class="btn btn-primary" id="search-button">Search</button>
 </form>
-
-
 
 <div class="mt-5" id="search-results" style="display: none;">
     <h2>Search Results:</h2>
     <ul class="list-group" id="search-results-list"></ul>
 </div>
 
+{% if plant_info %}
 
-<div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info"
-    style="display: none;">
+<div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info">
+
     <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plant Information</h1>
     <table class="table table-striped">
         <thead>
@@ -189,89 +160,7 @@
             </div>
         </div>
     </div>
-
-
 </div>
+{% endif %}
 
-{% endblock %}
-
-{% block scripts %}
-<script>
-    function searchPlant() {
-        const name = document.getElementById('name').value;
-        fetch(`/search_plant/${name}`)
-            .then(response => response.json())
-            .then(data => {
-                const resultsList = document.getElementById('search-results-list');
-                resultsList.innerHTML = '';
-                if (data.length > 0) {
-                    data.forEach(plant => {
-                        const listItem = document.createElement('li');
-                        listItem.classList.add('list-group-item');
-                        listItem.innerHTML = `${plant.common_name} (${plant.scientific_name})`;
-                        listItem.style.cursor = 'pointer';
-                        listItem.addEventListener('click', () => {
-                            displayPlantInfo(plant);
-                        });
-                        resultsList.appendChild(listItem);
-                    });
-                } else {
-                    const listItem = document.createElement('li');
-                    listItem.classList.add('list-group-item');
-                    listItem.innerHTML = 'No results found.';
-                    resultsList.appendChild(listItem);
-                }
-            });
-    }
-
-    function displayPlantInfo(plant) {
-        const plantInfoBody = document.getElementById('plant-info-body');
-        plantInfoBody.innerHTML = '';
-        for (const [key, value] of Object.entries(plant)) {
-            if (key !== 'id' && key !== 'image_url') {
-                const row = document.createElement('tr');
-                const keyCell = document.createElement('td');
-                const valueCell = document.createElement('td');
-                keyCell.innerHTML = key.replace('_', ' ');
-                valueCell.innerHTML = value;
-                row.appendChild(keyCell);
-                row.appendChild(valueCell);
-                plantInfoBody.appendChild(row);
-            }
-        }
-        const plantInfo = document.getElementById('plant-info');
-        plantInfo.style.display = 'block';
-        const submitForm = document.getElementById('submit-form');
-        submitForm.elements['id'].value = plant.id;
-        submitForm.elements['plant_info[common_name]'].value = plant.common_name;
-        submitForm.elements['plant_info[scientific_name]'].value = plant.scientific_name;
-        plantInfo.scrollIntoView();
-    }
-
-    function reviewPlant() {
-        const modifyButton = document.getElementById('modify-button');
-        modifyButton.style.display = 'none';
-        const submitButton = document.createElement('button');
-        submitButton.type = 'submit';
-        submitButton.classList.add('btn', 'btn-primary', 'mr-3');
-        submitButton.innerHTML = 'Submit';
-        submitButton.addEventListener('click', () => {
-            const submitForm = document.getElementById('submit-form');
-            submitForm.submit();
-        });
-        const cancelButton = document.createElement('button');
-        cancelButton.type = 'button';
-        cancelButton.classList.add('btn', 'btn-secondary');
-        cancelButton.innerHTML = 'Cancel';
-        cancelButton.addEventListener('click', () => {
-            modifyButton.style.display = 'block';
-            submitButton.remove();
-            cancelButton.remove();
-        });
-        const submitForm = document.getElementById('submit-form');
-        submitForm.appendChild(submitButton);
-        submitForm.appendChild(cancelButton);
-    }
-
-</script>
 {% endblock %}

@@ -1,0 +1,43 @@
+#plant-info {
+    display: none;
+}
+
+#submit-form,
+#search-results {
+    display: none;
+}
+
+#search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  #search-form input[type="text"],
+  #search-form button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Courier;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  #search-form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  #search-form button:hover {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+  }
+  
