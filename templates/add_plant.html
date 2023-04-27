@@ -36,7 +36,8 @@
     </style>
 </h1>
 
-<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST" action="/add_plant">
+<form class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
+    action="/add_plant">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
@@ -190,7 +191,6 @@
     </div>
 
 
-</div>
 </div>
 
 {% endblock %}
