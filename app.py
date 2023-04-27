@@ -25,7 +25,7 @@ db.init_app(app)
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 csrf = CSRFProtect(app)
 
-# Set the logging level to "DEBUG"
+# Set the logging level to "DEBUG" 
 app.logger.setLevel(logging.DEBUG)
 
 # Add a rotating file handler that writes messages to a log file
@@ -158,7 +158,7 @@ def add_to_database():
     plant_info = request.args.get('plant_info')
     plant_info_dict = json.loads(plant_info)
 
-    # Add the plant to the database
+    # Add the plant to the postgresql database
     new_plant = Plant(
         common_name=plant_info_dict.get(
             'common_name', plant_info_dict['scientific_name']),
