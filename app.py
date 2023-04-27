@@ -39,7 +39,7 @@ file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
 console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.INFO)
+console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(formatter)
 logging.getLogger().addHandler(console_handler)
 
@@ -60,24 +60,11 @@ def list_plants():
     plants = Plant.query.all()
     return render_template('list_plants.html', plants=plants)
 
-
-@app.route('/search_plant', methods=['POST'])
+@app.route('/search_plant', methods=['GET', 'POST'])
 def search_plant():
-    print("Inside search_plant function")
-
-    data = request.get_json()
-    if not data or 'query' not in data:
-        # Return a 400 Bad Request response
-        app.logger.warning('Invalid request data: %s', data)
-        return jsonify({'message': 'Invalid request data'}), 400
-
-    query = data['query']
-    app.logger.info('Received search query: %s', query)
-
-    plants = Plant.query.filter(Plant.common_name.ilike(f'%{query}%')).all()
-
-    app.logger.debug('Found %d plants for query: %s', len(plants), query)
-
+    plant_name = request.args.get('plant_name')
+    app.logger.debug(f"Searching for plant: {plant_name}")
+    plants = Plant.plant_search(plant_name)
     results = []
     for plant in plants:
         result = {
@@ -96,8 +83,7 @@ def search_plant():
             'image_url': plant.image_url
         }
         results.append(result)
-
-    app.logger.debug('Returning %d results for query: %s', len(results), query)
+    app.logger.debug(f"Search returned {len(results)} results")
     return jsonify(results)
 
 
