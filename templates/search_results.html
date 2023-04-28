@@ -1,80 +1,84 @@
 {% extends 'base.html' %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
 {% block content %}
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h1 class="my-5 text-center" style="font-size: 32px; font-family: courier;">Search Results:</h1>
-                {% if plants %}
-                    <form method="POST" action="{{ url_for('add_to_database') }}">
-                        <table>
-                            <thead>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h1 class="my-5 text-center heading-primary">Search Results:</h1>
+            {% if plants %}
+                <form method="POST" action="{{ url_for('add_to_database') }}">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Common Name</th>
+                            <th>Scientific Name</th>
+                            <th>Sunlight Care</th>
+                            <th>Water Care</th>
+                            <th>Temperature Care</th>
+                            <th>Humidity Care</th>
+                            <th>Growing Tips</th>
+                            <th>Propagation Tips</th>
+                            <th>Common Pests</th>
+                            <th>Image URL</th>
+                            <th>Family</th>
+                            <th>Genus</th>
+                            <th>Year</th>
+                            <th>Edible</th>
+                            <th>Edible Part</th>
+                            <th>Edible Notes</th>
+                            <th>Medicinal</th>
+                            <th>Medicinal Notes</th>
+                            <th>Toxicity</th>
+                            <th>Synonyms</th>
+                            <th>Native Status</th>
+                            <th>Conservation Status</th>
+                            <th>Timestamp</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for plant in plants %}
                             <tr>
-                                <th>ID</th>
-                                <th>Common Name</th>
-                                <th>Scientific Name</th>
-                                <th>Sunlight Care</th>
-                                <th>Water Care</th>
-                                <th>Temperature Care</th>
-                                <th>Humidity Care</th>
-                                <th>Growing Tips</th>
-                                <th>Propagation Tips</th>
-                                <th>Common Pests</th>
-                                <th>Image URL</th>
-                                <th>Family</th>
-                                <th>Genus</th>
-                                <th>Year</th>
-                                <th>Edible</th>
-                                <th>Edible Part</th>
-                                <th>Edible Notes</th>
-                                <th>Medicinal</th>
-                                <th>Medicinal Notes</th>
-                                <th>Toxicity</th>
-                                <th>Synonyms</th>
-                                <th>Native Status</th>
-                                <th>Conservation Status</th>
-                                <th>Timestamp</th>
+                                <td>{{ plant.id }}</td>
+                                <td>{{ plant.common_name }}</td>
+                                <td>{{ plant.scientific_name }}</td>
+                                <td>{{ plant.sunlight_care }}</td>
+                                <td>{{ plant.water_care }}</td>
+                                <td>{{ plant.temperature_care }}</td>
+                                <td>{{ plant.humidity_care }}</td>
+                                <td>{{ plant.growing_tips }}</td>
+                                <td>{{ plant.propagation_tips }}</td>
+                                <td>{{ plant.common_pests }}</td>
+                                <td>{{ plant.image_url }}</td>
+                                <td>{{ plant.family }}</td>
+                                <td>{{ plant.genus }}</td>
+                                <td>{{ plant.year }}</td>
+                                <td>{{ plant.edible }}</td>
+                                <td>{{ plant.edible_part }}</td>
+                                <td>{{ plant.edible_notes }}</td>
+                                <td>{{ plant.medicinal }}</td>
+                                <td>{{ plant.medicinal_notes }}</td>
+                                <td>{{ plant.toxicity }}</td>
+                                <td>{{ plant.synonyms }}</td>
+                                <td>{{ plant.native_status }}</td>
+                                <td>{{ plant.conservation_status }}</td>
+                                <td>{{ plant.timestamp }}</td>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {% for plant in plants %}
-                                <tr>
-                                    <td>{{ plant.id }}</td>
-                                    <td>{{ plant.common_name }}</td>
-                                    <td>{{ plant.scientific_name }}</td>
-                                    <td>{{ plant.sunlight_care }}</td>
-                                    <td>{{ plant.water_care }}</td>
-                                    <td>{{ plant.temperature_care }}</td>
-                                    <td>{{ plant.humidity_care }}</td>
-                                    <td>{{ plant.growing_tips }}</td>
-                                    <td>{{ plant.propagation_tips }}</td>
-                                    <td>{{ plant.common_pests }}</td>
-                                    <td>{{ plant.image_url }}</td>
-                                    <td>{{ plant.family }}</td>
-                                    <td>{{ plant.genus }}</td>
-                                    <td>{{ plant.year }}</td>
-                                    <td>{{ plant.edible }}</td>
-                                    <td>{{ plant.edible_part }}</td>
-                                    <td>{{ plant.edible_notes }}</td>
-                                    <td>{{ plant.medicinal }}</td>
-                                    <td>{{ plant.medicinal_notes }}</td>
-                                    <td>{{ plant.toxicity }}</td>
-                                    <td>{{ plant.synonyms }}</td>
-                                    <td>{{ plant.native_status }}</td>
-                                    <td>{{ plant.conservation_status }}</td>
-                                    <td>{{ plant.timestamp }}</td>
-                                </tr>
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                        <button type="submit" class="btn btn-primary">Add to Database</button>
-                    </form>
-                {% else %}
-                    <p class="text-center">No plants found.</p>
-                {% endif %}
-                <div class="text-center mt-5">
-                    <a href="{{ url_for('search_plant') }}" class="btn btn-secondary">Search Again</a>
-                </div>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary">Add to Database</button>
+                </form>
+            {% else %}
+                <p class="text-center">No plants found.</p>
+            {% endif %}
+            <div class="text-center mt-5">
+                <a href="{{ url_for('search_plant') }}" class="btn btn-secondary">Search Again</a>
             </div>
         </div>
     </div>

@@ -2,35 +2,30 @@
   padding-top: 80px;
 }
 
-.my-header {
+h1 {
   font-size: 32px;
   font-family: courier;
   margin-top: 50px;
   margin-bottom: 30px;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
+.max-image-size {
+  max-width: 300px;
+  max-height: 300px;
+}
+.search-header {
+    font-size: 32px;
+    font-family: courier;
 }
 
-#search-icon {
-  display: block;
-  padding: 0 10px;
+.scientific-name {
+  font-size: 18px;
+  font-style: italic;
 }
 
-#search-box {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  #search-icon {
-    display: none;
-  }
-
-  #search-box {
-    display: block;
-  }
+.no-image-message {
+  font-size: 18px;
+  font-style: italic;
 }
 
 @media screen and (max-width: 767px) {

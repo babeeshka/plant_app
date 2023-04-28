@@ -1,2 +1,3 @@
-from .app import app
-from .api import api_call
+from .database import db, configure_database
+
+configure_database(app)
