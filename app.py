@@ -69,13 +69,17 @@ def list_plants():
 def search_plant():
     query = request.args.get('query')
     if query:
-        # Search the database for a plant that matches the query
-        plant = db.session.query(Plant).filter(
-            or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).first()
-        return render_template('plant_info.html', plant_info=plant, query=query)
+        # Search the database for plants that match the query
+        plants = db_session.query(Plant).filter(
+            or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).all()
+        if plants:
+            return render_template('plant_info.html', plants=plants, query=query)
+        else:
+            return redirect(url_for('search_plant'))
     else:
         # If there is no query parameter, redirect to the home page
         return redirect(url_for('home'))
+
 
 @app.route('/plant_information/<int:plant_id>')
 def plant_information(plant_id):
