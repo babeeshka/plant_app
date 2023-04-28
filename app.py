@@ -63,15 +63,6 @@ def search_plant():
     results = Plant.plant_search(query)
     return render_template('search_results.html', results=results)
 
-@app.route('/add_plant')
-def add_plant():
-    # define a default value for plant_info
-    plant_info = {}
-
-    # render the add_plant template with plant_info
-    return render_template('add_plant.html', plant_info=plant_info)
-
-
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
     plant = Plant.query.get_or_404(id)

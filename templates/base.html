@@ -26,10 +26,7 @@
                     <a class="nav-link" href="{{ url_for('list_plants') }}">Plants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('add_plant') }}">Add Plant</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url_for('search_plant') }}">Search Plant</a>
+                    <a class="nav-link" href="{{ url_for('search_plant') }}">Find plant</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" action="{{ url_for('search_plant') }}" method="GET">
