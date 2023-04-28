@@ -65,6 +65,7 @@ def list_plants():
     return render_template('list_plants.html', plants=plants)
 
 
+
 @app.route('/search', methods=['GET'])
 def search_plant():
     query = request.args.get('query')
@@ -81,6 +82,7 @@ def search_plant():
         return redirect(url_for('home'))
 
 
+
 @app.route('/plant_information/<int:plant_id>')
 def plant_information(plant_id):
     # Get the plant information from the database
@@ -92,19 +94,59 @@ def plant_information(plant_id):
     return render_template('plant_information.html', plant=plant, plant_info=plant_info)
 
 
-@app.route('/add_to_database/<plant_name>', methods=['GET', 'POST'])
-def add_to_database(plant_name):
-    # Query the Trefle API for the plant data
-    plant_data = query_trefle_api(plant_name)
+# Define the route for adding a new plant
+@app.route('/add_plant')
+def add_plant():
+    # Call the get_plant_info function to fetch the data for the new plant
+    plant_info = get_plant_info()
 
-    # If the user submits the form, add the plant to the database and redirect to the plant information page
-    if request.method == 'POST':
-        # Add the plant to the database
-        add_plant_to_database(plant_data)
+    # Create a new Plant object with the fetched data
+    new_plant = Plant(
+        common_name=plant_info['common_name'],
+        scientific_name=plant_info['scientific_name'],
+        sunlight_care=plant_info['sunlight_care'],
+        water_care=plant_info['water_care'],
+        temperature_care=plant_info['temperature_care'],
+        humidity_care=plant_info['humidity_care'],
+        growing_tips=plant_info['growing_tips'],
+        propagation_tips=plant_info['propagation_tips'],
+        common_pests=plant_info['common_pests']
+    )
 
-        # Redirect the user to the plant information page
-        return redirect(url_for('plant_information', plant_id=plant_data['id']))
+    # Render a template that displays the fetched data in a table format
+    return render_template('add_plant.html', plant=new_plant)
 
-    # If the user has not submitted the form yet, display the plant data to the user for confirmation
-    else:
-        return render_template('add_to_database.html', plant_data=plant_data)
+
+# Define the route for adding the new plant to the database
+@app.route('/add_to_database', methods=['POST'])
+def add_to_database():
+    # Retrieve the data for the new plant from the form
+    common_name = request.form['common_name']
+    scientific_name = request.form['scientific_name']
+    sunlight_care = request.form['sunlight_care']
+    water_care = request.form['water_care']
+    temperature_care = request.form['temperature_care']
+    humidity_care = request.form['humidity_care']
+    growing_tips = request.form['growing_tips']
+    propagation_tips = request.form['propagation_tips']
+    common_pests = request.form['common_pests']
+
+    # Create a new Plant object with the retrieved data
+    new_plant = Plant(
+        common_name=common_name,
+        scientific_name=scientific_name,
+        sunlight_care=sunlight_care,
+        water_care=water_care,
+        temperature_care=temperature_care,
+        humidity_care=humidity_care,
+        growing_tips=growing_tips,
+        propagation_tips=propagation_tips,
+        common_pests=common_pests
+    )
+
+    # Add the new plant to the database and commit the changes
+    db_session.add(new_plant)
+    db_session.commit()
+
+    # Redirect to the home page
+    return redirect(url_for('home'))
