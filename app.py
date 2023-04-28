@@ -17,11 +17,13 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
+
 # generate a random 16-byte string and use it as the secret key
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 csrf = CSRFProtect(app)
 
 load_dotenv()
+
 # Set the logging level to "DEBUG" 
 app.logger.setLevel(logging.DEBUG)
 
@@ -29,15 +31,10 @@ app.logger.setLevel(logging.DEBUG)
 log_file = 'app.log'
 file_handler = RotatingFileHandler(
     log_file, maxBytes=1024 * 1024, backupCount=5)
-file_handler.setLevel(logging.INFO)
+file_handler.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
-
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.DEBUG)
-console_handler.setFormatter(formatter)
-logging.getLogger().addHandler(console_handler)
 
 
 # app.py
@@ -57,11 +54,19 @@ def list_plants():
     plants = Plant.query.all()
     return render_template('list_plants.html', plants=plants)
 
-@app.route('/search_plant')
+
+@app.route('/search_plant', methods=['GET', 'POST'])
 def search_plant():
-    query = request.args.get('query', '')
-    results = Plant.plant_search(query)
-    return render_template('search_results.html', results=results)
+    if request.method == 'POST':
+        query = request.form['query']
+        plant = Plant.query.filter_by(common_name=query).first()
+        if plant:
+            return render_template('search_results.html', plant=plant)
+        else:
+            data = get_plant_info(query)
+            return render_template('search_results.html', data=data, query=query)
+    return render_template('search_plant.html')
+
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
@@ -125,34 +130,39 @@ def modify_plant(id):
 
 @app.route('/add_to_database', methods=['POST'])
 def add_to_database():
-    plant_info = request.args.get('plant_info')
-    plant_info_dict = json.loads(plant_info)
+    form_data = request.form
+    plant_name = form_data['plant_name']
 
-    # Add the plant to the postgresql database
-    new_plant = Plant(
-        common_name=plant_info_dict.get(
-            'common_name', plant_info_dict['scientific_name']),
-        scientific_name=plant_info_dict['scientific_name'],
-        sunlight_care=plant_info_dict.get('sunlight_care'),
-        water_care=plant_info_dict.get('water_care'),
-        temperature_care=plant_info_dict.get('temperature_care'),
-        image_url=plant_info_dict.get('image_url'),
-        family=plant_info_dict.get('family'),
-        genus=plant_info_dict.get('genus'),
-        year=plant_info_dict.get('year'),
-        edible=plant_info_dict.get('edible'),
-        edible_part=plant_info_dict.get('edible_part'),
-        edible_notes=plant_info_dict.get('edible_notes'),
-        medicinal=plant_info_dict.get('medicinal'),
-        medicinal_notes=plant_info_dict.get('medicinal_notes'),
-        toxicity=plant_info_dict.get('toxicity'),
-        synonyms=plant_info_dict.get('synonyms'),
-        native_status=plant_info_dict.get('native_status'),
-        conservation_status=plant_info_dict.get('conservation_status')
+    # Get plant information
+    plant_info = get_plant_info(plant_name)
+    if not plant_info:
+        return 'Could not find plant information'
+
+    # Create new plant instance
+    plant = Plant(
+        name=plant_name,
+        common_name=plant_info['common_name'],
+        scientific_name=plant_info['scientific_name'],
+        image_url=plant_info['image_url'],
+        family=plant_info['family'],
+        genus=plant_info['genus'],
+        year=plant_info['year'],
+        edible=plant_info['edible'],
+        edible_part=plant_info['edible_part'],
+        edible_notes=plant_info['edible_notes'],
+        medicinal=plant_info['medicinal'],
+        medicinal_notes=plant_info['medicinal_notes'],
+        toxicity=plant_info['toxicity'],
+        synonyms=plant_info['synonyms'],
+        native_status=plant_info['native_status'],
+        conservation_status=plant_info['conservation_status']
     )
-    db.session.add(new_plant)
+
+    # Add plant instance to the database
+    db.session.add(plant)
     db.session.commit()
-    return jsonify({'id': new_plant.id})
+
+    return f'Successfully added {plant_name} to the database!'
 
 
 @app.route('/delete/<int:id>', methods=['POST'])

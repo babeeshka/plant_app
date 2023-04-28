@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h1>Search for Plants</h1>
-  <form method="POST" action="{{ url_for('search_results') }}">
-    <div class="form-group">
-      <label for="search-input">Search by Name:</label>
-      <input type="text" id="search-input" name="search_input" class="form-control" required>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="my-5 text-center" style="font-size: 32px; font-family: courier;">Search for Plants</h1>
+                <form id="search-form" class="form-inline d-flex flex-column justify-content-center align-items-center"
+                      method="POST" action="{{ url_for('search_plant') }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <div class="form-group">
+                        <label for="search-input">Search by Name:</label>
+                        <input type="text" class="form-control" id="search-input" name="query"
+                               class="form-control"
+                               placeholder="Type a plant's common name..."
+                               style="min-width: 250px; font-style: italic;" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Search</button>
+                </form>
+            </div>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Search</button>
-  </form>
 {% endblock %}
