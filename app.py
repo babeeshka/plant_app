@@ -74,12 +74,20 @@ def search_plant():
         plants = db_session.query(Plant).filter(
             or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).all()
         if plants:
+            # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
-            return redirect(url_for('search_plant'))
-    else:
-        # If there is no query parameter, redirect to the home page
-        return redirect(url_for('home'))
+            # If the plant is not found in the database, fetch the data from the Trefle API
+            plant_info = get_plant_info(query)
+            if plant_info:
+                # If the plant data is found in the Trefle API, show the search results
+                return render_template('search_results.html', plant_info=plant_info)
+            else:
+                # If the plant data is not found in the Trefle API, show a message to the user
+                flash(f'No plant named "{query}" found.')
+    # If there is no query parameter, redirect to the home page
+    return redirect(url_for('home'))
+
 
 
 
@@ -95,26 +103,9 @@ def plant_information(plant_id):
 
 
 # Define the route for adding a new plant
-@app.route('/add_plant')
+@app.route('/add_plant', methods=['GET'])
 def add_plant():
-    # Call the get_plant_info function to fetch the data for the new plant
-    plant_info = get_plant_info()
-
-    # Create a new Plant object with the fetched data
-    new_plant = Plant(
-        common_name=plant_info['common_name'],
-        scientific_name=plant_info['scientific_name'],
-        sunlight_care=plant_info['sunlight_care'],
-        water_care=plant_info['water_care'],
-        temperature_care=plant_info['temperature_care'],
-        humidity_care=plant_info['humidity_care'],
-        growing_tips=plant_info['growing_tips'],
-        propagation_tips=plant_info['propagation_tips'],
-        common_pests=plant_info['common_pests']
-    )
-
-    # Render a template that displays the fetched data in a table format
-    return render_template('add_plant.html', plant=new_plant)
+    return render_template('search_plant.html')
 
 
 # Define the route for adding the new plant to the database
