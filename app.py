@@ -13,6 +13,7 @@ from database import configure_database, db
 from models import Plant
 from plant_info import get_plant_info
 from dotenv import load_dotenv
+from forms import AddPlantForm
 
 # Initiate the Flask app
 app = Flask(__name__)
@@ -90,13 +91,16 @@ def search_plant():
 
 @app.route('/search_results', methods=['POST'])
 def search_results():
-    name = request.form['name']
-    plant = Plant.query.filter_by(name=name).first()
-    if plant:
-        return redirect(url_for('plant_info', plant_id=plant.id))
-    else:
-        result = get_plant_info(name)
-        return render_template('search_results.html', result=result, name=name)
+    form = SearchForm()
+    if form.validate_on_submit():
+        common_name = form.common_name.data
+        plant = Plant.query.filter_by(common_name=common_name).first()
+        if plant:
+            return render_template('plant.html', plant=plant)
+        else:
+            flash('No plant found with that common name')
+            return redirect(url_for('search_plant'))
+    return render_template('search_plant.html', form=form)
 
 
 @app.route('/plant_information/<int:plant_id>')
@@ -111,9 +115,10 @@ def plant_information(plant_id):
 
 
 # Define the route for adding a new plant
-@app.route('/add_plant')
+@app.route('/add_plant', methods=['GET', 'POST'])
 def add_plant():
-    return render_template('add_plant.html')
+    form = AddPlantForm()
+    return render_template('add_plant.html', form=form)
 
 
 # Define the route for adding the new plant to the database
