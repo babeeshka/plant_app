@@ -2,20 +2,16 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
 from flask_wtf.csrf import CSRFProtect
 from random import randint, randrange
 import secrets
-import datetime
 import json
-import jsonify
 
 from database import db
 from models import Plant
 from plant_info import get_plant_info
 from dotenv import load_dotenv
-import requests
-from api import api_call
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -25,6 +21,7 @@ db.init_app(app)
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 csrf = CSRFProtect(app)
 
+load_dotenv()
 # Set the logging level to "DEBUG" 
 app.logger.setLevel(logging.DEBUG)
 
@@ -33,8 +30,7 @@ log_file = 'app.log'
 file_handler = RotatingFileHandler(
     log_file, maxBytes=1024 * 1024, backupCount=5)
 file_handler.setLevel(logging.INFO)
-formatter = logging.Formatter(
-    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
@@ -42,6 +38,7 @@ console_handler = logging.StreamHandler()
 console_handler.setLevel(logging.DEBUG)
 console_handler.setFormatter(formatter)
 logging.getLogger().addHandler(console_handler)
+
 
 # app.py
 @app.route('/')
@@ -60,32 +57,11 @@ def list_plants():
     plants = Plant.query.all()
     return render_template('list_plants.html', plants=plants)
 
-@app.route('/search_plant', methods=['GET', 'POST'])
+@app.route('/search_plant')
 def search_plant():
-    plant_name = request.args.get('plant_name')
-    app.logger.debug(f"Searching for plant: {plant_name}")
-    plants = Plant.plant_search(plant_name)
-    results = []
-    for plant in plants:
-        result = {
-            'id': plant.id,
-            'common_name': plant.common_name,
-            'scientific_name': plant.scientific_name,
-            'family': plant.family,
-            'genus': plant.genus,
-            'sunlight_care': plant.sunlight_care,
-            'water_care': plant.water_care,
-            'temperature_care': plant.temperature_care,
-            'humidity_care': plant.humidity_care,
-            'growing_tips': plant.growing_tips,
-            'propagation_tips': plant.propagation_tips,
-            'common_pests': plant.common_pests,
-            'image_url': plant.image_url
-        }
-        results.append(result)
-    app.logger.debug(f"Search returned {len(results)} results")
-    return jsonify(results)
-
+    query = request.args.get('query', '')
+    results = Plant.plant_search(query)
+    return render_template('search_results.html', results=results)
 
 @app.route('/add_plant')
 def add_plant():
@@ -186,6 +162,7 @@ def add_to_database():
     db.session.add(new_plant)
     db.session.commit()
     return jsonify({'id': new_plant.id})
+
 
 @app.route('/delete/<int:id>', methods=['POST'])
 def delete(id):

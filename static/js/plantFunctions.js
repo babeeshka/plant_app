@@ -1,6 +1,50 @@
 const searchBtn = document.getElementById("search-btn");
 const plantInfo = document.getElementById("plant-info");
 
+
+function searchPlant() {
+  var name = document.getElementById("name").value;
+  fetch('/search_plant', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({name: name})
+  })
+  .then(response => response.json())
+  .then(data => {
+    var searchResults = document.getElementById("search-results");
+    searchResults.style.display = "block";
+    var searchResultsList = document.getElementById("search-results-list");
+    searchResultsList.innerHTML = "";
+    data.forEach(plant => {
+      var listItem = document.createElement("li");
+      listItem.className = "list-group-item";
+      var link = document.createElement("a");
+      link.href = "#";
+      link.onclick = function() { selectPlant(plant); };
+      link.innerHTML = plant.common_name + " (" + plant.scientific_name + ")";
+      listItem.appendChild(link);
+      searchResultsList.appendChild(listItem);
+    });
+  });
+}
+
+function selectPlant(plant) {
+  var plantInfoBody = document.getElementById("plant-info-body");
+  plantInfoBody.innerHTML = "";
+  var row = document.createElement("tr");
+  var commonName = document.createElement("td");
+  commonName.innerHTML = plant.common_name;
+  row.appendChild(commonName);
+  var scientificName = document.createElement("td");
+  scientificName.innerHTML = plant.scientific_name;
+  row.appendChild(scientificName);
+  // Add the other plant properties here...
+  plantInfoBody.appendChild(row);
+}
+
+
 searchBtn.addEventListener("click", function() {
   // Get the user input from the search field
   const userInput = document.getElementById("plant-input").value;
@@ -17,7 +61,6 @@ searchBtn.addEventListener("click", function() {
     alert("Plant not found");
   }
 });
-
 
 function searchPlant() {
     // Get the input value

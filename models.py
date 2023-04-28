@@ -1,6 +1,7 @@
 from database import db
 import datetime
 
+
 class Plant(db.Model):
     __tablename__ = "plants"
     id = db.Column(db.Integer, primary_key=True)
@@ -28,7 +29,10 @@ class Plant(db.Model):
     conservation_status = db.Column(db.String(255), nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
 
-    def __init__(self, common_name, scientific_name, sunlight_care=None, water_care=None, temperature_care=None, humidity_care=None, growing_tips=None, propagation_tips=None, common_pests=None, image_url=None, family=None, genus=None, year=None, edible=None, edible_part=None, edible_notes=None, medicinal=None, medicinal_notes=None, toxicity=None, synonyms=None, native_status=None, conservation_status=None):
+    def __init__(self, common_name, scientific_name, sunlight_care=None, water_care=None, temperature_care=None,
+                 humidity_care=None, growing_tips=None, propagation_tips=None, common_pests=None, image_url=None,
+                 family=None, genus=None, year=None, edible=None, edible_part=None, edible_notes=None, medicinal=None,
+                 medicinal_notes=None, toxicity=None, synonyms=None, native_status=None, conservation_status=None):
         self.common_name = common_name
         self.scientific_name = scientific_name
         self.sunlight_care = sunlight_care

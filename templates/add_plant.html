@@ -5,11 +5,12 @@
 {% block content %}
 <h1>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/add_plant.css') }}">
-    <script src="{{ url_for('static', filename='js/plantFunctions.js') }}"></script>
+    <!--<script src="{{ url_for('static', filename='js/plantFunctions.js') }}"></script>-->
 </h1>
 
 <form id="search-form" class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
-action="{{ url_for('search_plant') }}">
+      onsubmit="event.preventDefault(); searchPlant();">
+
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="form-group">
         <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
@@ -162,5 +163,4 @@ action="{{ url_for('search_plant') }}">
     </div>
 </div>
 {% endif %}
-
 {% endblock %}
