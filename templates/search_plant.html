@@ -17,6 +17,11 @@
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Search</button>
                 </form>
+                {% if not plant_info %}
+                    <p>Sorry, the plant you searched for was not found in our database.</p>
+                    <p>Would you like to <a href="{{ url_for('add_plant') }}">add it to our database</a>?</p>
+                {% endif %}
+
             </div>
         </div>
     </div>

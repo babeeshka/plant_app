@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plant Information</h1>
+<div class="container mt-5">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Common Name</th>
+                <th>Scientific Name</th>
+                <th>Sunlight Care</th>
+                <th>Water Care</th>
+                <th>Temperature Care</th>
+                <th>Humidity Care</th>
+                <th>Growing Tips</th>
+                <th>Propagation Tips</th>
+                <th>Common Pests</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
+                <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
+                <td>{{ plant.sunlight_care if plant.sunlight_care else "No data" }}</td>
+                <td>{{ plant.water_care if plant.water_care else "No data" }}</td>
+                <td>{{ plant.temperature_care if plant.temperature_care else "No data" }}</td>
+                <td>{{ plant.humidity_care if plant.humidity_care else "No data" }}</td>
+                <td>{{ plant.growing_tips if plant.growing_tips else "No data" }}</td>
+                <td>{{ plant.propagation_tips if plant.propagation_tips else "No data" }}</td>
+                <td>{{ plant.common_pests if plant.common_pests else "No data" }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

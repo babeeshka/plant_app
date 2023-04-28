@@ -55,17 +55,23 @@ def list_plants():
     return render_template('list_plants.html', plants=plants)
 
 
-@app.route('/search_plant', methods=['GET', 'POST'])
+@app.route('/search_plant')
 def search_plant():
-    if request.method == 'POST':
-        query = request.form['query']
-        plant = Plant.query.filter_by(common_name=query).first()
+    plant_name = request.args.get('query')
+    if plant_name:
+        plant = Plant.query.filter_by(common_name=plant_name).first() or \
+                Plant.query.filter_by(scientific_name=plant_name).first()
         if plant:
-            return render_template('search_results.html', plant=plant)
+            # Display the plant information
+            return render_template('plant_info.html', plant=plant)
         else:
-            data = get_plant_info(query)
-            return render_template('search_results.html', data=data, query=query)
-    return render_template('search_plant.html')
+            # Query the Trefle API for the plant information
+            plant_info = get_plant_info(plant_name)
+            # Display the plant information in a table
+            return render_template('plant_search_results.html', plant_info=plant_info)
+    else:
+        # Display the search form
+        return render_template('search_plant.html')
 
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
