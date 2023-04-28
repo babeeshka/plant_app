@@ -9,7 +9,7 @@ from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
 from sqlalchemy import or_
 
-from database import configure_database, db_session, db
+from database import configure_database, db
 from models import Plant
 from plant_info import get_plant_info
 from dotenv import load_dotenv
@@ -65,7 +65,6 @@ def list_plants():
     return render_template('list_plants.html', plants=plants)
 
 
-
 @app.route('/search', methods=['GET'])
 def search_plant():
     query = request.args.get('query')
@@ -89,6 +88,15 @@ def search_plant():
     return redirect(url_for('home'))
 
 
+@app.route('/search_results', methods=['POST'])
+def search_results():
+    name = request.form['name']
+    plant = Plant.query.filter_by(name=name).first()
+    if plant:
+        return redirect(url_for('plant_info', plant_id=plant.id))
+    else:
+        result = get_plant_info(name)
+        return render_template('search_results.html', result=result, name=name)
 
 
 @app.route('/plant_information/<int:plant_id>')
@@ -103,9 +111,9 @@ def plant_information(plant_id):
 
 
 # Define the route for adding a new plant
-@app.route('/add_plant', methods=['GET'])
+@app.route('/add_plant')
 def add_plant():
-    return render_template('search_plant.html')
+    return render_template('add_plant.html')
 
 
 # Define the route for adding the new plant to the database

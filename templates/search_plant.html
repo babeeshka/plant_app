@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
-{% block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-{% endblock %}
+{% block title %}Search Plant{% endblock %}
 
 {% block content %}
-    <h1 class="mt-5 mb-4">search for a plant</h1>
+    <h1 class="mt-5 mb-4">plant search</h1>
     <div class="container mt-5">
-        <form method="GET" action="{{ url_for('search_plant') }}">
+        <form method="POST" action="{{ url_for('search_plant') }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
-                <input type="text" class="form-control" id="plant_name" name="query" placeholder="enter a plant name..."
-                       required>
+                <label for="name">find a plant</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="enter plant name" required>
             </div>
             <button type="submit" class="btn btn-primary">search</button>
         </form>

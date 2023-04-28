@@ -8,62 +8,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Add a Plant</h1>
-
-    <form id="search-form" class="form-inline d-flex flex-column justify-content-center align-items-center"
-          method="POST"
-          onsubmit="event.preventDefault(); searchPlant();">
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-        <div class="form-group">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
-                   style="min-width: 250px; font-style: italic;">
-        </div>
-        <button type="submit" class="btn btn-primary" id="search-button">Search</button>
-    </form>
-
-    <div class="mt-5" id="search-results" style="display: none;">
-        <h2>Search Results:</h2>
-        <ul class="list-group" id="search-results-list"></ul>
+    <div class="search-container">
+        <form action="{{ url_for('search_results') }}" method="post">
+            {{ csrf_field() }}
+            <input type="text" id="name" name="name" placeholder="enter plant name...">
+            <button type="submit">Search</button>
+        </form>
     </div>
-
-    {% if plant_info %}
-        <div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info">
-            <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plant Information</h1>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Common Name</th>
-                    <th>Scientific Name</th>
-                    <th>Family</th>
-                    <th>Genus</th>
-                    <th>Sunlight Care</th>
-                    <th>Water Care</th>
-                    <th>Temperature Care</th>
-                    <th>Humidity Care</th>
-                    <th>Growing Tips</th>
-                    <th>Propagation Tips</th>
-                    <th>Common Pests</th>
-                    <th>Image URL</th>
-                </tr>
-                </thead>
-                <tbody id="plant-info-body">
-                <tr>
-                    <td>{{ plant_info.get('common_name', plant_info['scientific_name']) }}</td>
-                    <td>{{ plant_info['scientific_name'] }}</td>
-                    <td>{{ plant_info.get('family') }}</td>
-                    <td>{{ plant_info.get('genus') }}</td>
-                    <td>{{ request.form.get('sunlight') }}</td>
-                    <td>{{ request.form.get('water') }}</td>
-                    <td>{{ request.form.get('temperature') }}</td>
-                    <td>{{ request.form.get('humidity') }}</td>
-                    <td>{{ plant_info.get('growing_tips') }}</td>
-                    <td>{{ plant_info.get('propagation_tips') }}</td>
-                    <td>{{ plant_info.get('common_pests') }}</td>
-                    <td><img src="{{ plant_info.get('image_url') }}" alt="{{ plant_info['scientific_name'] }}"
-                             style="max-width: 100px;"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    {% endif %}
 {% endblock %}
