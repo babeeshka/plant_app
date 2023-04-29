@@ -12,13 +12,31 @@
         <p>Scientific Name: {{ result.scientific_name }}</p>
         <p>Description: {{ result.description }}</p>
         <form action="{{ url_for('add_to_database') }}" method="post">
-            <input type="hidden" name="name" value="{{ name }}">
             <input type="hidden" name="common_name" value="{{ result.common_name }}">
             <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
-            <input type="hidden" name="description" value="{{ result.description }}">
+            <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
+            <input type="hidden" name="water_care" value="{{ water_care }}">
+            <input type="hidden" name="temperature_care" value="{{ temperature_care }}">
+            <input type="hidden" name="humidity_care" value="{{ humidity_care }}">
+            <input type="hidden" name="growing_tips" value="{{ growing_tips }}">
+            <input type="hidden" name="propagation_tips" value="{{ propagation_tips }}">
+            <input type="hidden" name="common_pests" value="{{ common_pests }}">
+            <input type="hidden" name="image_url" value="{{ image_url }}">
+            <input type="hidden" name="family" value="{{ family }}">
+            <input type="hidden" name="genus" value="{{ genus }}">
+            <input type="hidden" name="year" value="{{ year }}">
+            <input type="hidden" name="edible" value="{{ edible }}">
+            <input type="hidden" name="edible_part" value="{{ edible_part }}">
+            <input type="hidden" name="edible_notes" value="{{ edible_notes }}">
+            <input type="hidden" name="medicinal" value="{{ medicinal }}">
+            <input type="hidden" name="medicinal_notes" value="{{ medicinal_notes }}">
+            <input type="hidden" name="toxicity" value="{{ toxicity }}">
+            <input type="hidden" name="synonyms" value="{{ synonyms }}">
+            <input type="hidden" name="native_status" value="{{ native_status }}">
+            <input type="hidden" name="conservation_status" value="{{ conservation_status }}">
             <input type="submit" value="Add to Database">
         </form>
-        <form action="{{ url_for('index') }}" method="get">
+        <form action="{{ url_for('home') }}" method="get">
             <input type="submit" value="Cancel">
         </form>
     {% else %}

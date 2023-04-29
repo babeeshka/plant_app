@@ -66,7 +66,7 @@ def list_plants():
     return render_template('list_plants.html', plants=plants)
 
 
-@app.route('/search', methods=['GET'])
+@app.route('/search', methods=['GET', 'POST'])
 def search_plant():
     query = request.args.get('query')
     if query:
@@ -78,7 +78,7 @@ def search_plant():
             return render_template('plant_info.html', plants=plants, query=query)
         else:
             # If the plant is not found in the database, fetch the data from the Trefle API
-            plant_info = get_plant_info(query)
+            plant_info = plant_info.get_plant_info(form.query.data.strip())
             if plant_info:
                 # If the plant data is found in the Trefle API, show the search results
                 return render_template('search_results.html', name=query, result=plant_info)
@@ -137,6 +137,19 @@ def add_to_database():
     growing_tips = request.form['growing_tips']
     propagation_tips = request.form['propagation_tips']
     common_pests = request.form['common_pests']
+    image_url = request.form['image_url']
+    family = request.form['family']
+    genus = request.form['genus']
+    year = request.form['year']
+    edible = request.form['edible']
+    edible_part = request.form['edible_part']
+    edible_notes = request.form['edible_notes']
+    medicinal = request.form['medicinal']
+    medicinal_notes = request.form['medicinal_notes']
+    toxicity = request.form['toxicity']
+    synonyms = request.form['synonyms']
+    native_status = request.form['native_status']
+    conservation_status = request.form['conservation_status']
 
     # Create a new Plant object with the retrieved data
     new_plant = Plant(
@@ -148,7 +161,20 @@ def add_to_database():
         humidity_care=humidity_care,
         growing_tips=growing_tips,
         propagation_tips=propagation_tips,
-        common_pests=common_pests
+        common_pests=common_pests,
+        image_url=image_url,
+        family=family,
+        genus=genus,
+        year=year,
+        edible=edible,
+        edible_part=edible_part,
+        edible_notes=edible_notes,
+        medicinal=medicinal,
+        medicinal_notes=medicinal_notes,
+        toxicity=toxicity,
+        synonyms=synonyms,
+        native_status=native_status,
+        conservation_status=conservation_status
     )
 
     # Add the new plant to the database and commit the changes

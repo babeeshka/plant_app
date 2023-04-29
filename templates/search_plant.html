@@ -8,8 +8,8 @@
         <form method="POST" action="{{ url_for('search_plant') }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-group">
-                <label for="name">find a plant</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="enter plant name" required>
+                <label for="query">find a plant</label>
+                <input type="text" class="form-control" id="query" name="query" placeholder="enter plant name" required>
             </div>
             <button type="submit" class="btn btn-primary">search</button>
         </form>
