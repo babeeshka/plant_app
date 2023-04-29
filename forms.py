@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired
 
 
-class AddPlantForm(FlaskForm):
-    common_name = StringField('Plant Name')
+class SearchForm(FlaskForm):
+    query = StringField('Search', validators=[DataRequired()])
     submit = SubmitField('Search')

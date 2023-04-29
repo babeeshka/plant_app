@@ -9,15 +9,13 @@
 
 {% block content %}
     <div class="search-container">
-        <form method="POST">
+        <form action="{{ url_for('search_plant') }}" method="POST">
             {{ form.hidden_tag() }}
             <div class="mb-3">
-                <label for="common_name" class="form-label">Common Name</label>
-                {{ form.common_name(class="form-control", id="common_name") }}
+                <label for="query" class="form-label">Search by common or scientific name:</label>
+                {{ form.query.label }} {{ form.query(class="form-control", id="query") }}
             </div>
-            <input type="text" id="common_name" name="common_name" placeholder="enter plant name...">
-            <button type="submit" class="btn btn-primary">search</button>
+            {{ form.submit(class="btn btn-primary") }}
         </form>
     </div>
 {% endblock %}
-

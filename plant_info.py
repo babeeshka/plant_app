@@ -1,7 +1,5 @@
 import requests
-from api import api_call
 
-from models import Plant
 from config import TREFLE_API_BASE_URL
 import os
 
@@ -17,7 +15,8 @@ def get_plant_info(plant_name):
         return None
 
     # List of desired fields
-    desired_fields = ["common_name", "scientific_name", "sunlight_care", "water_care", "temperature_care", "humidity_care", "growing_tips", "propagation_tips", "common_pests", "image_url"]
+    desired_fields = ["common_name", "scientific_name", "growth.light", "growth.water", "growth.temperature",
+                      "growth.humidity", "growth.growing_days", "propagation", "pests", "image_url"]
 
     # Find record with highest score
     max_score = 0
@@ -44,8 +43,8 @@ def get_plant_info(plant_name):
         "temperature_care": max_score_data.get("growth.temperature"),
         "humidity_care": max_score_data.get("growth.humidity"),
         "growing_tips": max_score_data.get("growth.growing_days"),
-        "propagation_tips": max_score_data.get("propagation"),
-        "common_pests": max_score_data.get("pests"),
+        "propagation_tips": max_score_data.get("propagation", {}).get("vegetative", {}).get("cutting", "Unknown"),
+        "common_pests": max_score_data.get("observations"),
         "image_url": max_score_data.get("image_url"),
         "family": max_score_data["family"].get("name") if isinstance(max_score_data.get("family"), dict) else None,
         "genus": max_score_data["genus"]["name"] if isinstance(max_score_data.get("genus"), dict) else None,
@@ -58,7 +57,7 @@ def get_plant_info(plant_name):
         "toxicity": max_score_data.get("toxicity"),
         "synonyms": max_score_data.get("synonyms"),
         "native_status": max_score_data.get("distribution", {}).get("native", "Unknown"),
-        "conservation_status": max_score_data["conservation_status"] if isinstance(max_score_data.get("conservation_status"), dict) else None,
+        "conservation_status": max_score_data["conservation_status"] if isinstance(
+            max_score_data.get("conservation_status"), dict) else None,
     }
     return plant
-

@@ -13,7 +13,7 @@ from database import configure_database, db
 from models import Plant
 from plant_info import get_plant_info
 from dotenv import load_dotenv
-from forms import AddPlantForm
+from forms import SearchForm
 
 # Initiate the Flask app
 app = Flask(__name__)
@@ -81,7 +81,7 @@ def search_plant():
             plant_info = get_plant_info(query)
             if plant_info:
                 # If the plant data is found in the Trefle API, show the search results
-                return render_template('search_results.html', plant_info=plant_info)
+                return render_template('search_results.html', name=query, result=plant_info)
             else:
                 # If the plant data is not found in the Trefle API, show a message to the user
                 flash(f'No plant named "{query}" found.')
@@ -117,7 +117,10 @@ def plant_information(plant_id):
 # Define the route for adding a new plant
 @app.route('/add_plant', methods=['GET', 'POST'])
 def add_plant():
-    form = AddPlantForm()
+    form = SearchForm()
+    if form.validate_on_submit():
+        query = form.query.data
+        return redirect(url_for('search_plant', query=query))
     return render_template('add_plant.html', form=form)
 
 
