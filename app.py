@@ -68,7 +68,7 @@ def list_plants():
 
 @app.route('/search', methods=['GET', 'POST'])
 def search_plant():
-    query = request.args.get('query')
+    query = request.args.get('query') or request.form.get('query')
     if query:
         print("Search query received:", query)  # Debugging print statement
         # Search the database for plants that match the query
@@ -81,11 +81,11 @@ def search_plant():
         else:
             print("No plants found in the database, fetching data from the Trefle API")  # Debugging print statement
             # If the plant is not found in the database, fetch the data from the Trefle API
-            plant_info = plant_info.get_plant_info(query.strip())
-            if plant_info:
-                print("Plant data found in the Trefle API:", plant_info)  # Debugging print statement
+            fetched_plant_info = get_plant_info(query.strip())
+            if fetched_plant_info:
+                print("Plant data found in the Trefle API:", fetched_plant_info)  # Debugging print statement
                 # If the plant data is found in the Trefle API, show the search results
-                return render_template('search_results.html', name=query, result=plant_info)
+                return render_template('search_results.html', name=query, result=fetched_plant_info)
             else:
                 print("No plant data found in the Trefle API")  # Debugging print statement
                 # If the plant data is not found in the Trefle API, show a message to the user
@@ -95,7 +95,6 @@ def search_plant():
 
     # If there is no query parameter, redirect to the home page
     return redirect(url_for('home'))
-
 
 
 @app.route('/search_results', methods=['POST'])
@@ -150,6 +149,7 @@ def add_to_database():
     family = request.form['family']
     genus = request.form['genus']
     year = request.form['year']
+    # edible and medicinal are causing issues when committing to database. not being sent as boolean
     edible = request.form['edible']
     edible_part = request.form['edible_part']
     edible_notes = request.form['edible_notes']
