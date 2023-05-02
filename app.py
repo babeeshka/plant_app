@@ -70,23 +70,32 @@ def list_plants():
 def search_plant():
     query = request.args.get('query')
     if query:
+        print("Search query received:", query)  # Debugging print statement
         # Search the database for plants that match the query
         plants = db_session.query(Plant).filter(
             or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).all()
         if plants:
+            print("Plants found in the database:", plants)  # Debugging print statement
             # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
+            print("No plants found in the database, fetching data from the Trefle API")  # Debugging print statement
             # If the plant is not found in the database, fetch the data from the Trefle API
-            plant_info = plant_info.get_plant_info(form.query.data.strip())
+            plant_info = plant_info.get_plant_info(query.strip())
             if plant_info:
+                print("Plant data found in the Trefle API:", plant_info)  # Debugging print statement
                 # If the plant data is found in the Trefle API, show the search results
                 return render_template('search_results.html', name=query, result=plant_info)
             else:
+                print("No plant data found in the Trefle API")  # Debugging print statement
                 # If the plant data is not found in the Trefle API, show a message to the user
                 flash(f'No plant named "{query}" found.')
+    else:
+        print("No query parameter received")  # Debugging print statement
+
     # If there is no query parameter, redirect to the home page
     return redirect(url_for('home'))
+
 
 
 @app.route('/search_results', methods=['POST'])
@@ -177,9 +186,13 @@ def add_to_database():
         conservation_status=conservation_status
     )
 
+    print("New plant object before committing:", new_plant)
+
     # Add the new plant to the database and commit the changes
     db_session.add(new_plant)
     db_session.commit()
+
+    print("New plant object after committing:", new_plant)
 
     # Redirect to the home page
     return redirect(url_for('home'))
