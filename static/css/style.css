@@ -229,37 +229,56 @@ table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* typewriter */
-.typewriter {
-  position: relative;
-  display: inline-block;
-  border-bottom: 2px solid #000;
+/* ... other styles ... */
+
+.add-plant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
+.typewriter {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000;
+}
+
+.typewriter input:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+
 .typewriter input {
-  font-family: monospace;
-  font-size: 1.2em;
-  background-color: transparent;
-  border: none;
-  outline: none;
+    font-family: monospace;
+    font-size: 1.2em;
+    background-color: transparent;
+    border: none;
+    outline: none;
 }
 
 .typewriter::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  animation: typing-cursor 1s infinite;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    animation: typing-cursor 1s infinite;
 }
 
 @keyframes typing-cursor {
-  0%, 100% {
-    background-color: transparent;
-  }
-  50% {
-    background-color: #000;
-  }
+    0%, 100% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #000;
+    }
 }
+
+/* ... other styles ... */
