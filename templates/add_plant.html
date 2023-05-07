@@ -14,7 +14,7 @@
             <form action="{{ url_for('search_plant') }}" method="POST">
                 {{ form.hidden_tag() }}
                 <div class="form-group">
-                    <input type="text" class="form-control" id="query" name="query" placeholder="Search by common or scientific name">
+                    <input type="text" class="form-control" id="query" name="query" placeholder="enter a plant's name...">
                 </div>
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
