@@ -9,14 +9,17 @@
 
 {% block content %}
     <div class="search-container">
-        <h2 class="search-title">Type in a plant name here...</h2>
-        <form class="search-form" action="{{ url_for('search_plant') }}" method="POST">
-            {{ form.hidden_tag() }}
-            <div class="form-group">
-                <input type="text" class="form-control" id="query" name="query" placeholder="enter a plant's name...">
-            </div>
-            <button class="search-button" type="submit">Search</button>
-        </form>
+        <div class="typewriter">
+            <h2 class="search-title">Type in a plant name here...</h2>
+            <form class="search-form" action="{{ url_for('search_plant') }}" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="query" name="query"
+                           placeholder="enter a plant's name...">
+                </div>
+                <button class="search-button" type="submit">Search</button>
+            </form>
+        </div>
     </div>
 {% endblock %}
 
