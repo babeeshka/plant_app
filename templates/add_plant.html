@@ -4,18 +4,20 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_plant.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <div class="search-container">
-        <form action="{{ url_for('search_plant') }}" method="POST">
-            {{ form.hidden_tag() }}
-            <div class="mb-3">
-                <label for="query" class="form-label">Search by common or scientific name:</label>
-                {{ form.query.label }} {{ form.query(class="form-control", id="query") }}
-            </div>
-            {{ form.submit(class="btn btn-primary") }}
-        </form>
+    <div class="container">
+        <h1 class="search-header">Search for a plant</h1>
+        <div class="search-box">
+            <form action="{{ url_for('search_plant') }}" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <input type="text" class="form-control" id="query" name="query" placeholder="Search by common or scientific name">
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
     </div>
 {% endblock %}

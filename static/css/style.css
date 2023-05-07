@@ -2,84 +2,34 @@
   padding-top: 80px;
 }
 
-h1 {
+.search-header {
   font-size: 32px;
   font-family: courier;
   margin-top: 50px;
   margin-bottom: 30px;
 }
 
-.max-image-size {
-  max-width: 300px;
-  max-height: 300px;
-}
-.search-header {
-    font-size: 32px;
-    font-family: courier;
+.search-box {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.scientific-name {
-  font-size: 18px;
-  font-style: italic;
-}
-
-.no-image-message {
-  font-size: 18px;
-  font-style: italic;
-}
-
-@media screen and (max-width: 767px) {
-  #search-box {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    z-index: 9999;
-    background-color: #fff;
-    padding: 10px;
-  }
-
-  #search-box form {
-    display: flex;
-  }
-
-  #search-box input[type="text"] {
-    flex: 1;
-    border: none;
-    outline: none;
-  }
-
-  #search-box button {
-    border: none;
-    background-color: transparent;
-    outline: none;
-    cursor: pointer;
-  }
-}
-
-.search-container {
+.form-group {
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
 }
 
 input[type="text"] {
+  flex: 1;
   padding: 10px;
-  margin: 10px;
   border-radius: 5px;
-  border: none;
-  outline: none;
+  border: 1px solid #ccc;
   font-size: 16px;
 }
 
 button[type="submit"] {
   padding: 10px;
-  margin: 10px;
+  margin-left: 10px;
   border-radius: 5px;
   border: none;
   outline: none;
@@ -88,4 +38,19 @@ button[type="submit"] {
   color: white;
   background-color: #2ecc71;
   cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+  .search-box {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  input[type="text"] {
+    margin-top: 10px;
+  }
+
+  button[type="submit"] {
+    margin-top: 10px;
+  }
 }
