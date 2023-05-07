@@ -1849,3 +1849,93 @@ Traceback (most recent call last):
 sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: ''
 [SQL: INSERT INTO plants (common_name, scientific_name, sunlight_care, water_care, temperature_care, humidity_care, growing_tips, propagation_tips, common_pests, image_url, family, genus, year, edible, edible_part, edible_notes, medicinal, medicinal_notes, toxicity, synonyms, native_status, conservation_status, timestamp) VALUES (%(common_name)s, %(scientific_name)s, %(sunlight_care)s, %(water_care)s, %(temperature_care)s, %(humidity_care)s, %(growing_tips)s, %(propagation_tips)s, %(common_pests)s, %(image_url)s, %(family)s, %(genus)s, %(year)s, %(edible)s, %(edible_part)s, %(edible_notes)s, %(medicinal)s, %(medicinal_notes)s, %(toxicity)s, %(synonyms)s, %(native_status)s, %(conservation_status)s, %(timestamp)s) RETURNING plants.id]
 [parameters: [{'sunlight_care': 'None', 'synonyms': '', 'year': '', 'image_url': '', 'medicinal': '', 'genus': '', 'edible_part': '', 'toxicity': '', 'water_care':  ... (161 characters truncated) ... '', 'conservation_status': '', 'family': '', 'growing_tips': '', 'common_pests': '', 'scientific_name': 'Sarracenia purpurea', 'propagation_tips': ''}]]
+2023-05-07 11:05:01,584 - app - ERROR - Exception on /search [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 84, in search_plant
+    fetched_plant_info = get_plant_info(query.strip())
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 14, in get_plant_info
+    endpoint = f"{TREFLE_API_BASE_URL}/plants/search?token={TREFLE_API_KEY}&q={query}"
+                                                            ^^^^^^^^^^^^^^
+NameError: name 'TREFLE_API_KEY' is not defined
+2023-05-07 11:06:04,205 - app - ERROR - Exception on /search [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 84, in search_plant
+    fetched_plant_info = get_plant_info(query.strip())
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 32, in get_plant_info
+    detailed_endpoint = f"{TREFLE_API_BASE_URL}/plants/{plant_id}?token={TREFLE_API_KEY}"
+                                                                         ^^^^^^^^^^^^^^
+NameError: name 'TREFLE_API_KEY' is not defined
+2023-05-07 11:09:06,556 - app - ERROR - Exception on /search [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 84, in search_plant
+    fetched_plant_info = get_plant_info(query.strip())
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 32, in get_plant_info
+    detailed_endpoint = f"{TREFLE_API_BASE_URL}/plants/{plant_id}?token={TREFLE_API_KEY}"
+                                                                         ^^^^^^^^^^^^^^
+NameError: name 'TREFLE_API_KEY' is not defined
+2023-05-07 11:12:49,439 - app - ERROR - Exception on /search [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 84, in search_plant
+    fetched_plant_info = get_plant_info(query.strip())
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 26, in get_plant_info
+    sorted_results = sorted(results, key=lambda x: -sum(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 27, in <lambda>
+    [1 for field in DESIRED_FIELDS if (field in x or (field == 'images' and 'url' in x['images']))]))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/plant_info.py", line 27, in <listcomp>
+    [1 for field in DESIRED_FIELDS if (field in x or (field == 'images' and 'url' in x['images']))]))
+                                                                                     ~^^^^^^^^^^
+KeyError: 'images'
