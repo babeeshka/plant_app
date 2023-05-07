@@ -1750,3 +1750,102 @@ Traceback (most recent call last):
 sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: ''
 [SQL: INSERT INTO plants (common_name, scientific_name, sunlight_care, water_care, temperature_care, humidity_care, growing_tips, propagation_tips, common_pests, image_url, family, genus, year, edible, edible_part, edible_notes, medicinal, medicinal_notes, toxicity, synonyms, native_status, conservation_status, timestamp) VALUES (%(common_name)s, %(scientific_name)s, %(sunlight_care)s, %(water_care)s, %(temperature_care)s, %(humidity_care)s, %(growing_tips)s, %(propagation_tips)s, %(common_pests)s, %(image_url)s, %(family)s, %(genus)s, %(year)s, %(edible)s, %(edible_part)s, %(edible_notes)s, %(medicinal)s, %(medicinal_notes)s, %(toxicity)s, %(synonyms)s, %(native_status)s, %(conservation_status)s, %(timestamp)s) RETURNING plants.id]
 [parameters: [{'propagation_tips': '', 'genus': '', 'common_name': 'Thorn-apple', 'conservation_status': '', 'scientific_name': 'Datura stramonium', 'year': '', 'ed ... (151 characters truncated) ... s': '', 'edible_part': '', 'medicinal': '', 'medicinal_notes': '', 'sunlight_care': 'None', 'edible_notes': '', 'native_status': '', 'water_care': ''}]]
+2023-05-07 10:25:12,355 - app - ERROR - Exception on /add_to_database [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1808, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1294, in _init_compiled
+    d_param = {
+              ^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1295, in <dictcomp>
+    key: flattened_processors[key](compiled_params[key])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 2014, in process
+    value = _strict_as_bool(value)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 1986, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % (value,))
+TypeError: Not a boolean value: ''
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 193, in add_to_database
+    db_session.commit()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4155, in flush
+    self._flush(objects)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4291, in _flush
+    with util.safe_reraise():
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4252, in _flush
+    flush_context.execute()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1184, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+           ^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1814, in _execute_context
+    self._handle_dbapi_exception(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1808, in _execute_context
+    context = constructor(
+              ^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1294, in _init_compiled
+    d_param = {
+              ^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 1295, in <dictcomp>
+    key: flattened_processors[key](compiled_params[key])
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 2014, in process
+    value = _strict_as_bool(value)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/sqltypes.py", line 1986, in _strict_as_bool
+    raise TypeError("Not a boolean value: %r" % (value,))
+sqlalchemy.exc.StatementError: (builtins.TypeError) Not a boolean value: ''
+[SQL: INSERT INTO plants (common_name, scientific_name, sunlight_care, water_care, temperature_care, humidity_care, growing_tips, propagation_tips, common_pests, image_url, family, genus, year, edible, edible_part, edible_notes, medicinal, medicinal_notes, toxicity, synonyms, native_status, conservation_status, timestamp) VALUES (%(common_name)s, %(scientific_name)s, %(sunlight_care)s, %(water_care)s, %(temperature_care)s, %(humidity_care)s, %(growing_tips)s, %(propagation_tips)s, %(common_pests)s, %(image_url)s, %(family)s, %(genus)s, %(year)s, %(edible)s, %(edible_part)s, %(edible_notes)s, %(medicinal)s, %(medicinal_notes)s, %(toxicity)s, %(synonyms)s, %(native_status)s, %(conservation_status)s, %(timestamp)s) RETURNING plants.id]
+[parameters: [{'sunlight_care': 'None', 'synonyms': '', 'year': '', 'image_url': '', 'medicinal': '', 'genus': '', 'edible_part': '', 'toxicity': '', 'water_care':  ... (161 characters truncated) ... '', 'conservation_status': '', 'family': '', 'growing_tips': '', 'common_pests': '', 'scientific_name': 'Sarracenia purpurea', 'propagation_tips': ''}]]
