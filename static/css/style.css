@@ -203,6 +203,12 @@ table {
     margin-right: auto;
 }
 
+.table-full-width {
+    width: 100%;
+}
+.mw-100 {
+  min-width:100%;
+}
 .table-wrapper {
     width: 100%;
     overflow-x: auto;

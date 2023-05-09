@@ -73,11 +73,10 @@ def get_plant_info(query):
     # Convert the min/max values for certain fields to a tuple
     extracted_info['ph'] = (extracted_info.pop('ph_minimum'), extracted_info.pop('ph_maximum'))
     extracted_info['precipitations'] = (
-    extracted_info.pop('precipitation_minimum'), extracted_info.pop('precipitation_maximum'))
+        extracted_info.pop('precipitation_minimum'), extracted_info.pop('precipitation_maximum'))
     extracted_info['temperature'] = (
-    extracted_info.pop('temperature_minimum'), extracted_info.pop('temperature_maximum'))
+        extracted_info.pop('temperature_minimum'), extracted_info.pop('temperature_maximum'))
     extracted_info['soil_humidity'] = (
-    extracted_info.pop('soil_humidity_minimum'), extracted_info.pop('soil_humidity_maximum'))
+        extracted_info.pop('soil_humidity_minimum'), extracted_info.pop('soil_humidity_maximum'))
 
     return extracted_info
-

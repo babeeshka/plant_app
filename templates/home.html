@@ -4,27 +4,28 @@
 
 {% block content %}
 
-  <div class="container">
-    <h1 class="my-header">plants!</h1>
-    {% if random_plant %}
-    <div class="card mb-4">
-      {% if random_plant.image_url %}
-      <img src="{{ random_plant.image_url }}" alt="{{ random_plant.common_name }}" class="card-img-top rounded-3 max-image-size">
-      {% else %}
-      <div class="no-image-message card-body">No image available for this plant.</div>
-      {% endif %}
-      <div class="card-body">
-        <h2 class="card-title">{{ random_plant.common_name }}</h2>
-        <p class="card-text scientific-name">{{ random_plant.scientific_name }}</p>
-      </div>
+    <div class="container">
+        <h1 class="my-header">plants!</h1>
+        {% if random_plant %}
+            <div class="card mb-4">
+                {% if random_plant.image_url %}
+                    <img src="{{ random_plant.image_url }}" alt="{{ random_plant.common_name }}"
+                         class="card-img-top rounded-3 max-image-size" width="300" height="300">
+                {% else %}
+                    <div class="no-image-message card-body">No image available for this plant.</div>
+                {% endif %}
+                <div class="card-body">
+                    <h2 class="card-title">{{ random_plant.common_name }}</h2>
+                    <p class="card-text scientific-name">{{ random_plant.scientific_name }}</p>
+                </div>
+            </div>
+        {% else %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <p class="card-text">There are currently no plants in the database.</p>
+                </div>
+            </div>
+        {% endif %}
     </div>
-    {% else %}
-    <div class="card mb-4">
-      <div class="card-body">
-        <p class="card-text">There are currently no plants in the database.</p>
-      </div>
-    </div>
-    {% endif %}
-  </div>
 
 {% endblock %}
