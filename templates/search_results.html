@@ -20,25 +20,25 @@
             <input type="hidden" name="common_name" value="{{ result.common_name }}">
             <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
             <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
-            <input type="hidden" name="water_care" value="{{ water_care }}">
-            <input type="hidden" name="temperature_care" value="{{ temperature_care }}">
-            <input type="hidden" name="humidity_care" value="{{ humidity_care }}">
-            <input type="hidden" name="growing_tips" value="{{ growing_tips }}">
-            <input type="hidden" name="propagation_tips" value="{{ propagation_tips }}">
-            <input type="hidden" name="common_pests" value="{{ common_pests }}">
-            <input type="hidden" name="image_url" value="{{ image_url }}">
-            <input type="hidden" name="family" value="{{ family }}">
-            <input type="hidden" name="genus" value="{{ genus }}">
-            <input type="hidden" name="year" value="{{ year }}">
-            <input type="hidden" name="edible" value="{{ edible }}">
-            <input type="hidden" name="edible_part" value="{{ edible_part }}">
-            <input type="hidden" name="edible_notes" value="{{ edible_notes }}">
-            <input type="hidden" name="medicinal" value="{{ medicinal }}">
-            <input type="hidden" name="medicinal_notes" value="{{ medicinal_notes }}">
-            <input type="hidden" name="toxicity" value="{{ toxicity }}">
-            <input type="hidden" name="synonyms" value="{{ synonyms }}">
-            <input type="hidden" name="native_status" value="{{ native_status }}">
-            <input type="hidden" name="conservation_status" value="{{ conservation_status }}">
+            <input type="hidden" name="water_care" value="{{ result.water_care }}">
+            <input type="hidden" name="temperature_care" value="{{ result.temperature_care }}">
+            <input type="hidden" name="humidity_care" value="{{ result.humidity_care }}">
+            <input type="hidden" name="growing_tips" value="{{ result.growing_tips }}">
+            <input type="hidden" name="propagation_tips" value="{{ result.propagation_tips }}">
+            <input type="hidden" name="common_pests" value="{{ result.common_pests }}">
+            <input type="hidden" name="image_url" value="{{ result.image_url }}">
+            <input type="hidden" name="family" value="{{ fresult.amily }}">
+            <input type="hidden" name="genus" value="{{ result.genus }}">
+            <input type="hidden" name="year" value="{{ result.year }}">
+            <input type="hidden" name="edible" value="{{ result.edible }}">
+            <input type="hidden" name="edible_part" value="{{ result.edible_part }}">
+            <input type="hidden" name="edible_notes" value="{{ result.edible_notes }}">
+            <input type="hidden" name="medicinal" value="{{ result.medicinal }}">
+            <input type="hidden" name="medicinal_notes" value="{{ result.medicinal_notes }}">
+            <input type="hidden" name="toxicity" value="{{ result.toxicity }}">
+            <input type="hidden" name="synonyms" value="{{ result.synonyms }}">
+            <input type="hidden" name="native_status" value="{{ result.native_status }}">
+            <input type="hidden" name="conservation_status" value="{{ cresult.onservation_status }}">
             <input type="submit" value="Add to Database">
         </form>
         <form action="{{ url_for('home') }}" method="get">

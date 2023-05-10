@@ -1,21 +1,24 @@
-/* General styles */
-body {
+/* Global styles */
+:root {
+    --primary-color: #2ecc71;
+    --secondary-color: #262626;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+}
+
+body, input, select, textarea {
     font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 100px 0 0 0; /* add padding to top of body */
-    background-color: var(--background-color);
     color: var(--text-color);
+}
+
+body {
+    margin: 0;
+    padding-top: 100px;
+    background-color: var(--background-color);
 }
 
 a {
     color: var(--primary-color);
-}
-
-:root {
-    --primary-color: #2ecc71; /* forest green */
-    --secondary-color: #262626; /* dark gray */
-    --background-color: #f5f5f5;
-    --text-color: #333;
 }
 
 /* Header styles */
@@ -23,7 +26,7 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px; /* reduce height of header */
+    height: 50px;
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -53,7 +56,8 @@ a {
     padding: 20px;
 }
 
-.plant-card {
+.plant-card,
+.form-container {
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -61,17 +65,17 @@ a {
     margin-bottom: 20px;
 }
 
-.plant-card h2 {
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
 .plant-card img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
     border-radius: 5px;
+}
+
+.plant-card h2,
+.form-container h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
 }
 
 .plant-card .scientific-name {
@@ -84,31 +88,9 @@ a {
     margin-bottom: 10px;
 }
 
-.plant-card .btn-group {
-    margin-top: 10px;
-}
-
-.plant-card .btn {
-    margin-right: 10px;
-}
-
-/* Form styles */
-.form-container {
-    background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.form-container h2 {
-    font-size: 24px;
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
+.plant-card .btn-group,
 .form-group {
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
 .form-group label {
@@ -118,39 +100,18 @@ a {
 }
 
 .form-group input[type="text"],
-.form-group textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-.form-group select {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' d='M8 10.586L3.707 6.293a1 1 0 00-1.414 1.414l5 5a1 1 0 001.414 0l5-5a1 1 0 00-1.414-1.414L8 10.586z'/%3E%3C/svg%3E"); /* add arrow icon to select */
-    background-repeat: no-repeat; /* prevent multiple arrows */
-    background-position: right 10px center; /* position arrow icon */
-    background-size: 12px; /* size arrow icon */
-}
-
+.form-group textarea,
+.form-group select,
 .form-control {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-    color: #333;
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 6px 12px;
     width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
     box-sizing: border-box;
     margin-bottom: 10px;
 }
+
 
 .form-control:focus {
     border-color: #66afe9;
@@ -161,8 +122,8 @@ a {
 .form-row {
     display: flex;
     flex-wrap: wrap;
-    margin-left: -5px;
-    margin-right: -5px;
+    margin-left: -50px; /* Increase this value as needed*/
+    margin-right: -50px; /* Increase this value as needed too */
 }
 
 .form-column {
@@ -177,7 +138,17 @@ a {
     padding-left: 5px;
     padding-right: 5px;
 }
-/* Search container */
+
+.form-row-full {
+    width: 100%;
+    margin: auto;
+}
+.form-row-textarea {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Search */
 .search-container {
     display: flex;
     flex-direction: column;
@@ -186,20 +157,17 @@ a {
     height: 75vh;
 }
 
-/* Search title */
 .search-title {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-/* Search form */
 .search-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Search input */
 .search-input {
     font-size: 18px;
     background: none;
@@ -212,7 +180,6 @@ a {
     margin-bottom: 20px;
 }
 
-/* Search button */
 .search-button {
     font-size: 16px;
     background: #000;
@@ -228,7 +195,7 @@ a {
     background-color: #444;
 }
 
-/* Table container */
+/* Table */
 .table-container {
     display: flex;
     align-items: center;
@@ -236,30 +203,18 @@ a {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
-    max-width: none;
     padding: 20px;
 }
-
-
-/* Table style */
-/*table {
-    width: 100%;
-    max-width: none;
-}*/
 
 .table-full-width {
     width: 100%;
 }
 
-.table-responsive {
-    overflow-x: auto;
-}
-
+.table-responsive,
 .table-wrapper {
     overflow-x: auto;
 }
 
-/* Table header */
 table th {
     background-color: #f2f2f2;
     text-align: left;
@@ -267,19 +222,16 @@ table th {
     border: 1px solid #ddd;
 }
 
-/* Table data */
 table td {
     padding: 10px;
     border: 1px solid #ddd;
 }
 
-/* Table row */
 table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-/* ... other styles ... */
-
+/* Add plant */
 .add-plant-container {
     display: flex;
     flex-direction: column;
@@ -288,85 +240,34 @@ table tr:nth-child(even) {
     height: 100vh;
 }
 
-.typewriter {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-    /* border-bottom: 2px solid #000; */
+/* Typewriter */
+.typewriter-wrapper {
+  height: 15vh;
+  /*This part is important for centering*/
+  display: grid;
+  place-items: center;
 }
 
-
-.typewriter input:focus {
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
+.typing {
+  width: 20ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: roboto;
+  font-size: 2.15em;
 }
 
-.typewriter input,
-.typewriter textarea {
-    font-family: monospace;
-    font-size: 1.2em;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom-color 0.25s ease-in-out;
+@keyframes typing {
+  from {
+    width: 0
+  }
 }
 
-.typewriter input:focus,
-.typewriter textarea:focus {
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
-}
-
-.typewriter input::placeholder,
-.typewriter textarea::placeholder {
-    color: #999;
-}
-
-.typewriter input {
-    font-family: monospace;
-    font-size: 1.2em;
-    background-color: transparent;
-    border: none;
-    outline: none;
-}
-
-.typewriter::before {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    animation: typing-cursor 1s infinite;
-}
-
-@keyframes typing-cursor {
-    0%, 100% {
-        background-color: transparent;
-    }
-    50% {
-        background-color: #000;
-    }
-}
-
-.typewriter textarea:focus {
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
-    animation: pulsate 1s infinite;
-}
-
-@keyframes pulsate {
-    0%, 100% {
-        border-bottom-color: #000;
-    }
-    50% {
-        border-bottom-color: transparent;
-    }
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }
 
 /* ... other styles ... */
