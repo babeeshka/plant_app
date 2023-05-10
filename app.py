@@ -50,6 +50,19 @@ def shutdown_session(exception=None):
     db_session.remove()
 
 
+# @app.before_request
+# def log_request_info():
+#     app.logger.debug('Request headers: %s', request.headers)
+#     app.logger.debug('Request body: %s', request.get_data())
+#
+#
+# @app.after_request
+# def log_response_info(response):
+#     app.logger.debug('Response headers: %s', response.headers)
+#     app.logger.debug('Response body: %s', response.get_data())
+#     return response
+
+
 @app.route('/')
 def home():
     plants = Plant.query.all()
@@ -140,6 +153,10 @@ def manual_entry():
 # Define the route for adding the new plant to the database
 @app.route('/add_to_database', methods=['POST'])
 def add_to_database():
+    print("add_to_database route reached")  # Debugging print statement
+    #  print(request.form.get('csrf_token'))
+    print(request.form)
+
     # Retrieve the data for the new plant from the form
     common_name = request.form['common_name']
     scientific_name = request.form['scientific_name']
@@ -164,6 +181,8 @@ def add_to_database():
     synonyms = request.form['synonyms']
     native_status = request.form['native_status']
     conservation_status = request.form['conservation_status']
+
+    print("Form data retrieved successfully")  # Debugging print statement
 
     # Create a new Plant object with the retrieved data
     new_plant = Plant(
@@ -191,6 +210,7 @@ def add_to_database():
         conservation_status=conservation_status
     )
 
+    print("New plant object created successfully")  # Debugging print statement
     print("New plant object before committing:", new_plant)
 
     # Add the new plant to the database and commit the changes

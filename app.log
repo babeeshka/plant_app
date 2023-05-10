@@ -1939,3 +1939,1270 @@ Traceback (most recent call last):
     [1 for field in DESIRED_FIELDS if (field in x or (field == 'images' and 'url' in x['images']))]))
                                                                                      ~^^^^^^^^^^
 KeyError: 'images'
+2023-05-10 15:47:38,271 - app - ERROR - Exception on /manual_entry [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 137, in manual_entry
+    return render_template('manual_entry.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/manual_entry.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/base.html", line 46, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/manual_entry.html", line 16, in block 'content'
+    {{ form.csrf_token }}
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2023-05-10 15:49:13,298 - app - ERROR - Exception on /manual_entry [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 137, in manual_entry
+    return render_template('manual_entry.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/manual_entry.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/base.html", line 46, in top-level template code
+    {% block content %}
+  File "/Users/wbabich/PycharmProjects/plant_app/templates/manual_entry.html", line 16, in block 'content'
+    {{ form.csrf_token }}
+  File "/opt/homebrew/lib/python3.11/site-packages/jinja2/environment.py", line 485, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'form' is undefined
+2023-05-10 16:28:02,315 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Purpose: prefetch;prerender
+Purpose: prefetch
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:02,316 - app - DEBUG - Request body: b''
+2023-05-10 16:28:02,363 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2538
+
+
+2023-05-10 16:28:02,363 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Ficus lyrata</h2>\n                    <p class="card-text scientific-name">Ficus lyrata</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:28:02,379 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Purpose: prefetch;prerender
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:02,379 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Purpose: prefetch;prerender
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:02,379 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Purpose: prefetch;prerender
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:02,380 - app - DEBUG - Request body: b''
+2023-05-10 16:28:02,380 - app - DEBUG - Request body: b''
+2023-05-10 16:28:02,381 - app - DEBUG - Request body: b''
+2023-05-10 16:28:02,386 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:28:02 GMT
+
+
+2023-05-10 16:28:02,386 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:28:02 GMT
+
+
+2023-05-10 16:28:02,386 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:28:02 GMT
+
+
+2023-05-10 16:28:02,386 - app - ERROR - Exception on /static/js/jquery-3.6.4.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:02,387 - app - ERROR - Exception on /static/css/style.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:02,387 - app - ERROR - Exception on /static/css/bootstrap.min.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:02,388 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:02,389 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:02,390 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:02,391 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:02,390 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:02,390 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:02,393 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Purpose: prefetch;prerender
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Purpose: prefetch
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:02,393 - app - DEBUG - Request body: b''
+2023-05-10 16:28:02,393 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:28:02 GMT
+
+
+2023-05-10 16:28:02,393 - app - ERROR - Exception on /static/js/bootstrap.bundle.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:02,393 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:02,393 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:23,968 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:23,969 - app - DEBUG - Request body: b''
+2023-05-10 16:28:23,983 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2548
+
+
+2023-05-10 16:28:23,983 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Portulacaria afra</h2>\n                    <p class="card-text scientific-name">Portulacaria afra</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:28:24,019 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,020 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,021 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,022 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,023 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,023 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,023 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,025 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,026 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,026 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,027 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,027 - app - ERROR - Exception on /static/css/bootstrap.min.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,028 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,028 - app - ERROR - Exception on /static/js/jquery-3.6.4.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,029 - app - ERROR - Exception on /static/css/style.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,031 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,031 - app - ERROR - Exception on /static/js/bootstrap.bundle.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,034 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,034 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,035 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,036 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,036 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,036 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,036 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,727 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,728 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,732 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2552
+
+
+2023-05-10 16:28:24,732 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Pilea peperomioides</h2>\n                    <p class="card-text scientific-name">Pilea peperomioides</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:28:24,744 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,745 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,747 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,748 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,749 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:24,749 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,750 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,750 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,750 - app - DEBUG - Request body: b''
+2023-05-10 16:28:24,751 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,751 - app - ERROR - Exception on /static/css/bootstrap.min.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,752 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,753 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:28:24 GMT
+
+
+2023-05-10 16:28:24,753 - app - ERROR - Exception on /static/css/style.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,753 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,755 - app - ERROR - Exception on /static/js/jquery-3.6.4.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,755 - app - ERROR - Exception on /static/js/bootstrap.bundle.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:24,756 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,757 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,757 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,757 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:24,758 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,758 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:24,759 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,235 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,237 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,240 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2550
+
+
+2023-05-10 16:28:25,241 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Monstera adansonii</h2>\n                    <p class="card-text scientific-name">Monstera adansonii</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:28:25,256 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,257 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,257 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,257 - app - ERROR - Exception on /static/css/bootstrap.min.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,258 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,259 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,259 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,260 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,260 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,261 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,261 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,261 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,262 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,262 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,263 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,263 - app - ERROR - Exception on /static/css/style.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,264 - app - ERROR - Exception on /static/js/jquery-3.6.4.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,264 - app - ERROR - Exception on /static/js/bootstrap.bundle.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,265 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,265 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,266 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,266 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,266 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,266 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,891 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Upgrade-Insecure-Requests: 1
+Dnt: 1
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+
+
+2023-05-10 16:28:25,892 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,900 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:28:25,900 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="ImY1MDcxZjFiMzE2YWI5YjU3YzE5MzZjODRkM2M1MTk0N2ZkYzU3NDIi.ZFv-aQ.itFfO9zAy_-vullPZLjmgDRJOS4">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:28:25,919 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjUwNzFmMWIzMTZhYjliNTdjMTkzNmM4NGQzYzUxOTQ3ZmRjNTc0MiJ9.ZFv-aQ.VMwMcy-Jmk7lzrph7b9qEMTkQCU
+
+
+2023-05-10 16:28:25,921 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjUwNzFmMWIzMTZhYjliNTdjMTkzNmM4NGQzYzUxOTQ3ZmRjNTc0MiJ9.ZFv-aQ.VMwMcy-Jmk7lzrph7b9qEMTkQCU
+
+
+2023-05-10 16:28:25,922 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: */*
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: script
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjUwNzFmMWIzMTZhYjliNTdjMTkzNmM4NGQzYzUxOTQ3ZmRjNTc0MiJ9.ZFv-aQ.VMwMcy-Jmk7lzrph7b9qEMTkQCU
+
+
+2023-05-10 16:28:25,922 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,924 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Dnt: 1
+Sec-Ch-Ua-Mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Sec-Ch-Ua-Platform: "macOS"
+Accept: text/css,*/*;q=0.1
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Dest: style
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZjUwNzFmMWIzMTZhYjliNTdjMTkzNmM4NGQzYzUxOTQ3ZmRjNTc0MiJ9.ZFv-aQ.VMwMcy-Jmk7lzrph7b9qEMTkQCU
+
+
+2023-05-10 16:28:25,924 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,924 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,925 - app - DEBUG - Request body: b''
+2023-05-10 16:28:25,925 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,926 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,926 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,927 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:28:25 GMT
+
+
+2023-05-10 16:28:25,927 - app - ERROR - Exception on /static/css/bootstrap.min.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,927 - app - ERROR - Exception on /static/js/jquery-3.6.4.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,927 - app - ERROR - Exception on /static/css/style.css [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,928 - app - ERROR - Exception on /static/js/bootstrap.bundle.min.js [GET]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1826, in full_dispatch_request
+    return self.finalize_request(rv)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1847, in finalize_request
+    response = self.process_response(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2340, in process_response
+    response = self.ensure_sync(func)(response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 62, in log_response_info
+    app.logger.debug('Response body: %s', response.get_data())
+                                          ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 314, in get_data
+    self._ensure_sequence()
+  File "/opt/homebrew/lib/python3.11/site-packages/werkzeug/wrappers/response.py", line 366, in _ensure_sequence
+    raise RuntimeError(
+RuntimeError: Attempted implicit sequence conversion but the response object is in direct passthrough mode.
+2023-05-10 16:28:25,928 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,928 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,929 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,929 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:28:25,929 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
