@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}Manual Plant Entry{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="manual-entry-container">
+        <h2 class="manual-entry-title">manually enter plant details...</h2>
+        <form class="manual-entry-form" action="/add_to_database" method="POST">
+            <div class="form-column">
+                <div class="typewriter form-row">
+                    <label for="common_name">Common Name:</label>
+                    <input type="text" class="form-control" id="common_name" name="common_name"
+                           placeholder="enter common name..." required>
+                </div>
+                <div class="typewriter form-row">
+                    <label for="scientific_name">Scientific Name:</label>
+                    <input type="text" class="form-control" id="scientific_name" name="scientific_name"
+                           placeholder="enter scientific name..." required>
+                </div>
+                <div class="typewriter form-row">
+                    <label for="sunlight_care">Sunlight Care:</label>
+                    <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"
+                           placeholder="enter sunlight care..." required>
+                </div>
+            </div>
+            <div class="form-column">
+                <div class="typewriter form-row">
+                    <label for="water_care">Water Care:</label>
+                    <input type="text" class="form-control" id="water_care" name="water_care"
+                           placeholder="enter water care..." required>
+                </div>
+                <div class="typewriter form-row">
+                    <label for="temperature_care">Temperature Care:</label>
+                    <input type="text" class="form-control" id="temperature_care" name="temperature_care"
+                           placeholder="enter temperature care..." required>
+                </div>
+                <div class="typewriter form-row">
+                    <label for="humidity_care">Humidity Care:</label>
+                    <input type="text" class="form-control" id="humidity_care" name="humidity_care"
+                           placeholder="enter humidity care..." required>
+                </div>
+            </div>
+            <div class="typewriter form-row">
+                <label for="growing_tips">Growing Tips:</label>
+                <textarea class="form-control" id="growing_tips" name="growing_tips"
+                          placeholder="enter growing tips..."
+                          required></textarea>
+            </div>
+            <div class="typewriter form-row">
+                <label for="propagation_tips">Propagation Tips:</label>
+                <textarea class="form-control" id="propagation_tips" name="propagation_tips"
+                          placeholder="enter propagation tips..." required></textarea>
+            </div>
+            <div class="typewriter form-row">
+                <label for="common_pests">Common Pests:</label>
+                <textarea class="form-control" id="common_pests" name="common_pests"
+                          placeholder="enter common pests..."
+                          required></textarea>
+            </div>
+            <button class="manual-entry-button" type="submit">Add Plant</button>
+        </form>
+    </div>
+{% endblock %}

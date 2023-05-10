@@ -139,6 +139,44 @@ a {
     background-size: 12px; /* size arrow icon */
 }
 
+.form-control {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.form-control:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: none;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.form-column {
+    flex: 1;
+    min-width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.form-column-full {
+    flex: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+}
 /* Search container */
 .search-container {
     display: flex;
@@ -254,8 +292,9 @@ table tr:nth-child(even) {
     position: relative;
     display: inline-block;
     margin-bottom: 20px;
-    border-bottom: 2px solid #000;
+    /* border-bottom: 2px solid #000; */
 }
+
 
 .typewriter input:focus {
     outline: none;
@@ -263,6 +302,28 @@ table tr:nth-child(even) {
     background-color: transparent;
 }
 
+.typewriter input,
+.typewriter textarea {
+    font-family: monospace;
+    font-size: 1.2em;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.25s ease-in-out;
+}
+
+.typewriter input:focus,
+.typewriter textarea:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.typewriter input::placeholder,
+.typewriter textarea::placeholder {
+    color: #999;
+}
 
 .typewriter input {
     font-family: monospace;
@@ -289,6 +350,22 @@ table tr:nth-child(even) {
     }
     50% {
         background-color: #000;
+    }
+}
+
+.typewriter textarea:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    animation: pulsate 1s infinite;
+}
+
+@keyframes pulsate {
+    0%, 100% {
+        border-bottom-color: #000;
+    }
+    50% {
+        border-bottom-color: transparent;
     }
 }
 

@@ -46,5 +46,8 @@
         </form>
     {% else %}
         <p>No results found for {{ name }}</p>
+        <form action="{{ url_for('manual_entry') }}" method="get">
+            <input type="submit" value="add manually">
+        </form>
     {% endif %}
 {% endblock %}

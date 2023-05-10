@@ -132,6 +132,11 @@ def add_plant():
     return render_template('add_plant.html', form=form)
 
 
+@app.route('/manual_entry')
+def manual_entry():
+    return render_template('manual_entry.html')
+
+
 # Define the route for adding the new plant to the database
 @app.route('/add_to_database', methods=['POST'])
 def add_to_database():
