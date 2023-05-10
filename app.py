@@ -56,11 +56,14 @@ def shutdown_session(exception=None):
 #     app.logger.debug('Request body: %s', request.get_data())
 #
 #
-# @app.after_request
-# def log_response_info(response):
-#     app.logger.debug('Response headers: %s', response.headers)
-#     app.logger.debug('Response body: %s', response.get_data())
-#     return response
+@app.after_request
+def log_response_info(response):
+    app.logger.debug('Response headers: %s', response.headers)
+    if not response.direct_passthrough:
+        app.logger.debug('Response body: %s', response.get_data())
+    else:
+        app.logger.debug('Response is in direct passthrough mode')
+    return response
 
 
 @app.route('/')
@@ -155,32 +158,34 @@ def manual_entry():
 def add_to_database():
     print("add_to_database route reached")  # Debugging print statement
     #  print(request.form.get('csrf_token'))
+
+    app.logger.debug('Request headers: %s', request.headers)
+    app.logger.debug('Request body: %s', request.get_data())
     print(request.form)
 
     # Retrieve the data for the new plant from the form
-    common_name = request.form['common_name']
-    scientific_name = request.form['scientific_name']
-    sunlight_care = request.form['sunlight_care']
-    water_care = request.form['water_care']
-    temperature_care = request.form['temperature_care']
-    humidity_care = request.form['humidity_care']
-    growing_tips = request.form['growing_tips']
-    propagation_tips = request.form['propagation_tips']
-    common_pests = request.form['common_pests']
-    image_url = request.form['image_url']
-    family = request.form['family']
-    genus = request.form['genus']
-    year = request.form['year']
-    # edible and medicinal are causing issues when committing to database. not being sent as boolean
-    edible = request.form['edible']
-    edible_part = request.form['edible_part']
-    edible_notes = request.form['edible_notes']
-    medicinal = request.form['medicinal']
-    medicinal_notes = request.form['medicinal_notes']
-    toxicity = request.form['toxicity']
-    synonyms = request.form['synonyms']
-    native_status = request.form['native_status']
-    conservation_status = request.form['conservation_status']
+    common_name = request.form.get('common_name') or None
+    scientific_name = request.form.get('scientific_name') or None
+    sunlight_care = request.form.get('sunlight_care') or None
+    water_care = request.form.get('water_care') or None
+    temperature_care = request.form.get('temperature_care') or None
+    humidity_care = request.form.get('humidity_care') or None
+    growing_tips = request.form.get('growing_tips') or None
+    propagation_tips = request.form.get('propagation_tips') or None
+    common_pests = request.form.get('common_pests') or None
+    image_url = request.form.get('image_url') or None
+    family = request.form.get('family') or None
+    genus = request.form.get('genus') or None
+    year = request.form.get('year') or None
+    edible = request.form.get('edible') or None
+    edible_part = request.form.get('edible_part') or None
+    edible_notes = request.form.get('edible_notes') or None
+    medicinal = request.form.get('medicinal') or None
+    medicinal_notes = request.form.get('medicinal_notes') or None
+    toxicity = request.form.get('toxicity') or None
+    synonyms = request.form.get('synonyms') or None
+    native_status = request.form.get('native_status') or None
+    conservation_status = request.form.get('conservation_status') or None
 
     print("Form data retrieved successfully")  # Debugging print statement
 

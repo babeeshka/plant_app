@@ -3206,3 +3206,910 @@ Content-Length: 265
 2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
 2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
 2023-05-10 16:28:25,930 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:33:58,851 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 319
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZWEzM2MwMTQ5MWJhNjg5ZTIzYmVlYTE1OTM4YjI2MmVmYmM0ZmEwMCJ9.ZFv_rw.FIJUy1VyjNsBzDKdboQq2UoEvgs
+
+
+2023-05-10 16:33:58,854 - app - DEBUG - Request body: b''
+2023-05-10 16:37:38,267 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2538
+
+
+2023-05-10 16:37:38,267 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Ficus lyrata</h2>\n                    <p class="card-text scientific-name">Ficus lyrata</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:37:38,338 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:37:38 GMT
+
+
+2023-05-10 16:37:38,340 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:38,340 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:37:38 GMT
+
+
+2023-05-10 16:37:38,341 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:37:38 GMT
+
+
+2023-05-10 16:37:38,341 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:37:38 GMT
+
+
+2023-05-10 16:37:38,341 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:38,342 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:38,342 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:39,491 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:37:39,491 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="IjVmNDVjODk3Mjc4MjQ4ZDJmMzAyNzQxNWIzOTIxMGZkNTZhYzJmZWUi.ZFwAkw.Ap7BRtT9C_eB1F3vpEuIbyFmFC4">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:37:39,504 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:37:39 GMT
+
+
+2023-05-10 16:37:39,505 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:37:39 GMT
+
+
+2023-05-10 16:37:39,505 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:39,506 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:37:39 GMT
+
+
+2023-05-10 16:37:39,506 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:37:39 GMT
+
+
+2023-05-10 16:37:39,507 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:39,507 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:39,507 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:37:50,628 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 380
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiNWY0NWM4OTcyNzgyNDhkMmYzMDI3NDE1YjM5MjEwZmQ1NmFjMmZlZSJ9.ZFwAkw.ETQkyoIEjUz8YjhrPU_BxgdUkHQ
+
+
+2023-05-10 16:37:50,630 - app - DEBUG - Request body: b''
+2023-05-10 16:37:50,631 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 167
+
+
+2023-05-10 16:37:50,632 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>400 Bad Request</title>\n<h1>Bad Request</h1>\n<p>The browser (or proxy) sent a request that this server could not understand.</p>\n'
+2023-05-10 16:43:09,891 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2663
+
+
+2023-05-10 16:43:09,891 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <img src="https://bs.plantnet.org/image/o/e6898630aff87eefd5ffbad2ad8d0935b2155a77" alt="Bald-cypress"\n                         class="card-img-top rounded-3 max-image-size" width="300" height="300">\n                \n                <div class="card-body">\n                    <h2 class="card-title">Bald-cypress</h2>\n                    <p class="card-text scientific-name">Taxodium distichum</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:43:09,903 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:43:09 GMT
+
+
+2023-05-10 16:43:09,903 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:43:09 GMT
+
+
+2023-05-10 16:43:09,904 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:09,905 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:43:09 GMT
+
+
+2023-05-10 16:43:09,905 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:09,905 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:09,908 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:43:09 GMT
+
+
+2023-05-10 16:43:09,908 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:11,097 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:43:11,097 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="IjQzMGM2M2EwNGZjZmE3MWU1NDQ1ZTc1ZDUzMDM0MzBhNDVlZmJmZmQi.ZFwB3w.MmSAO010gEDJyGbrTZ4AdCs_SBs">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:43:11,114 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:43:11 GMT
+
+
+2023-05-10 16:43:11,117 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:11,116 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:43:11 GMT
+
+
+2023-05-10 16:43:11,118 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:43:11 GMT
+
+
+2023-05-10 16:43:11,120 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:11,120 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:11,120 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:43:11 GMT
+
+
+2023-05-10 16:43:11,121 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:43:20,347 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 282
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiNDMwYzYzYTA0ZmNmYTcxZTU0NDVlNzVkNTMwMzQzMGE0NWVmYmZmZCJ9.ZFwB3w.U1fBpklPm7vk0AonkoloIEQyGbI
+
+
+2023-05-10 16:43:20,349 - app - DEBUG - Request body: b''
+2023-05-10 16:43:20,349 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 167
+
+
+2023-05-10 16:43:20,350 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>400 Bad Request</title>\n<h1>Bad Request</h1>\n<p>The browser (or proxy) sent a request that this server could not understand.</p>\n'
+2023-05-10 16:46:59,475 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2687
+
+
+2023-05-10 16:46:59,475 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <img src="https://bs.plantnet.org/image/o/0342d03f8a6d5bd68c11e8011464cc781938cc43" alt="Sturt&#39;s desert rose"\n                         class="card-img-top rounded-3 max-image-size" width="300" height="300">\n                \n                <div class="card-body">\n                    <h2 class="card-title">Sturt&#39;s desert rose</h2>\n                    <p class="card-text scientific-name">Gossypium sturtianum</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:46:59,488 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:46:59 GMT
+
+
+2023-05-10 16:46:59,488 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:46:59,489 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:46:59 GMT
+
+
+2023-05-10 16:46:59,490 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:46:59 GMT
+
+
+2023-05-10 16:46:59,490 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:46:59 GMT
+
+
+2023-05-10 16:46:59,490 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:46:59,490 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:46:59,490 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:00,262 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:47:00,262 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="IjE1N2Y3MTJmYTYzYWE1ZTRhNjhjMjMzYTliYjZiOTY5MWFiZTc0YzQi.ZFwCxA.UD7xuSIeQq_GmTSYw38rlFKQyh0">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:47:00,276 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:47:00 GMT
+
+
+2023-05-10 16:47:00,276 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:47:00 GMT
+
+
+2023-05-10 16:47:00,277 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:47:00 GMT
+
+
+2023-05-10 16:47:00,277 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:47:00 GMT
+
+
+2023-05-10 16:47:00,277 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:00,277 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:00,277 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:00,277 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:11,079 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 274
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiMTU3ZjcxMmZhNjNhYTVlNGE2OGMyMzNhOWJiNmI5NjkxYWJlNzRjNCJ9.ZFwCxA.vYpvdMSfmFkPsGydgqdg7G9r1tQ
+
+
+2023-05-10 16:47:11,082 - app - DEBUG - Request body: b''
+2023-05-10 16:47:11,126 - app - ERROR - Exception on /add_to_database [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.InvalidTextRepresentation: invalid input syntax for type integer: ""
+LINE 1: ...b', 'ond', 'od', 'ondo', 'd', 'ndlo', '', '', '', '', false,...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 225, in add_to_database
+    db_session.commit()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/scoping.py", line 553, in commit
+    return self._proxied.commit()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1903, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1218, in commit
+    self._prepare_impl()
+  File "<string>", line 2, in _prepare_impl
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/state_changes.py", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 1193, in _prepare_impl
+    self.session.flush()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4155, in flush
+    self._flush(objects)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4291, in _flush
+    with util.safe_reraise():
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/util/langhelpers.py", line 147, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/session.py", line 4252, in _flush
+    flush_context.execute()
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 467, in execute
+    rec.execute(self)
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/unitofwork.py", line 644, in execute
+    util.preloaded.orm_persistence.save_obj(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 93, in save_obj
+    _emit_insert_statements(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/orm/persistence.py", line 1184, in _emit_insert_statements
+    result = connection.execute(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+           ^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/sql/elements.py", line 486, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 2326, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/opt/homebrew/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 748, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.DataError: (psycopg2.errors.InvalidTextRepresentation) invalid input syntax for type integer: ""
+LINE 1: ...b', 'ond', 'od', 'ondo', 'd', 'ndlo', '', '', '', '', false,...
+                                                             ^
+
+[SQL: INSERT INTO plants (common_name, scientific_name, sunlight_care, water_care, temperature_care, humidity_care, growing_tips, propagation_tips, common_pests, image_url, family, genus, year, edible, edible_part, edible_notes, medicinal, medicinal_notes, toxicity, synonyms, native_status, conservation_status, timestamp) VALUES (%(common_name)s, %(scientific_name)s, %(sunlight_care)s, %(water_care)s, %(temperature_care)s, %(humidity_care)s, %(growing_tips)s, %(propagation_tips)s, %(common_pests)s, %(image_url)s, %(family)s, %(genus)s, %(year)s, %(edible)s, %(edible_part)s, %(edible_notes)s, %(medicinal)s, %(medicinal_notes)s, %(toxicity)s, %(synonyms)s, %(native_status)s, %(conservation_status)s, %(timestamp)s) RETURNING plants.id]
+[parameters: {'common_name': 'a', 'scientific_name': 'sgsgs', 'sunlight_care': 'kbjjkbjkdbodd', 'water_care': 'bcb', 'temperature_care': 'ond', 'humidity_care': 'od', 'growing_tips': 'ondo', 'propagation_tips': 'd', 'common_pests': 'ndlo', 'image_url': '', 'family': '', 'genus': '', 'year': '', 'edible': False, 'edible_part': '', 'edible_notes': '', 'medicinal': False, 'medicinal_notes': '', 'toxicity': '', 'synonyms': '', 'native_status': '', 'conservation_status': '', 'timestamp': datetime.datetime(2023, 5, 10, 20, 47, 11, 92316)}]
+(Background on this error at: https://sqlalche.me/e/20/9h9h)
+2023-05-10 16:47:11,146 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:47:11,146 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:47:40,159 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2550
+
+
+2023-05-10 16:47:40,160 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Monstera adansonii</h2>\n                    <p class="card-text scientific-name">Monstera adansonii</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:47:40,189 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:47:40 GMT
+
+
+2023-05-10 16:47:40,190 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:40,190 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:47:40 GMT
+
+
+2023-05-10 16:47:40,191 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:40,192 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:47:40 GMT
+
+
+2023-05-10 16:47:40,192 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:40,196 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:47:40 GMT
+
+
+2023-05-10 16:47:40,196 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:41,823 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 11115
+
+
+2023-05-10 16:47:41,823 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title></title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <h1>plants...</h1>\n    <div class="table-container">\n        <div class="table-wrapper table-responsive">\n            <table class="table-full-width">\n                <thead>\n                <tr>\n                    <th>Common Name</th>\n                    <th>Scientific Name</th>\n                    <th>Sunlight Care</th>\n                    <th>Water Care</th>\n                    <th>Temperature Care</th>\n                    <th>Humidity Care</th>\n                    <th>Growing Tips</th>\n                    <th>Propagation Tips</th>\n                    <th>Common Pests</th>\n                </tr>\n                </thead>\n                <tbody>\n                \n                    <tr>\n                        <td>Pothos</td>\n                        <td>Epipremnum aureum</td>\n                        <td>Bright, indirect light</td>\n                        <td>Water when soil is dry</td>\n                        <td>60-80\xc2\xb0F</td>\n                        <td>40-60% humidity</td>\n                        <td>Trim dead leaves and stems regularly</td>\n                        <td>Cut 6-inch stem cuttings and place in water until roots form</td>\n                        <td>Mealybugs, spider mites</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Dracaena trifasciata</td>\n                        <td>Dracaena trifasciata</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Monstera adansonii</td>\n                        <td>Monstera adansonii</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or layering</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Pilea peperomioides</td>\n                        <td>Pilea peperomioides</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Rotate plant every few weeks to maintain even growth</td>\n                        <td>Propagate by stem or leaf cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Alocasia lauterbachiana</td>\n                        <td>Alocasia lauterbachiana</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-80\xc2\xb0F (16-27\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by division or stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Ficus lyrata</td>\n                        <td>Ficus lyrata</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out slightly between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Portulacaria afra</td>\n                        <td>Portulacaria afra</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>50-80\xc2\xb0F (10-27\xc2\xb0C)</td>\n                        <td>Average to low humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or leaf cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Monstera lecheriana</td>\n                        <td>Monstera lecheriana</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or layering</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Alocasia frydek</td>\n                        <td>Alocasia frydek</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-80\xc2\xb0F (16-27\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by division or stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Crocodile Fern</td>\n                        <td>Microsorum musifolium</td>\n                        <td>Bright, indirect light</td>\n                        <td>Consistently moist soil</td>\n                        <td>15-30 \xc2\xb0C</td>\n                        <td>60-70%</td>\n                        <td>Crocodile Ferns prefer bright, indirect light and require consistently moist soil. It is important not to overwater or underwater the plant.</td>\n                        <td>Crocodile Ferns can be propagated by spores or division.</td>\n                        <td>Mealybugs and scale insects may infest Crocodile Ferns.</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Spiny false fiddleleaf</td>\n                        <td>Hydrolea spinosa</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Field rose</td>\n                        <td>Rosa arvensis</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Bald-cypress</td>\n                        <td>Taxodium distichum</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Sturt&#39;s desert rose</td>\n                        <td>Gossypium sturtianum</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                </tbody>\n            </table>\n        </div>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:47:41,851 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:47:41 GMT
+
+
+2023-05-10 16:47:41,851 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:41,854 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:47:41 GMT
+
+
+2023-05-10 16:47:41,855 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:47:41 GMT
+
+
+2023-05-10 16:47:41,855 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:47:41 GMT
+
+
+2023-05-10 16:47:41,855 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:41,855 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:47:41,855 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:38,796 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2663
+
+
+2023-05-10 16:49:38,796 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <img src="https://bs.plantnet.org/image/o/e6898630aff87eefd5ffbad2ad8d0935b2155a77" alt="Bald-cypress"\n                         class="card-img-top rounded-3 max-image-size" width="300" height="300">\n                \n                <div class="card-body">\n                    <h2 class="card-title">Bald-cypress</h2>\n                    <p class="card-text scientific-name">Taxodium distichum</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:49:38,813 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:49:38 GMT
+
+
+2023-05-10 16:49:38,813 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:49:38 GMT
+
+
+2023-05-10 16:49:38,813 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:49:38 GMT
+
+
+2023-05-10 16:49:38,813 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:38,813 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:38,813 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:38,816 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:49:38 GMT
+
+
+2023-05-10 16:49:38,816 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:39,967 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:49:39,967 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="ImRmOWNiNWU5ZTc0MjVlOGVlOWY2ZmNkZDc4ZDZkOGRiNDFiMTllYmYi.ZFwDYw.ItWLC1n6a8VkqgCsdrDFZoKgcAo">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:49:39,983 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:49:39 GMT
+
+
+2023-05-10 16:49:39,983 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:39,985 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:49:39 GMT
+
+
+2023-05-10 16:49:39,986 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:39,986 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:49:39 GMT
+
+
+2023-05-10 16:49:39,986 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:49:39 GMT
+
+
+2023-05-10 16:49:39,987 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:39,986 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:49:51,037 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 282
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiZGY5Y2I1ZTllNzQyNWU4ZWU5ZjZmY2RkNzhkNmQ4ZGI0MWIxOWViZiJ9.ZFwDYw.u4azChHAF2ePfHOno5z7TAAiCC8
+
+
+2023-05-10 16:49:51,040 - app - DEBUG - Request body: b''
+2023-05-10 16:49:51,056 - app - ERROR - Exception on /add_to_database [POST]
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/wbabich/PycharmProjects/plant_app/app.py", line 225, in add_to_database
+    app.logger.debug('Response headers: %s', response.headers)
+                                             ^^^^^^^^
+NameError: name 'response' is not defined
+2023-05-10 16:49:51,061 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 265
+
+
+2023-05-10 16:49:51,061 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>500 Internal Server Error</title>\n<h1>Internal Server Error</h1>\n<p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>\n'
+2023-05-10 16:51:23,943 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2560
+
+
+2023-05-10 16:51:23,944 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Alocasia lauterbachiana</h2>\n                    <p class="card-text scientific-name">Alocasia lauterbachiana</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:51:23,964 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:51:23 GMT
+
+
+2023-05-10 16:51:23,964 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:23,966 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:51:23 GMT
+
+
+2023-05-10 16:51:23,966 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:23,967 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:51:23 GMT
+
+
+2023-05-10 16:51:23,968 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:23,968 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:51:23 GMT
+
+
+2023-05-10 16:51:23,968 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:24,932 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 5702
+
+
+2023-05-10 16:51:24,932 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Manual Plant Entry</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <div class="manual-entry-container">\n        <div class="typewriter-wrapper">\n            <h2 class="manual-entry-title typing">manually enter a plant...</h2>\n        </div>\n        <form action="/add_to_database" method="post">\n            <input type="hidden" name="csrf_token" value="IjViYTZkYzk4NjQzYTcxODU2N2FkNWRiNjUxYjlkMDIzODI1ODkwZjQi.ZFwDzA.t2c2fbBABjcCuR2-hUTJrxZvhw0">\n            <div class="form-row">\n                <div class="form-column">\n                    <div>\n                        <label for="common_name">Common Name:</label>\n                        <input type="text" class="form-control" id="common_name" name="common_name"\n                               placeholder="enter common name..." required>\n                    </div>\n                    <div>\n                        <label for="water_care">Water Care:</label>\n                        <input type="text" class="form-control" id="water_care" name="water_care"\n                               placeholder="enter water care..." required>\n                    </div>\n                    <div>\n                        <label for="sunlight_care">Sunlight Care:</label>\n                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"\n                               placeholder="enter sunlight care..." required>\n                    </div>\n                </div>\n                <div class="form-column">\n                    <div>\n                        <label for="scientific_name">Scientific Name:</label>\n                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"\n                               placeholder="enter scientific name..." required>\n                    </div>\n                    <div>\n                        <label for="humidity_care">Humidity Care:</label>\n                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"\n                               placeholder="enter humidity care..." required>\n                    </div>\n                    <div>\n                        <label for="temperature_care">Temperature Care:</label>\n                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"\n                               placeholder="enter temperature care..." required>\n                    </div>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="growing_tips">Growing Tips:</label>\n                    <textarea class="form-control" id="growing_tips" name="growing_tips"\n                              placeholder="enter growing tips..."\n                              required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="propagation_tips">Propagation Tips:</label>\n                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"\n                              placeholder="enter propagation tips..." required></textarea>\n                </div>\n            </div>\n            <div class="form-row-full">\n                <div>\n                    <label for="common_pests">Common Pests:</label>\n                    <textarea class="form-control" id="common_pests" name="common_pests"\n                              placeholder="enter common pests..."\n                              required></textarea>\n                </div>\n            </div>\n            <input type="submit" value="add details to database">\n        </form>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:51:24,946 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:51:24 GMT
+
+
+2023-05-10 16:51:24,948 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:51:24 GMT
+
+
+2023-05-10 16:51:24,948 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:51:24 GMT
+
+
+2023-05-10 16:51:24,949 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:24,951 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:51:24 GMT
+
+
+2023-05-10 16:51:24,951 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:24,951 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:24,952 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:31,387 - app - DEBUG - Request headers: Host: 127.0.0.1:5000
+Connection: keep-alive
+Content-Length: 247
+Cache-Control: max-age=0
+Sec-Ch-Ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Origin: http://127.0.0.1:5000
+Dnt: 1
+Upgrade-Insecure-Requests: 1
+Content-Type: application/x-www-form-urlencoded
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Sec-Fetch-Dest: document
+Referer: http://127.0.0.1:5000/manual_entry
+Accept-Encoding: gzip, deflate, br
+Accept-Language: en-US,en;q=0.9
+Cookie: session=eyJjc3JmX3Rva2VuIjoiNWJhNmRjOTg2NDNhNzE4NTY3YWQ1ZGI2NTFiOWQwMjM4MjU4OTBmNCJ9.ZFwDzA.bW7dtvrv1YBwB_UiDXDKOlz-Dtw
+
+
+2023-05-10 16:51:31,390 - app - DEBUG - Request body: b''
+2023-05-10 16:51:31,428 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 189
+Location: /
+
+
+2023-05-10 16:51:31,428 - app - DEBUG - Response body: b'<!doctype html>\n<html lang=en>\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to the target URL: <a href="/">/</a>. If not, click the link.\n'
+2023-05-10 16:51:31,438 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 2538
+
+
+2023-05-10 16:51:31,438 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title>Home</title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n\n    <div class="container">\n        <h1 class="my-header">plants!</h1>\n        \n            <div class="card mb-4">\n                \n                    <div class="no-image-message card-body">No image available for this plant.</div>\n                \n                <div class="card-body">\n                    <h2 class="card-title">Ficus lyrata</h2>\n                    <p class="card-text scientific-name">Ficus lyrata</p>\n                </div>\n            </div>\n        \n    </div>\n\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:51:31,475 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:51:31 GMT
+
+
+2023-05-10 16:51:31,475 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:51:31 GMT
+
+
+2023-05-10 16:51:31,475 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:51:31 GMT
+
+
+2023-05-10 16:51:31,476 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:31,476 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:51:31 GMT
+
+
+2023-05-10 16:51:31,476 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:31,476 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:31,476 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:32,830 - app - DEBUG - Response headers: Content-Type: text/html; charset=utf-8
+Content-Length: 11916
+
+
+2023-05-10 16:51:32,831 - app - DEBUG - Response body: b'<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset="UTF-8">\n    <title></title>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <link rel="stylesheet" href="/static/css/bootstrap.min.css">\n    <link rel="stylesheet" href="/static/css/style.css">\n</head>\n\n<body>\n<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">\n    <div class="container">\n        <a class="navbar-brand" href="/">home</a>\n        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"\n                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">\n            <span class="navbar-toggler-icon"></span>\n        </button>\n        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">\n            <ul class="navbar-nav">\n                <li class="nav-item">\n                    <a class="nav-link" href="/plants">plants</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/add_plant">add new plant</a>\n                </li>\n                <li class="nav-item">\n                    <a class="nav-link" href="/manual_entry">manual entry</a>\n                </li>\n            </ul>\n            <form class="form-inline my-2 my-lg-0" action="/search" method="GET">\n                <div class="input-group">\n                    <input class="form-control mr-sm-2" type="search" placeholder="search for a plant..."\n                           aria-label="Search" name="query"\n                           value="">\n                    <div class="input-group-append">\n                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>\n                    </div>\n                </div>\n            </form>\n        </div>\n    </div>\n</nav>\n<div class="container" style="width: 100%; padding: 0 20px;">\n    \n    <h1>plants...</h1>\n    <div class="table-container">\n        <div class="table-wrapper table-responsive">\n            <table class="table-full-width">\n                <thead>\n                <tr>\n                    <th>Common Name</th>\n                    <th>Scientific Name</th>\n                    <th>Sunlight Care</th>\n                    <th>Water Care</th>\n                    <th>Temperature Care</th>\n                    <th>Humidity Care</th>\n                    <th>Growing Tips</th>\n                    <th>Propagation Tips</th>\n                    <th>Common Pests</th>\n                </tr>\n                </thead>\n                <tbody>\n                \n                    <tr>\n                        <td>Pothos</td>\n                        <td>Epipremnum aureum</td>\n                        <td>Bright, indirect light</td>\n                        <td>Water when soil is dry</td>\n                        <td>60-80\xc2\xb0F</td>\n                        <td>40-60% humidity</td>\n                        <td>Trim dead leaves and stems regularly</td>\n                        <td>Cut 6-inch stem cuttings and place in water until roots form</td>\n                        <td>Mealybugs, spider mites</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Dracaena trifasciata</td>\n                        <td>Dracaena trifasciata</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Monstera adansonii</td>\n                        <td>Monstera adansonii</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or layering</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Pilea peperomioides</td>\n                        <td>Pilea peperomioides</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Rotate plant every few weeks to maintain even growth</td>\n                        <td>Propagate by stem or leaf cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Alocasia lauterbachiana</td>\n                        <td>Alocasia lauterbachiana</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-80\xc2\xb0F (16-27\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by division or stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Ficus lyrata</td>\n                        <td>Ficus lyrata</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out slightly between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Portulacaria afra</td>\n                        <td>Portulacaria afra</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>50-80\xc2\xb0F (10-27\xc2\xb0C)</td>\n                        <td>Average to low humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or leaf cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Monstera lecheriana</td>\n                        <td>Monstera lecheriana</td>\n                        <td>Bright, indirect light</td>\n                        <td>Allow soil to dry out between waterings</td>\n                        <td>60-75\xc2\xb0F (15-24\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by stem cuttings or layering</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Alocasia frydek</td>\n                        <td>Alocasia frydek</td>\n                        <td>Bright, indirect light</td>\n                        <td>Keep soil consistently moist but not waterlogged</td>\n                        <td>60-80\xc2\xb0F (16-27\xc2\xb0C)</td>\n                        <td>Average to high humidity</td>\n                        <td>Prefers well-draining soil. Fertilize once a month during growing season</td>\n                        <td>Propagate by division or stem cuttings</td>\n                        <td>Spider mites, mealybugs</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Crocodile Fern</td>\n                        <td>Microsorum musifolium</td>\n                        <td>Bright, indirect light</td>\n                        <td>Consistently moist soil</td>\n                        <td>15-30 \xc2\xb0C</td>\n                        <td>60-70%</td>\n                        <td>Crocodile Ferns prefer bright, indirect light and require consistently moist soil. It is important not to overwater or underwater the plant.</td>\n                        <td>Crocodile Ferns can be propagated by spores or division.</td>\n                        <td>Mealybugs and scale insects may infest Crocodile Ferns.</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Spiny false fiddleleaf</td>\n                        <td>Hydrolea spinosa</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Field rose</td>\n                        <td>Rosa arvensis</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Bald-cypress</td>\n                        <td>Taxodium distichum</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>Sturt&#39;s desert rose</td>\n                        <td>Gossypium sturtianum</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                        <td>No data</td>\n                    </tr>\n                \n                    <tr>\n                        <td>bbb</td>\n                        <td>bbbbb</td>\n                        <td>bbbbb</td>\n                        <td>bbbb</td>\n                        <td>bbbbb</td>\n                        <td>bbbbbb</td>\n                        <td>bbbbbb</td>\n                        <td>bbbbb</td>\n                        <td>bbbbb</td>\n                    </tr>\n                \n                    <tr>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                        <td>a</td>\n                    </tr>\n                \n                </tbody>\n            </table>\n        </div>\n    </div>\n\n</div>\n\n<script src="/static/js/jquery-3.6.4.min.js"></script>\n<script src="/static/js/bootstrap.bundle.min.js"></script>\n</body>\n\n</html>'
+2023-05-10 16:51:32,865 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.min.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 163873
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1886287-163873-2615614113"
+Date: Wed, 10 May 2023 20:51:32 GMT
+
+
+2023-05-10 16:51:32,866 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:32,869 - app - DEBUG - Response headers: Content-Disposition: inline; filename=jquery-3.6.4.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 89794
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1954129-89794-2847087025"
+Date: Wed, 10 May 2023 20:51:32 GMT
+
+
+2023-05-10 16:51:32,869 - app - DEBUG - Response headers: Content-Disposition: inline; filename=style.css
+Content-Type: text/css; charset=utf-8
+Content-Length: 4446
+Last-Modified: Wed, 10 May 2023 19:20:56 GMT
+Cache-Control: no-cache
+ETag: "1683746456.5373893-4446-3511293826"
+Date: Wed, 10 May 2023 20:51:32 GMT
+
+
+2023-05-10 16:51:32,869 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:32,869 - app - DEBUG - Response is in direct passthrough mode
+2023-05-10 16:51:32,870 - app - DEBUG - Response headers: Content-Disposition: inline; filename=bootstrap.bundle.min.js
+Content-Type: application/javascript; charset=utf-8
+Content-Length: 78129
+Last-Modified: Thu, 27 Apr 2023 21:24:51 GMT
+Cache-Control: no-cache
+ETag: "1682630691.1919186-78129-641604721"
+Date: Wed, 10 May 2023 20:51:32 GMT
+
+
+2023-05-10 16:51:32,871 - app - DEBUG - Response is in direct passthrough mode
