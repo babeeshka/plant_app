@@ -12,7 +12,7 @@
 {% block content %}
     <div class="manual-entry-container">
         <div class="typewriter-wrapper">
-            <h2 class="manual-entry-title typing">manually enter a plant...</h2>
+            <h2 class="manual-entry-title typing" id="page-title">manually enter a plant...</h2>
         </div>
         <form action="{{ url_for('add_to_database') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
