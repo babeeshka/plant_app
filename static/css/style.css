@@ -4,6 +4,7 @@
     --secondary-color: #f1f1f1; /* Example: Light gray */
     --text-color: #333; /* Example: Dark gray */
     --light-text-color: #fff; /* Example: White */
+    --primary-color-hover: #4CAF50;
 }
 
 
@@ -27,7 +28,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
+    /*height: 100vh;*/
+    padding-top: 125px;
     background-color: #fff;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -94,6 +96,16 @@ a {
     margin: 10px 0 20px;
 }
 
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dropdown-menu {
+    z-index: 9999;
+}
+
 .form-container {
     background-color: transparent; /* remove the white background */
     box-shadow: none; /* remove the box-shadow */
@@ -125,7 +137,7 @@ a {
 .form-group button[type="submit"] {
     font-size: 16px; /* increase font size */
     background-color: var(--primary-color); /* use primary color from global styles */
-    color: var(--text-light); /* use light text color from global styles */
+    color: var(--light-text-color); /* use light text color from global styles */
     border: none;
     border-radius: 5px;
     padding: 10px 20px; /* increase padding for a slightly larger button */
@@ -276,7 +288,7 @@ a {
     text-align: center;
     justify-content: center;
     margin: 0 auto;
-    padding: 20px;
+    /*padding: 20px;*/
 }
 
 table td {
@@ -330,6 +342,10 @@ table tr.dark-background td {
     height: 100vh;
 }
 
+.title-container {
+    padding-top: 20px; /* Adjust this value as needed */
+}
+
 /* Typewriter */
 .typewriter-wrapper {
     height: 15vh;
@@ -340,11 +356,13 @@ table tr.dark-background td {
 
 .typing {
     width: 20ch;
+    /*min-width: fit-content;*/
+    /*min-width: fit-content;*/
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
-    font-family: roboto;
+    font-family: roboto, sans-serif;
     font-size: 2.15em;
 }
 

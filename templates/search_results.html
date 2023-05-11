@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Search Results for {{ name }}</h1>
+    <h1 class="typing">Search Results for {{ name }}</h1>
     {% if result %}
         <p>Common Name: {{ result.common_name }}</p>
         <p>Scientific Name: {{ result.scientific_name }}</p>
@@ -27,7 +27,7 @@
             <input type="hidden" name="propagation_tips" value="{{ result.propagation_tips }}">
             <input type="hidden" name="common_pests" value="{{ result.common_pests }}">
             <input type="hidden" name="image_url" value="{{ result.image_url }}">
-            <input type="hidden" name="family" value="{{ fresult.amily }}">
+            <input type="hidden" name="family" value="{{ result.family }}">
             <input type="hidden" name="genus" value="{{ result.genus }}">
             <input type="hidden" name="year" value="{{ result.year }}">
             <input type="hidden" name="edible" value="{{ result.edible }}">

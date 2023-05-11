@@ -5,10 +5,18 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom CSS and fonts -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -49,9 +57,15 @@
     {% block content %}
     {% endblock %}
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dropdownElements = document.querySelectorAll('[data-toggle="dropdown"]');
+        dropdownElements.forEach(function (element) {
+            new bootstrap.Dropdown(element);
+        });
+    });
+</script>
 
-<script src="{{ url_for('static', filename='js/jquery-3.6.4.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

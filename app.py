@@ -15,6 +15,9 @@ from plant_info import get_plant_info
 from dotenv import load_dotenv
 from forms import SearchForm
 
+# Import db_session after configure_database
+from database import db_session
+
 # Initiate the Flask app
 app = Flask(__name__)
 
@@ -24,9 +27,6 @@ load_dotenv()
 # Configure the database
 configure_database(app)
 migrate = Migrate(app, db)
-
-# Import db_session after configure_database
-from database import db_session
 
 # Set the CSRF secret key
 app.config['SECRET_KEY'] = secrets.token_hex(16)
@@ -120,7 +120,7 @@ def search_results():
         common_name = form.common_name.data
         plant = Plant.query.filter_by(common_name=common_name).first()
         if plant:
-            return render_template('plant.html', plant=plant)
+            return render_template('plant_info.html', plant=plant)
         else:
             flash('No plant found with that common name')
             return redirect(url_for('search_plant'))
@@ -135,7 +135,7 @@ def plant_information(plant_id):
     # Get additional plant information from the Trefle API
     plant_info = get_plant_info(plant.trefle_id)
 
-    return render_template('plant_information.html', plant=plant, plant_info=plant_info)
+    return render_template('plant_info.html', plant=plant, plant_info=plant_info)
 
 
 # Define the route for adding a new plant
@@ -226,3 +226,46 @@ def add_to_database():
 
     # Redirect to the home page
     return redirect(url_for('home'))
+
+
+@app.route('/plant/edit/<int:plant_id>', methods=['GET', 'POST'])
+def edit_plant(plant_id):
+    plant = Plant.query.get_or_404(plant_id)
+    if request.method == 'POST':
+        plant.common_name = request.form['common_name']
+        plant.scientific_name = request.form['scientific_name']
+        plant.sunlight_care = request.form['sunlight_care']
+        plant.water_care = request.form['water_care']
+        plant.temperature_care = request.form['temperature_care']
+        plant.humidity_care = request.form['humidity_care']
+        plant.growing_tips = request.form['growing_tips']
+        plant.propagation_tips = request.form['propagation_tips']
+        plant.common_pests = request.form['common_pests']
+        plant.image_url = request.form['image_url']
+        plant.family = request.form['family']
+        plant.genus = request.form['genus']
+        plant.year = request.form['year']
+        plant.edible = request.form['edible']
+        plant.edible_part = request.form['edible_part']
+        plant.edible_notes = request.form['edible_notes']
+        plant.medicinal = request.form['medicinal']
+        plant.medicinal_notes = request.form['medicinal_notes']
+        plant.toxicity = request.form['toxicity']
+        plant.synonyms = request.form['synonyms']
+        plant.native_status = request.form['native_status']
+        plant.conservation_status = request.form['conservation_status']
+
+        db.session.commit()
+        flash('Plant details have been updated!', 'success')
+        return redirect(url_for('plants'))
+
+    return render_template('edit_plant.html', plant=plant)
+
+
+@app.route('/plant/delete/<int:plant_id>', methods=['POST'])
+def delete_plant(plant_id):
+    plant_to_delete = Plant.query.get_or_404(plant_id)
+    db.session.delete(plant_to_delete)
+    db.session.commit()
+    flash(f'Successfully deleted plant with ID {plant_id}', 'success')
+    return redirect(url_for('list_plants'))
