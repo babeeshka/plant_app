@@ -365,16 +365,16 @@ table tr.dark-background td {
 }
 
 .typing {
-    width: 20ch;
-    /*min-width: fit-content;*/
-    /*min-width: fit-content;*/
+    /* width: 20ch; */
     animation: typing 2s steps(22), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
     font-family: roboto, sans-serif;
     font-size: 2.15em;
+    white-space: nowrap;
 }
+
 
 @keyframes typing {
     from {
