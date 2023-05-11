@@ -1,10 +1,11 @@
 /* Global styles */
 :root {
-    --primary-color: #2ecc71;
-    --secondary-color: #262626;
-    --background-color: #f5f5f5;
-    --text-color: #333;
+    --primary-color: #4CAF50; /* Example: Green */
+    --secondary-color: #f1f1f1; /* Example: Light gray */
+    --text-color: #333; /* Example: Dark gray */
+    --light-text-color: #fff; /* Example: White */
 }
+
 
 body, input, select, textarea {
     font-family: 'Roboto', sans-serif;
@@ -93,31 +94,52 @@ a {
     margin: 10px 0 20px;
 }
 
+.form-container {
+    background-color: transparent; /* remove the white background */
+    box-shadow: none; /* remove the box-shadow */
+    padding: 40px; /* increase padding for better spacing */
+    width: 50%; /* adjust width to occupy half of the page */
+    margin: 0 auto; /* center the form */
+}
+
 .form-group label {
-    font-size: 18px;
-    display: block;
-    margin-bottom: 5px;
+    font-size: 16px; /* reduce font size */
+    margin-bottom: 10px; /* increase margin-bottom for better spacing */
 }
 
 .form-group input[type="text"],
 .form-group textarea,
 .form-group select,
 .form-control {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    box-sizing: border-box;
-    margin-bottom: 10px;
+    border: 1px solid #ccc; /* make border thinner */
+    padding: 8px 12px; /* adjust padding for better spacing */
+    font-size: 14px; /* reduce font size */
+    margin-bottom: 20px; /* increase margin-bottom for better spacing */
 }
-
 
 .form-control:focus {
-    border-color: #66afe9;
-    outline: none;
-    box-shadow: none;
+    border-color: var(--primary-color); /* use primary color from global styles */
 }
+
+/* Submit button */
+.form-group button[type="submit"] {
+    font-size: 16px; /* increase font size */
+    background-color: var(--primary-color); /* use primary color from global styles */
+    color: var(--text-light); /* use light text color from global styles */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* increase padding for a slightly larger button */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* make the button a block element */
+    margin: 0 auto; /* center the button */
+}
+
+/* Submit button hover */
+.form-group button[type="submit"]:hover {
+    background-color: var(--primary-color-hover); /* use primary color hover from global styles */
+}
+
 
 .form-row {
     display: flex;
@@ -143,10 +165,61 @@ a {
     width: 100%;
     margin: auto;
 }
+
 .form-row-textarea {
     padding-left: 5px;
     padding-right: 5px;
 }
+
+/* Add this to your static/style.css */
+.manual-entry-form {
+    background-color: #f8f9fa; /* Light gray background color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.manual-entry-form label {
+    font-weight: bold;
+}
+
+.manual-entry-form input,
+.manual-entry-form select,
+.manual-entry-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.manual-entry-form input:focus,
+.manual-entry-form select:focus,
+.manual-entry-form textarea:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+
+.manual-entry-form input,
+.manual-entry-form select,
+.manual-entry-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.manual-entry-form input:focus,
+.manual-entry-form select:focus,
+.manual-entry-form textarea:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
 
 /* Search */
 .search-container {
@@ -206,6 +279,11 @@ a {
     padding: 20px;
 }
 
+table td {
+    word-wrap: break-word;
+}
+
+
 .table-full-width {
     width: 100%;
 }
@@ -215,21 +293,33 @@ a {
     overflow-x: auto;
 }
 
+/* Table header */
 table th {
-    background-color: #f2f2f2;
+    background-color: var(--primary-color);
     text-align: left;
     padding: 10px;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid var(--text-color);
+    color: var(--light-text-color); /* Use the light text color for better contrast */
 }
 
+/* Table data */
 table td {
     padding: 10px;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid var(--text-color);
+    color: var(--text-color); /* Use the dark text color for regular rows */
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+/* Table row with dark background */
+table tr.dark-background {
+    background-color: var(--primary-color);
+    color: var(--light-text-color); /* Use the light text color for better contrast */
 }
+
+/* Table data in the dark background row */
+table tr.dark-background td {
+    color: var(--light-text-color); /* Use the light text color for better contrast */
+}
+
 
 /* Add plant */
 .add-plant-container {
@@ -242,32 +332,32 @@ table tr:nth-child(even) {
 
 /* Typewriter */
 .typewriter-wrapper {
-  height: 15vh;
-  /*This part is important for centering*/
-  display: grid;
-  place-items: center;
+    height: 15vh;
+    /*This part is important for centering*/
+    display: grid;
+    place-items: center;
 }
 
 .typing {
-  width: 20ch;
-  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
-  font-family: roboto;
-  font-size: 2.15em;
+    width: 20ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: roboto;
+    font-size: 2.15em;
 }
 
 @keyframes typing {
-  from {
-    width: 0
-  }
+    from {
+        width: 0
+    }
 }
 
 @keyframes blink {
-  50% {
-    border-color: transparent
-  }
+    50% {
+        border-color: transparent
+    }
 }
 
 /* ... other styles ... */
