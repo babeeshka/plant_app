@@ -342,8 +342,9 @@ table tr.dark-background td {
     height: 100vh;
 }
 
-.title-container {
+.table-title-container {
     padding-top: 20px; /* Adjust this value as needed */
+    justify-content: left;
 }
 
 /* Typewriter */
