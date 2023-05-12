@@ -32,8 +32,8 @@ migrate = Migrate(app, db)
 app.config['SECRET_KEY'] = secrets.token_hex(16)
 csrf = CSRFProtect(app)
 
-# Set the logging level to "DEBUG"
-app.logger.setLevel(logging.DEBUG)
+# Set the logging level
+app.logger.setLevel(logging.ERROR)
 
 # Add a rotating file handler that writes messages to a log file
 log_file = 'app.log'

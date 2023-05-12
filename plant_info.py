@@ -9,7 +9,7 @@ def get_plant_info(query, get_detailed_info=False):
     query = query.strip().lower()
 
     # Search by common name
-    url = f'https://api.perenual.com/plants/search?api_key={PERENUAL_API_KEY}&q={query}'
+    url = f'https://perenual.com/api/species-list?key={PERENUAL_API_KEY}&q={query}'
     response = requests.get(url)
 
     if response.status_code != 200:
@@ -17,20 +17,21 @@ def get_plant_info(query, get_detailed_info=False):
         return None
 
     results = response.json()
+    print(results)
 
     if not results:
         print("No results found")
         return None
 
     # Choose the first result
-    first_result = results[0]
+    first_result = results['data'][0]
 
     # Map the Perenual API fields to the desired schema
     extracted_info = {
         'id': first_result['id'],  # Add the plant ID to the extracted_info dictionary
         'common_name': first_result['common_name'],
         'scientific_name': first_result['scientific_name'],
-        'other_names': first_result['other_names'] or None,
+        'other_names': first_result.get('other_names', None),
         'cycle': first_result['cycle'],
         'image_url': first_result['default_image.original_url'],
         'sunlight_care': first_result['sunlight'],
