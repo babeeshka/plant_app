@@ -6,50 +6,65 @@
 {% endblock %}
 
 {% block content %}
-    <div class="typewriter-wrapper title-container">
-        <h1 class="typing">Search Results for {{ name }}</h1>
-    </div>
-    {% if result %}
-        <p>Common Name: {{ result.common_name }}</p>
-        <p>Scientific Name: {{ result.scientific_name }}</p>
-        <p>Sunlight Care: {{ result.sunlight_care }}</p>
-        <p>Water Care: {{ result.water_care }}</p>
-        <p>Temperature: {{ result.temperature_care }}</p>
-        <p>Humidity: {{ result.humidity_care }}</p>
-        <p>Common Pests: {{ result.common_pests }}</p>
-        <form action="{{ url_for('add_to_database') }}" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="common_name" value="{{ result.common_name }}">
-            <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
-            <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
-            <input type="hidden" name="water_care" value="{{ result.water_care }}">
-            <input type="hidden" name="temperature_care" value="{{ result.temperature_care }}">
-            <input type="hidden" name="humidity_care" value="{{ result.humidity_care }}">
-            <input type="hidden" name="growing_tips" value="{{ result.growing_tips }}">
-            <input type="hidden" name="propagation_tips" value="{{ result.propagation_tips }}">
-            <input type="hidden" name="common_pests" value="{{ result.common_pests }}">
-            <input type="hidden" name="image_url" value="{{ result.image_url }}">
-            <input type="hidden" name="family" value="{{ result.family }}">
-            <input type="hidden" name="genus" value="{{ result.genus }}">
-            <input type="hidden" name="year" value="{{ result.year }}">
-            <input type="hidden" name="edible" value="{{ result.edible }}">
-            <input type="hidden" name="edible_part" value="{{ result.edible_part }}">
-            <input type="hidden" name="edible_notes" value="{{ result.edible_notes }}">
-            <input type="hidden" name="medicinal" value="{{ result.medicinal }}">
-            <input type="hidden" name="medicinal_notes" value="{{ result.medicinal_notes }}">
-            <input type="hidden" name="toxicity" value="{{ result.toxicity }}">
-            <input type="hidden" name="synonyms" value="{{ result.synonyms }}">
-            <input type="hidden" name="native_status" value="{{ result.native_status }}">
-            <input type="hidden" name="conservation_status" value="{{ cresult.onservation_status }}">
-            <input type="submit" value="Add to Database">
-        </form>
-        <form action="{{ url_for('home') }}" method="get">
-            <input type="submit" value="Cancel">
-        </form>
-    {% else %}
-        <p>No results found for {{ name }}</p>
-        <form action="{{ url_for('manual_entry') }}" method="get">
-            <input type="submit" value="add manually">
-        </form>
-    {% endif %}
+<div class="typewriter-wrapper title-container">
+    <h1 class="typing">Search Results for {{ name }}</h1>
+</div>
+{% if result %}
+    <p>Common Name: {{ result.common_name }}</p>
+    <p>Scientific Name: {{ result.scientific_name }}</p>
+    <p>Sunlight Care: {{ result.sunlight_care }}</p>
+    <p>Water Care: {{ result.water_care }}</p>
+    <p>Cycle: {{ result.cycle }}</p>
+    <p>Image: {{ result.image_url }}</p>
+    <p>Other Names: {{ result.other_names }}</p>
+{% endif %}
+
+<form method="post" action="{{ url_for('search') }}">
+    <input type="hidden" name="query" value="{{ plant.common_name }}">
+    <input type="hidden" name="get_detailed_info" value="True">
+    <button type="submit" class="btn btn-primary">Get more details</button>
+</form>
+
+{% if plant.family %}
+    <h3>Additional Details:</h3>
+    <p><strong>Family:</strong> {{ plant.family }}</p>
+    <p><strong>Origin:</strong> {{ plant.origin|join(', ') }}</p>
+    <p><strong>Plant Type:</strong> {{ plant.plant_type }}</p>
+    <!-- ... add more fields as needed ... -->
+    <form action="{{ url_for('add_to_database') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="common_name" value="{{ result.common_name }}">
+        <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
+        <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
+        <input type="hidden" name="water_care" value="{{ result.water_care }}">
+        <input type="hidden" name="type" value="{{ result.type }}">
+        <input type="hidden" name="dimension" value="{{ result.dimension }}">
+        <input type="hidden" name="soil" value="{{ result.soil }}">
+        <input type="hidden" name="propagation" value="{{ result.propagation }}">
+        <input type="hidden" name="hardiness" value="{{ result.hardiness }}">
+        <input type="hidden" name="image_url" value="{{ result.image_url }}">
+        <input type="hidden" name="family" value="{{ result.family }}">
+        <input type="hidden" name="origin" value="{{ result.origin }}">
+        <input type="hidden" name="growth_rate" value="{{ result.growth_rate }}">
+        <input type="hidden" name="drought_tolerant" value="{{ result.drought_tolerant }}">
+        <input type="hidden" name="salt_tolerant" value="{{ result.salt_tolerant }}">
+        <input type="hidden" name="pest_susceptibility" value="{{ result.pest_susceptibility }}">
+        <input type="hidden" name="flowering_season" value="{{ result.flowering_season }}">
+        <input type="hidden" name="flower_color" value="{{ result.flower_color }}">
+        <input type="hidden" name="leaf_color" value="{{ result.leaf_color }}">
+        <input type="hidden" name="synonyms" value="{{ result.synonyms }}">
+        <input type="hidden" name="native_status" value="{{ result.native_status }}">
+        <input type="hidden" name="conservation_status" value="{{ cresult.onservation_status }}">
+        <input type="submit" value="Add to Database">
+    </form>
+{% endif %}
+<form action="{{ url_for('home') }}" method="get">
+    <input type="submit" value="Cancel">
+</form>
+{% else %}
+<p>No results found for {{ name }}</p>
+<form action="{{ url_for('manual_entry') }}" method="get">
+    <input type="submit" value="add manually">
+</form>
+{% endif %}
 {% endblock %}

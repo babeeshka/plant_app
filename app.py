@@ -85,6 +85,7 @@ def list_plants():
 @app.route('/search', methods=['GET', 'POST'])
 def search_plant():
     query = request.args.get('query') or request.form.get('query')
+    get_detailed_info = request.form.get('get_detailed_info', False)
     if query:
         print("Search query received:", query)  # Debugging print statement
         # Search the database for plants that match the query
@@ -95,16 +96,16 @@ def search_plant():
             # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
-            print("No plants found in the database, fetching data from the Trefle API")  # Debugging print statement
-            # If the plant is not found in the database, fetch the data from the Trefle API
-            fetched_plant_info = get_plant_info(query.strip())
+            print("No plants found in the database, fetching data from the Perenual API")  # Debugging print statement
+            # If the plant is not found in the database, fetch the data from the Perenual API
+            fetched_plant_info = get_plant_info(query.strip(), get_detailed_info)
             if fetched_plant_info:
-                print("Plant data found in the Trefle API:", fetched_plant_info)  # Debugging print statement
-                # If the plant data is found in the Trefle API, show the search results
-                return render_template('search_results.html', name=query, result=fetched_plant_info)
+                print("Plant data found in the Perenual API:", fetched_plant_info)  # Debugging print statement
+                # If the plant data is found in the Perenual API, show the search results
+                return render_template('search_results.html', plant=fetched_plant_info)
             else:
-                print("No plant data found in the Trefle API")  # Debugging print statement
-                # If the plant data is not found in the Trefle API, show a message to the user
+                print("No plant data found in the Perenual API")  # Debugging print statement
+                # If the plant data is not found in the Perenual API, show a message to the user
                 flash(f'No plant named "{query}" found.')
     else:
         print("No query parameter received")  # Debugging print statement
