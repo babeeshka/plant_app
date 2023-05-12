@@ -10,8 +10,8 @@
 
 {% block content %}
     <div class="manual-entry-container">
-        <div class="typewriter-wrapper">
-            <h2 class="typing">manually enter a plant...</h2>
+        <div class="typewriter">
+            <h1>manually enter a plant...</h1>
         </div>
         <form action="{{ url_for('add_to_database') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
