@@ -9,22 +9,20 @@
 <div class="typewriter-wrapper title-container">
     <h1 class="typing">Search Results for {{ name }}</h1>
 </div>
-{% if result %}
-    <p>Common Name: {{ result.common_name }}</p>
-    <p>Scientific Name: {{ result.scientific_name }}</p>
-    <p>Sunlight Care: {{ result.sunlight_care }}</p>
-    <p>Water Care: {{ result.water_care }}</p>
-    <p>Cycle: {{ result.cycle }}</p>
-    <p>Image: {{ result.image_url }}</p>
-    <p>Other Names: {{ result.other_names }}</p>
-{% endif %}
+<div class="plant-info">
+    <h2>{{ plant.common_name }}</h2>
+    <p><strong>Scientific name:</strong> {{ plant.scientific_name }}</p>
+    <p><strong>Other names:</strong> {{ plant.other_names }}</p>
+    <p><strong>Cycle:</strong> {{ plant.cycle }}</p>
+    <p><strong>Sunlight care:</strong> {{ plant.sunlight_care }}</p>
+    <p><strong>Water care:</strong> {{ plant.water_care }}</p>
+</div>
 
-<form method="post" action="{{ url_for('search') }}">
+<form action="{{ url_for('search_plant') }}" method="post">
     <input type="hidden" name="query" value="{{ plant.common_name }}">
-    <input type="hidden" name="get_detailed_info" value="True">
-    <button type="submit" class="btn btn-primary">Get more details</button>
+    <input type="hidden" name="get_detailed_info" value="true">
+    <button type="submit">Get more details</button>
 </form>
-
 {% if plant.family %}
     <h3>Additional Details:</h3>
     <p><strong>Family:</strong> {{ plant.family }}</p>
