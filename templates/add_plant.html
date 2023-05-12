@@ -4,12 +4,11 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 {% endblock %}
 
 {% block content %}
     <div class="add-plant-container">
-        <h2 class="search-title page-title">type in a plant name here...</h2>
+        <h2 class="search-title typing">type in a plant name here...</h2>
         <form class="search-form" action="{{ url_for('search_plant') }}" method="POST">
             {{ form.hidden_tag() }}
             <div class="typewriter">

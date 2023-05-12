@@ -3,7 +3,7 @@
 {% block title %}Search Plant{% endblock %}
 
 {% block content %}
-    <h1 class="mt-5 mb-4 page-title">search for a plant via trefle api</h1>
+    <h1 class="mt-5 mb-4 typing">search for a plant via trefle api</h1>
     <div class="container mt-5">
         <form method="POST" action="{{ url_for('search_plant') }}">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">

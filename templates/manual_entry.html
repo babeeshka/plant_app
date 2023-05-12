@@ -4,7 +4,6 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     {{ get_flashed_messages() }}
 
 {% endblock %}
@@ -12,7 +11,7 @@
 {% block content %}
     <div class="manual-entry-container">
         <div class="typewriter-wrapper">
-            <h2 class="page-title">manually enter a plant...</h2>
+            <h2 class="typing">manually enter a plant...</h2>
         </div>
         <form action="{{ url_for('add_to_database') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
