@@ -8,8 +8,8 @@
 
 {% block content %}
     <div class="add-plant-container">
-        <div class="typewriter">
-            <h1 class="search-title">type in a plant name here...</h1>
+        <div class="typewriter-wrapper">
+            <h1 class="search-title typing">type in a plant name here...</h1>
         </div>
         <form class="search-form" action="{{ url_for('search_plant') }}" method="POST">
             {{ form.hidden_tag() }}

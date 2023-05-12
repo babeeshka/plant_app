@@ -6,8 +6,8 @@
 {% endblock %}
 
 {% block content %}
-    <div class="typewriter">
-        <h1>Search Results for {{ name }}</h1>
+    <div class="typewriter-wrapper title-container">
+        <h1 class="typing">Search Results for {{ name }}</h1>
     </div>
     {% if result %}
         <p>Common Name: {{ result.common_name }}</p>

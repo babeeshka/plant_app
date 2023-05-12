@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="typewriter">
-        <h1>edit plant details</h1>
+    <div class="typewriter-wrapper title-container">
+        <h1 class="typing">edit a plant's details</h1>
     </div>
     <form action="{{ url_for('edit_plant', plant_id=plant.id) }}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>

@@ -60,6 +60,46 @@
             crossorigin="anonymous"></script>
     {#    <script src="{{ url_for('static', filename='js/main.js') }}"></script>#}
     {#    <script src="{{ url_for('static', filename='js/typewriter.js') }}"></script>#}
+    <!-- Typewriter effect script -->
+    <script>
+        function applyTypewriterEffect() {
+            const typingElements = document.querySelectorAll('.typing');
+
+            typingElements.forEach((element) => {
+                const textLength = element.textContent.length;
+                const typingDuration = 2; // Duration of the typing animation in seconds
+                const blinkDuration = 1; // Duration of the blink animation in seconds
+
+                element.style.animation = `
+        typing ${typingDuration}s steps(${textLength}),
+        blink ${blinkDuration}s step-end infinite alternate
+      `;
+            });
+
+            // Keyframes for typing and blink animations
+            const styleTag = document.createElement('style');
+            styleTag.textContent = `
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+    `;
+            document.head.appendChild(styleTag);
+        }
+
+        document.addEventListener('DOMContentLoaded', applyTypewriterEffect);
+    </script>
+
 {% endblock %}
 </body>
 

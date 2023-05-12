@@ -287,6 +287,8 @@ a {
     align-items: flex-start; /* Align the content to the left */
     text-align: center;
     justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .no-padding-container {
@@ -348,41 +350,41 @@ table tr.dark-background td {
 
 .table-title-container {
     padding-top: 20px;
-    width: 100%; /* Add width: 100%; */
+    justify-items: left;
 }
 
 .title-container {
     padding-top: 20px;
-    width: 100%; /* Add width: 100%; */
 }
 
 /* Typewriter */
-.typewriter {
-  display: inline-block;
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 3px solid;
-  animation: blink 1s steps(1) infinite;
-}
-
-.typewriter h1 {
-  display: inline-block;
-  animation: typing 5s steps(40) 1s 1 normal both;
-}
-
 @keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
+  }
 }
 
-@keyframes blink-caret {
-    50% {
-        border-color: transparent;
-    }
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter-wrapper {
+  height: 15vh;
+  display: inline-block;
+  place-items: center;
+}
+
+.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: roboto, monospace;
+  font-size: 2em;
 }
 
 /* ... other styles ... */
