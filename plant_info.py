@@ -1,7 +1,6 @@
 import os
 import requests
 
-
 PERENUAL_API_KEY = os.getenv('PERENUAL_API_KEY')
 
 
@@ -33,12 +32,12 @@ def get_plant_info(query, get_detailed_info=False):
         'scientific_name': first_result['scientific_name'],
         'other_names': first_result.get('other_names', None),
         'cycle': first_result['cycle'],
-        'image_url': first_result['default_image.original_url'],
+        'image_url': first_result['default_image']['original_url'],
         'sunlight_care': first_result['sunlight'],
         'water_care': first_result['watering']
     }
 
-    if detailed:
+    if get_detailed_info:
         plant_id = first_result['id']
         detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
         detail_response = requests.get(detail_url)
@@ -65,7 +64,7 @@ def get_plant_info(query, get_detailed_info=False):
             'pest_susceptibility': detail_result['pest_susceptibility'],
             'flowering_season': detail_result['flowering_season'],
             'flower_color': detail_result['flower_color'],
-            'leaf_color': detail_result['leaf_color'],
+            'leaf_color': detail_result['leaf_color']
             # add more fields as needed - some are "coming soon" in the API broker
         })
 
