@@ -42,16 +42,12 @@
                 </thead>
                 <tbody>
                 {% for plant in plants %}
-                    <tr>
+                    <tr class="detail-toggle">
                         <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
                         <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
-                        <td>{{ plant.sunlight_care if plant.sunlight_care else "No data" }}</td>
-                        <td>{{ plant.water_care if plant.water_care else "No data" }}</td>
-                        <td>{{ plant.temperature_care if plant.temperature_care else "No data" }}</td>
-                        <td>{{ plant.humidity_care if plant.humidity_care else "No data" }}</td>
-                        <td>{{ plant.growing_tips if plant.growing_tips else "No data" }}</td>
-                        <td>{{ plant.propagation_tips if plant.propagation_tips else "No data" }}</td>
-                        <td>{{ plant.common_pests if plant.common_pests else "No data" }}</td>
+                        <td>{{ plant.sunlight if plant.sunlight else "No data" }}</td>
+                        <td>{{ plant.watering if plant.watering else "No data" }}</td>
+                        <!-- Add other columns as needed -->
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
@@ -71,10 +67,26 @@
                             </div>
                         </td>
                     </tr>
+                    <tr class="plant-detail" style="display: none;">
+                        <td colspan="10">
+                            <strong>Type:</strong> {{ plant.type }}<br>
+                            <strong>Cycle:</strong> {{ plant.cycle }}<br>
+                            <strong>Propagation:</strong> {{ plant.propagation }}<br>
+                            <!-- Add other details as needed -->
+                        </td>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-{% endblock %}
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".detail-toggle").click(function() {
+            $(this).next(".plant-detail").toggle();
+        });
+    });
+    </script>
+{% endblock %}
