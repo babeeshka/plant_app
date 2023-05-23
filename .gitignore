@@ -1,2 +1,12 @@
 DATABASE_URL
 .env
+app.log
+app.log.*
+app.log.1
+app.log.2
+app.log.3
+app.log.4
+app.log.5
+*.pyc
+.DS_Store
+__pycache__/

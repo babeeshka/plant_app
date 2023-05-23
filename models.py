@@ -1,56 +1,77 @@
 from database import db
 import datetime
+from sqlalchemy.dialects.postgresql import ARRAY, JSON
+
 
 class Plant(db.Model):
     __tablename__ = "plants"
     id = db.Column(db.Integer, primary_key=True)
     common_name = db.Column(db.String(255), nullable=False)
-    scientific_name = db.Column(db.String(255), nullable=False)
-    sunlight_care = db.Column(db.String(255), nullable=True)
-    water_care = db.Column(db.String(255), nullable=True)
-    temperature_care = db.Column(db.String(255), nullable=True)
-    humidity_care = db.Column(db.String(255), nullable=True)
-    growing_tips = db.Column(db.String(255), nullable=True)
-    propagation_tips = db.Column(db.String(255), nullable=True)
-    common_pests = db.Column(db.String(255), nullable=True)
-    image_url = db.Column(db.String(255), nullable=True)
+    scientific_name = db.Column(ARRAY(db.String()), nullable=False)
+    other_name = db.Column(ARRAY(db.String()), nullable=True)
     family = db.Column(db.String(255), nullable=True)
-    genus = db.Column(db.String(255), nullable=True)
-    year = db.Column(db.Integer, nullable=True)
-    edible = db.Column(db.Boolean, nullable=True)
-    edible_part = db.Column(db.String(255), nullable=True)
-    edible_notes = db.Column(db.String(255), nullable=True)
+    origin = db.Column(ARRAY(db.String()), nullable=True)
+    type = db.Column(db.String(255), nullable=True)
+    dimension = db.Column(db.String(255), nullable=True)
+    cycle = db.Column(db.String(255), nullable=True)
+    attracts = db.Column(ARRAY(db.String()), nullable=True)
+    propagation = db.Column(ARRAY(db.String()), nullable=True)
+    hardiness = db.Column(JSON, nullable=True)
+    hardiness_location = db.Column(JSON, nullable=True)
+    watering = db.Column(db.String(255), nullable=True)
+    sunlight = db.Column(ARRAY(db.String()), nullable=True)
+    maintenance = db.Column(db.String(255), nullable=True)
+    care_guides = db.Column(db.String(255), nullable=True)
+    soil = db.Column(ARRAY(db.String()), nullable=True)
+    growth_rate = db.Column(db.String(255), nullable=True)
+    drought_tolerant = db.Column(db.Boolean, nullable=True)
+    salt_tolerant = db.Column(db.Boolean, nullable=True)
+    thorny = db.Column(db.Boolean, nullable=True)
+    invasive = db.Column(db.Boolean, nullable=True)
+    tropical = db.Column(db.Boolean, nullable=True)
+    indoor = db.Column(db.Boolean, nullable=True)
+    care_level = db.Column(db.String(255), nullable=True)
+    pest_susceptibility = db.Column(ARRAY(db.String()), nullable=True)
+    pest_susceptibility_api = db.Column(db.String(255), nullable=True)
+    flowers = db.Column(db.Boolean, nullable=True)
+    flowering_season = db.Column(db.String(255), nullable=True)
+    flower_color = db.Column(db.String(255), nullable=True)
+    cones = db.Column(db.Boolean, nullable=True)
+    fruits = db.Column(db.Boolean, nullable=True)
+    edible_fruit = db.Column(db.Boolean, nullable=True)
+    edible_fruit_taste_profile = db.Column(db.String(255), nullable=True)
+    fruit_nutritional_value = db.Column(db.String(255), nullable=True)
+    fruit_color = db.Column(ARRAY(db.String()), nullable=True)
+    harvest_season = db.Column(db.String(255), nullable=True)
+    harvest_method = db.Column(db.String(255), nullable=True)
+    leaf = db.Column(db.Boolean, nullable=True)
+    leaf_color = db.Column(ARRAY(db.String()), nullable=True)
+    edible_leaf = db.Column(db.Boolean, nullable=True)
+    edible_leaf_taste_profile = db.Column(db.String(255), nullable=True)
+    leaf_nutritional_value = db.Column(db.String(255), nullable=True)
+    cuisine = db.Column(db.Boolean, nullable=True)
+    cuisine_list = db.Column(db.String(255), nullable=True)
     medicinal = db.Column(db.Boolean, nullable=True)
-    medicinal_notes = db.Column(db.String(255), nullable=True)
-    toxicity = db.Column(db.String(255), nullable=True)
-    synonyms = db.Column(db.String(255), nullable=True)
-    native_status = db.Column(db.String(255), nullable=True)
-    conservation_status = db.Column(db.String(255), nullable=True)
+    medicinal_use = db.Column(db.String(255), nullable=True)
+    medicinal_method = db.Column(db.String(255), nullable=True)
+    poisonous_to_humans = db.Column(db.Integer, nullable=True)
+    poison_effects_to_humans = db.Column(db.String(255), nullable=True)
+    poison_to_humans_cure = db.Column(db.String(255), nullable=True)
+    poisonous_to_pets = db.Column(db.Integer, nullable=True)
+    poison_effects_to_pets = db.Column(db.String(255), nullable=True)
+    poison_to_pets_cure = db.Column(db.String(255), nullable=True)
+    rare = db.Column(db.String(255), nullable=True)
+    rare_level = db.Column(db.String(255), nullable=True)
+    endangered = db.Column(db.String(255), nullable=True)
+    endangered_level = db.Column(db.String(255), nullable=True)
+    description = db.Column(db.Text, nullable=True)
+    problem = db.Column(db.String(255), nullable=True)
+    default_image = db.Column(JSON, nullable=True)
     timestamp = db.Column(db.DateTime, default=datetime.datetime.utcnow, onupdate=datetime.datetime.utcnow)
 
-    def __init__(self, common_name, scientific_name, sunlight_care=None, water_care=None, temperature_care=None, humidity_care=None, growing_tips=None, propagation_tips=None, common_pests=None, image_url=None, family=None, genus=None, year=None, edible=None, edible_part=None, edible_notes=None, medicinal=None, medicinal_notes=None, toxicity=None, synonyms=None, native_status=None, conservation_status=None):
-        self.common_name = common_name
-        self.scientific_name = scientific_name
-        self.sunlight_care = sunlight_care
-        self.water_care = water_care
-        self.temperature_care = temperature_care
-        self.humidity_care = humidity_care
-        self.growing_tips = growing_tips
-        self.propagation_tips = propagation_tips
-        self.common_pests = common_pests
-        self.image_url = image_url
-        self.family = family
-        self.genus = genus
-        self.year = year
-        self.edible = edible
-        self.edible_part = edible_part
-        self.edible_notes = edible_notes
-        self.medicinal = medicinal
-        self.medicinal_notes = medicinal_notes
-        self.toxicity = toxicity
-        self.synonyms = synonyms
-        self.native_status = native_status
-        self.conservation_status = conservation_status
+    def __init__(self, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     @classmethod
     def plant_search(cls, plant_name):

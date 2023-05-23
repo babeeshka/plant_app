@@ -1,0 +1,104 @@
+{
+    "id": 7699,
+    "common_name": "bald cypress",
+    "scientific_name": [
+        "Taxodium distichum 'Cascade Falls'"
+    ],
+    "other_name": [],
+    "family": "Cupressaceae",
+    "origin": [
+        "United States"
+    ],
+    "type": "Tree",
+    "dimension": "8.00 to 20.00 feet",
+    "cycle": "Perennial",
+    "attracts": [],
+    "propagation": [
+        "Cutting",
+        "Grafting Propagation",
+        "Layering Propagation",
+        "Air Layering Propagation",
+        "Seed Propagation"
+    ],
+    "hardiness": {
+        "min": "4",
+        "max": "9"
+    },
+    "hardiness_location": {
+        "full_url": "https://perenual.com/api/hardiness-map?species_id=7699&size=og&key=sk-chJw64661fe8aef0c915",
+        "full_iframe": "<iframe frameborder=0 scrolling=yes seamless=seamless width=1000 height=550 style='margin:auto;' src='https://perenual.com/api/hardiness-map?species_id=7699&size=og&key=sk-chJw64661fe8aef0c915'></iframe>"
+    },
+    "watering": "Frequent",
+    "sunlight": [
+        "Full sun only if soil kept moist",
+        " Part sun/part shade"
+    ],
+    "maintenance": "Low",
+    "care-guides": "http://perenual.com/api/species-care-guide-list?species_id=7699&key=sk-chJw64661fe8aef0c915",
+    "soil": [
+        "Acidic",
+        " Bog",
+        " Well-drained"
+    ],
+    "growth_rate": "Moderate",
+    "drought_tolerant": false,
+    "salt_tolerant": true,
+    "thorny": false,
+    "invasive": false,
+    "tropical": false,
+    "indoor": false,
+    "care_level": "Medium",
+    "pest_susceptibility": [
+        "Pest resistant",
+        " Disease resistant",
+        " Deer resistant"
+    ],
+    "pest_susceptibility_api": "Coming Soon",
+    "flowers": true,
+    "flowering_season": "Spring",
+    "flower_color": "Non-flowering",
+    "cones": true,
+    "fruits": false,
+    "edible_fruit": false,
+    "edible_fruit_taste_profile": "Coming Soon",
+    "fruit_nutritional_value": "Coming Soon",
+    "fruit_color": [],
+    "harvest_season": "Coming Soon",
+    "harvest_method": "Coming Soon",
+    "leaf": true,
+    "leaf_color": [
+        "gold",
+        "green",
+        "yellow"
+    ],
+    "edible_leaf": false,
+    "edible_leaf_taste_profile": "Coming Soon",
+    "leaf_nutritional_value": "Coming Soon",
+    "cuisine": false,
+    "cuisine_list": "Coming Soon",
+    "medicinal": false,
+    "medicinal_use": "Coming Soon",
+    "medicinal_method": "Coming",
+    "poisonous_to_humans": 0,
+    "poison_effects_to_humans": "Coming Soon",
+    "poison_to_humans_cure": "Coming Soon",
+    "poisonous_to_pets": 0,
+    "poison_effects_to_pets": "Coming Soon",
+    "poison_to_pets_cure": "Coming Soon",
+    "rare": "Coming Soon",
+    "rare_level": "Coming Soon",
+    "endangered": "Coming Soon",
+    "endangered_level": "Coming Soon",
+    "description": "Bald cypress (Taxodium distichum 'Cascade Falls') is a slow-growing, fast-spreading, evergreen conifer. Its pyramidal shape makes it well suited for landscapes of all sizes. Its dark green fan-shaped leaves, which turn yellow-orange in autumn, attract attention in the fall. It has an interesting habit of dropping its needles every year, leaving only bare trunk and branches, giving the tree a characteristic “bald” look. In wetter climates, bald cypress will produce attractive, woody, vertical “cypress knees”, which are actually swollen roots that reach different heights above the ground, often serving as a habitat for small mammals and birds.",
+    "problem": "Coming Soon",
+    "default_image": {
+        "license": 5,
+        "license_name": "Attribution-ShareAlike License",
+        "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+        "original_url": "https://perenual.com/storage/species_image/7699_taxodium_distichum_cascade_falls/og/27543130600_23371331e6_b.jpg",
+        "regular_url": "https://perenual.com/storage/species_image/7699_taxodium_distichum_cascade_falls/regular/27543130600_23371331e6_b.jpg",
+        "medium_url": "https://perenual.com/storage/species_image/7699_taxodium_distichum_cascade_falls/medium/27543130600_23371331e6_b.jpg",
+        "small_url": "https://perenual.com/storage/species_image/7699_taxodium_distichum_cascade_falls/small/27543130600_23371331e6_b.jpg",
+        "thumbnail": "https://perenual.com/storage/species_image/7699_taxodium_distichum_cascade_falls/thumbnail/27543130600_23371331e6_b.jpg"
+    }
+}
