@@ -1,4 +1,4 @@
-#!/Users/wbabich/Documents/plantApp/plant_flask/bin/python
+#!/Users/wbabich/PycharmProjects/plant_app/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
