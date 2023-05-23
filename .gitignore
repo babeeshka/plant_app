@@ -13,12 +13,10 @@ __pycache__/
 lib/
 *.mo
 *.po
-
-<<<<<<< HEAD
+app.log*
 *.pyc
 .DS_Store
 __pycache__/
-
-=======
-
->>>>>>> 84e0328e8383f6b818c2337551746f21b3322ec1
+.ipynb_checkpoints/
+.ipynb*
+*.ipynb
