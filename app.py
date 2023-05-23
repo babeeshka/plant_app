@@ -167,7 +167,7 @@ def add_to_database():
     # Retrieve the data for the new plant from the form
     common_name = request.form.get('common_name') or None
     scientific_name = request.form.get('scientific_name') or None
-    sunlight_care = request.form.get('sunlight_care') or None
+    #sunlight = request.form.get('sunlight') or None
     water_care = request.form.get('water_care') or None
     temperature_care = request.form.get('temperature_care') or None
     humidity_care = request.form.get('humidity_care') or None
@@ -194,7 +194,7 @@ def add_to_database():
     new_plant = Plant(
         common_name=common_name,
         scientific_name=scientific_name,
-        sunlight_care=sunlight_care,
+        sunlight=sunlight,
         water_care=water_care,
         temperature_care=temperature_care,
         humidity_care=humidity_care,
@@ -235,7 +235,7 @@ def edit_plant(plant_id):
     if request.method == 'POST':
         plant.common_name = request.form['common_name']
         plant.scientific_name = request.form['scientific_name']
-        plant.sunlight_care = request.form['sunlight_care']
+        plant.sunlight = request.form['sunlight']
         plant.water_care = request.form['water_care']
         plant.temperature_care = request.form['temperature_care']
         plant.humidity_care = request.form['humidity_care']

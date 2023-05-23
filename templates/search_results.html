@@ -14,7 +14,7 @@
     <p><strong>Scientific name:</strong> {{ plant.scientific_name }}</p>
     <p><strong>Other names:</strong> {{ plant.other_names }}</p>
     <p><strong>Cycle:</strong> {{ plant.cycle }}</p>
-    <p><strong>Sunlight care:</strong> {{ plant.sunlight_care }}</p>
+    <p><strong>Sunlight care:</strong> {{ plant.sunlight }}</p>
     <p><strong>Water care:</strong> {{ plant.water_care }}</p>
 </div>
 
@@ -33,7 +33,7 @@
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <input type="hidden" name="common_name" value="{{ result.common_name }}">
         <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
-        <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
+        <input type="hidden" name="sunlight" value="{{ result.sunlight }}">
         <input type="hidden" name="water_care" value="{{ result.water_care }}">
         <input type="hidden" name="type" value="{{ result.type }}">
         <input type="hidden" name="dimension" value="{{ result.dimension }}">
