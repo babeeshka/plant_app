@@ -14,9 +14,7 @@ lib/
 *.mo
 *.po
 app.log*
-*.pyc
-.DS_Store
-__pycache__/
 .ipynb_checkpoints/
 .ipynb*
 *.ipynb
+venv/
