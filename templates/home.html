@@ -1,38 +1,35 @@
 {% extends 'base.html' %}
 
 {% block title %}Home{% endblock %}
+{% block head %}
+    {{ super() }}
+    {{ get_flashed_messages() }}
 
+{% endblock %}
 {% block content %}
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Plant Database</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-</head>
-<body>
-  <div class="container d-flex flex-column justify-content-center align-items-center">
-    <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plants!</h1>
+    <div class="typewriter-wrapper title-container">
+        <h1 class="typing">welcome... check out some plants!</h1>
+    </div>
     {% if random_plant %}
-    <div class="card mb-4">
-      {% if random_plant.image_url %}
-      <img src="{{ random_plant.image_url }}" alt="{{ random_plant.common_name }}" class="card-img-top rounded-3" style="max-width: 300px; max-height: 300px;">
-      {% else %}
-      <div class="no-image-message card-body">No image available for this plant.</div>
-      {% endif %}
-      <div class="card-body">
-        <h2 class="card-title" style="font-size: 24px; font-weight: bold;">{{ random_plant.common_name }}</h2>
-        <p class="card-text" style="font-size: 18px; font-style: italic;">{{ random_plant.scientific_name }}</p>
-      </div>    
-    </div>
+        <div class="card mb-4">
+            {% if random_plant.image_url %}
+                <img src="{{ random_plant.image_url }}" alt="{{ random_plant.common_name }}"
+                     class="card-img-top rounded-3">
+            {% else %}
+                <div class="no-image-message card-body">No image available for this plant.</div>
+            {% endif %}
+            <div class="card-body">
+                <h2 class="card-title">{{ random_plant.common_name }}</h2>
+                <p class="card-text scientific-name">{{ random_plant.scientific_name }}</p>
+            </div>
+        </div>
     {% else %}
-    <div class="card mb-4">
-      <div class="card-body">
-        <p class="card-text">There are currently no plants in the database.</p>
-      </div>
-    </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <p class="card-text">There are currently no plants in the database.</p>
+            </div>
+        </div>
     {% endif %}
-  </div>
-</body>
-</html>
+
+
 {% endblock %}

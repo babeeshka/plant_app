@@ -1,39 +1,68 @@
 {% extends 'base.html' %}
 
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="container">
-  <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Search Results for "{{ query }}"</h1>
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Common Name</th>
-            <th scope="col">Scientific Name</th>
-            <th scope="col">Family</th>
-            <th scope="col">Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for plant in plants %}
-          <tr>
-            <th scope="row">{{ loop.index }}</th>
-            <td>{{ plant.common_name }}</td>
-            <td>{{ plant.scientific_name }}</td>
-            <td>{{ plant.family }}</td>
-            <td>
-              {% if plant.image_url %}
-              <img src="{{ plant.image_url }}" class="img-thumbnail" style="max-width: 300px; max-height: 300px;">
-              {% else %}
-              <img src="https://thumbs.dreamstime.com/b/cute-broken-terracotta-pot-fallen-flower-cartoon-vector-illustration-motif-set-cute-broken-terracotta-pot-fallen-flower-147814489.jpg" class="img-thumbnail" style="max-width: 315px; max-height: 150px;">
-              {% endif %}
-            </td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </div>
-  </div>
+<div class="typewriter-wrapper title-container">
+    <h1 class="typing">Search Results for {{ name }}</h1>
 </div>
+<div class="plant-info">
+    <h2>{{ plant.common_name }}</h2>
+    <p><strong>Scientific name:</strong> {{ plant.scientific_name }}</p>
+    <p><strong>Other names:</strong> {{ plant.other_names }}</p>
+    <p><strong>Cycle:</strong> {{ plant.cycle }}</p>
+    <p><strong>Sunlight care:</strong> {{ plant.sunlight_care }}</p>
+    <p><strong>Water care:</strong> {{ plant.water_care }}</p>
+</div>
+
+<form action="{{ url_for('search_plant') }}" method="post">
+    <input type="hidden" name="query" value="{{ plant.common_name }}">
+    <input type="hidden" name="get_detailed_info" value="true">
+    <button type="submit">Get more details</button>
+</form>
+{% if plant.family %}
+    <h3>Additional Details:</h3>
+    <p><strong>Family:</strong> {{ plant.family }}</p>
+    <p><strong>Origin:</strong> {{ plant.origin|join(', ') }}</p>
+    <p><strong>Plant Type:</strong> {{ plant.plant_type }}</p>
+    <!-- ... add more fields as needed ... -->
+    <form action="{{ url_for('add_to_database') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="common_name" value="{{ result.common_name }}">
+        <input type="hidden" name="scientific_name" value="{{ result.scientific_name }}">
+        <input type="hidden" name="sunlight_care" value="{{ result.sunlight_care }}">
+        <input type="hidden" name="water_care" value="{{ result.water_care }}">
+        <input type="hidden" name="type" value="{{ result.type }}">
+        <input type="hidden" name="dimension" value="{{ result.dimension }}">
+        <input type="hidden" name="soil" value="{{ result.soil }}">
+        <input type="hidden" name="propagation" value="{{ result.propagation }}">
+        <input type="hidden" name="hardiness" value="{{ result.hardiness }}">
+        <input type="hidden" name="image_url" value="{{ result.image_url }}">
+        <input type="hidden" name="family" value="{{ result.family }}">
+        <input type="hidden" name="origin" value="{{ result.origin }}">
+        <input type="hidden" name="growth_rate" value="{{ result.growth_rate }}">
+        <input type="hidden" name="drought_tolerant" value="{{ result.drought_tolerant }}">
+        <input type="hidden" name="salt_tolerant" value="{{ result.salt_tolerant }}">
+        <input type="hidden" name="pest_susceptibility" value="{{ result.pest_susceptibility }}">
+        <input type="hidden" name="flowering_season" value="{{ result.flowering_season }}">
+        <input type="hidden" name="flower_color" value="{{ result.flower_color }}">
+        <input type="hidden" name="leaf_color" value="{{ result.leaf_color }}">
+        <input type="hidden" name="synonyms" value="{{ result.synonyms }}">
+        <input type="hidden" name="native_status" value="{{ result.native_status }}">
+        <input type="hidden" name="conservation_status" value="{{ cresult.onservation_status }}">
+        <input type="submit" value="Add to Database">
+    </form>
+{% endif %}
+<form action="{{ url_for('home') }}" method="get">
+    <input type="submit" value="Cancel">
+</form>
+{% else %}
+<p>No results found for {{ name }}</p>
+<form action="{{ url_for('manual_entry') }}" method="get">
+    <input type="submit" value="add manually">
+</form>
+{% endif %}
 {% endblock %}

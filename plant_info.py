@@ -1,64 +1,74 @@
-import requests
-from api import api_call
-
-from models import Plant
-from config import TREFLE_API_BASE_URL
 import os
+import requests
+
+PERENUAL_API_KEY = os.getenv('PERENUAL_API_KEY')
 
 
-def get_plant_info(plant_name):
-    """Fetches plant information from the Trefle API"""
-    url = f"{TREFLE_API_BASE_URL}/plants/search?q={plant_name}&token={os.environ.get('TREFLE_TOKEN')}"
+def get_plant_info(query, get_detailed_info=False):
+    query = query.strip().lower()
+
+    # Search by common name
+    url = f'https://perenual.com/api/species-list?key={PERENUAL_API_KEY}&q={query}'
     response = requests.get(url)
-    print(response)
 
     if response.status_code != 200:
-        print(f"no plant found, status code: {response.status_code}, response: {response.content}")
+        print(f"Error searching by common name: {response.status_code}")
         return None
 
-    # List of desired fields
-    desired_fields = ["common_name", "scientific_name", "sunlight_care", "water_care", "temperature_care", "humidity_care", "growing_tips", "propagation_tips", "common_pests", "image_url"]
+    results = response.json()
+    print(results)
 
-    # Find record with highest score
-    max_score = 0
-    max_score_data = None
-    for data in response.json()["data"]:
-        score = 0
-        for field in desired_fields:
-            if data.get(field):
-                score += 1
-        if score > max_score:
-            max_score = score
-            max_score_data = data
-
-    if not max_score_data:
-        print(f"no matching plant found")
+    if not results:
+        print("No results found")
         return None
 
-    # Extract fields from highest score data
-    plant = {
-        "common_name": max_score_data.get("common_name"),
-        "scientific_name": max_score_data.get("scientific_name"),
-        "sunlight_care": max_score_data.get("growth.light"),
-        "water_care": max_score_data.get("growth.water"),
-        "temperature_care": max_score_data.get("growth.temperature"),
-        "humidity_care": max_score_data.get("growth.humidity"),
-        "growing_tips": max_score_data.get("growth.growing_days"),
-        "propagation_tips": max_score_data.get("propagation"),
-        "common_pests": max_score_data.get("pests"),
-        "image_url": max_score_data.get("image_url"),
-        "family": max_score_data["family"].get("name") if isinstance(max_score_data.get("family"), dict) else None,
-        "genus": max_score_data["genus"]["name"] if isinstance(max_score_data.get("genus"), dict) else None,
-        "year": max_score_data.get("year"),
-        "edible": max_score_data.get("edible") == True,
-        "edible_part": max_score_data.get("edible_part"),
-        "edible_notes": max_score_data.get("edible_notes"),
-        "medicinal": max_score_data.get("medicinal") == True,
-        "medicinal_notes": max_score_data.get("medicinal_notes"),
-        "toxicity": max_score_data.get("toxicity"),
-        "synonyms": max_score_data.get("synonyms"),
-        "native_status": max_score_data.get("distribution", {}).get("native", "Unknown"),
-        "conservation_status": max_score_data["conservation_status"] if isinstance(max_score_data.get("conservation_status"), dict) else None,
+    # Choose the first result
+    first_result = results['data'][0]
+
+    # Map the Perenual API fields to the desired schema
+# Map the Perenual API fields to the desired schema
+    extracted_info = {
+        'id': first_result['id'],
+        'common_name': first_result['common_name'],
+        'scientific_name': ', '.join(first_result.get('scientific_name', [])),
+        'other_name': ', '.join(first_result.get('other_name', [])),
+        'cycle': first_result['cycle'],
+        'watering': first_result['watering'],
+        'sunlight': ', '.join(first_result.get('sunlight', [])),
+        'default_image': first_result['default_image']['regular_url'],  # adjust as needed
     }
-    return plant
 
+    if get_detailed_info:
+        plant_id = first_result['id']
+        detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
+        detail_response = requests.get(detail_url)
+
+        if detail_response.status_code != 200:
+            print(f"Error fetching detailed information: {detail_response.status_code}")
+            return extracted_info
+
+        detail_result = detail_response.json()
+
+        # add detailed information to the extracted_info dictionary
+        extracted_info.update({
+            'family': detail_result['family'],
+            'scientific_name': ', '.join(detail_result.get('scientific_name', [])),
+            'origin': ', '.join(detail_result.get('origin', [])),
+            'sunlight': ', '.join(detail_result.get('sunlight', [])),
+            'soil': ', '.join(detail_result.get('soil', [])),
+            'pest_susceptibility': ', '.join(detail_result.get('pest_susceptibility', [])),
+            'type': detail_result['type'],
+            'dimension': detail_result['dimension'],
+            'propagation': detail_result['propagation'],
+            'hardiness': detail_result['hardiness'],
+            'leaf_color': ', '.join(detail_result.get('leaf_color', [])),
+            'maintenance': detail_result['maintenance'],
+            'growth_rate': detail_result['growth_rate'],
+            'drought_tolerant': detail_result['drought_tolerant'],
+            'salt_tolerant': detail_result['salt_tolerant'],
+            'flowering_season': detail_result['flowering_season'],
+            'flower_color': detail_result['flower_color'],
+            # add more fields as needed - some are "coming soon" in the API broker
+        })
+
+    return extracted_info

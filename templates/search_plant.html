@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Search Plant{% endblock %}
+
+{% block content %}
+    <div class="typewriter-wrapper title-container">
+        <h1 class="mt-5 mb-4 typing">search for a plant via trefle api</h1>
+    </div>
+    <div class="container mt-5">
+        <form method="POST" action="{{ url_for('search_plant') }}">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <label for="query">find a plant</label>
+                <input type="text" class="form-control" id="query" name="query" placeholder="enter plant name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">search</button>
+        </form>
+    </div>
+{% endblock %}

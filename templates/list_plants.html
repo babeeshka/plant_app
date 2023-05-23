@@ -1,39 +1,92 @@
 {% extends 'base.html' %}
 
+{% block container_classes %}
+    container-fluid
+{% endblock %}
+
+{% block container_styles %}
+    style="padding: 33;"
+{% endblock %}
+
 {% block content %}
-<h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">plants...</h1>
-<div class="container mt-5">
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Common Name</th>
-                <th>Scientific Name</th>
-                <th>Sunlight Care</th>
-                <th>Water Care</th>
-                <th>Temperature Care</th>
-                <th>Humidity Care</th>
-                <th>Growing Tips</th>
-                <th>Propagation Tips</th>
-                <th>Common Pests</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for plant in plants %}
-            <tr>
-                <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
-                <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
-                <td>{{ plant.sunlight_care if plant.sunlight_care else "No data" }}</td>
-                <td>{{ plant.water_care if plant.water_care else "No data" }}</td>
-                <td>{{ plant.temperature_care if plant.temperature_care else "No data" }}</td>
-                <td>{{ plant.humidity_care if plant.humidity_care else "No data" }}</td>
-                <td>{{ plant.growing_tips if plant.growing_tips else "No data" }}</td>
-                <td>{{ plant.propagation_tips if plant.propagation_tips else "No data" }}</td>
-                <td>{{ plant.common_pests if plant.common_pests else "No data" }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+    <div class="typewriter-wrapper table-title-container">
+        <h1 class="typing">plants in the database...</h1>
+    </div>
+    <div class="table-container">
+        <div class="table-wrapper table-responsive">
+            <table class="table-full-width">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 10%;">
+                    <col style="width: 15%;">
+                    <col style="width: 15%;">
+                    <col style="width: 10%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th>Common Name</th>
+                    <th>Scientific Name</th>
+                    <th>Light</th>
+                    <th>Water</th>
+                    <th>Temp.</th>
+                    <th>Humidity</th>
+                    <th>Growing</th>
+                    <th>Propagation Tips</th>
+                    <th>Common Pests</th>
+                    <th scope="col">actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for plant in plants %}
+                    <tr class="detail-toggle">
+                        <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
+                        <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
+                        <td>{{ plant.sunlight if plant.sunlight else "No data" }}</td>
+                        <td>{{ plant.watering if plant.watering else "No data" }}</td>
+                        <!-- Add other columns as needed -->
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
+                                        id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                        aria-expanded="false">
+                                    Actions
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <form action="{{ url_for('edit_plant', plant_id=plant.id) }}" method="get">
+                                        <button type="submit" class="dropdown-item">Edit</button>
+                                    </form>
+                                    <form action="{{ url_for('delete_plant', plant_id=plant.id) }}" method="post">
+                                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                                        <button type="submit" class="dropdown-item btn-delete">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="plant-detail" style="display: none;">
+                        <td colspan="10">
+                            <strong>Type:</strong> {{ plant.type }}<br>
+                            <strong>Cycle:</strong> {{ plant.cycle }}<br>
+                            <strong>Propagation:</strong> {{ plant.propagation }}<br>
+                            <!-- Add other details as needed -->
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $(".detail-toggle").click(function() {
+            $(this).next(".plant-detail").toggle();
+        });
+    });
+    </script>
 {% endblock %}

@@ -1,62 +1,390 @@
-.container {
-  padding-top: 80px;
+/* Global styles */
+:root {
+    --primary-color: #4CAF50; /* Example: Green */
+    --secondary-color: #f1f1f1; /* Example: Light gray */
+    --text-color: #333; /* Example: Dark gray */
+    --light-text-color: #fff; /* Example: White */
+    --primary-color-hover: #4CAF50;
 }
 
-.my-header {
-  font-size: 32px;
-  font-family: courier;
-  margin-top: 50px;
-  margin-bottom: 30px;
+
+body, input, select, textarea {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
+body {
+    margin: 0;
+    padding-top: 100px;
+    background-color: var(--background-color);
 }
 
-#search-icon {
-  display: block;
-  padding: 0 10px;
+a {
+    color: var(--primary-color);
 }
 
-#search-box {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  #search-icon {
-    display: none;
-  }
-
-  #search-box {
-    display: block;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  #search-box {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    z-index: 9999;
-    background-color: #fff;
-    padding: 10px;
-  }
-
-  #search-box form {
+/* Header styles */
+.header {
     display: flex;
-  }
+    justify-content: space-between;
+    align-items: center;
+    /*height: 100vh;*/
+    padding-top: 125px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  #search-box input[type="text"] {
-    flex: 1;
-    border: none;
-    outline: none;
-  }
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-left: 20px;
+}
 
-  #search-box button {
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.nav-link {
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+/* Content styles */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.plant-card,
+.form-container {
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.plant-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.plant-card h2,
+.form-container h2 {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+
+.plant-card .scientific-name {
+    font-style: italic;
+}
+
+.plant-card .description {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.plant-card .btn-group,
+.form-group {
+    margin: 10px 0 20px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dropdown-menu {
+    z-index: 9999;
+}
+
+.form-container {
+    background-color: transparent; /* remove the white background */
+    box-shadow: none; /* remove the box-shadow */
+    padding: 40px; /* increase padding for better spacing */
+    width: 50%; /* adjust width to occupy half of the page */
+    margin: 0 auto; /* center the form */
+}
+
+.form-group label {
+    font-size: 16px; /* reduce font size */
+    margin-bottom: 10px; /* increase margin-bottom for better spacing */
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select,
+.form-control {
+    border: 1px solid #ccc; /* make border thinner */
+    padding: 8px 12px; /* adjust padding for better spacing */
+    font-size: 14px; /* reduce font size */
+    margin-bottom: 20px; /* increase margin-bottom for better spacing */
+}
+
+.form-control:focus {
+    border-color: var(--primary-color); /* use primary color from global styles */
+}
+
+/* Submit button */
+.form-group button[type="submit"] {
+    font-size: 16px; /* increase font size */
+    background-color: var(--primary-color); /* use primary color from global styles */
+    color: var(--light-text-color); /* use light text color from global styles */
     border: none;
-    background-color: transparent;
-    outline: none;
+    border-radius: 5px;
+    padding: 10px 20px; /* increase padding for a slightly larger button */
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block; /* make the button a block element */
+    margin: 0 auto; /* center the button */
+}
+
+/* Submit button hover */
+.form-group button[type="submit"]:hover {
+    background-color: var(--primary-color-hover); /* use primary color hover from global styles */
+}
+
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -50px; /* Increase this value as needed*/
+    margin-right: -50px; /* Increase this value as needed too */
+}
+
+.form-column {
+    flex: 1;
+    min-width: 50%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.form-column-full {
+    flex: 1;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.form-row-full {
+    width: 100%;
+    margin: auto;
+}
+
+.form-row-textarea {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Add this to your static/style.css */
+.manual-entry-form {
+    background-color: #f8f9fa; /* Light gray background color */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.manual-entry-form label {
+    font-weight: bold;
+}
+
+.manual-entry-form input,
+.manual-entry-form select,
+.manual-entry-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.manual-entry-form input:focus,
+.manual-entry-form select:focus,
+.manual-entry-form textarea:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+
+.manual-entry-form input,
+.manual-entry-form select,
+.manual-entry-form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px;
+    background-color: var(--secondary-color);
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+.manual-entry-form input:focus,
+.manual-entry-form select:focus,
+.manual-entry-form textarea:focus {
+    border: 1px solid var(--primary-color);
+    outline: none;
+}
+
+
+/* Search */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+}
+
+.search-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-input {
+    font-size: 18px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid #000;
+    outline: none;
+    width: 100%;
+    max-width: 400px;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.search-button {
+    font-size: 16px;
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #444;
+}
+
+/* Table */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align the content to the left */
+    text-align: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.no-padding-container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+}
+
+table td {
+    word-wrap: break-word;
+}
+
+
+.table-full-width {
+    width: 100%;
+}
+
+.table-responsive,
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Table header */
+table th {
+    background-color: var(--primary-color);
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid var(--text-color);
+    color: var(--light-text-color); /* Use the light text color for better contrast */
+}
+
+/* Table data */
+table td {
+    padding: 10px;
+    border-bottom: 1px solid var(--text-color);
+    color: var(--text-color); /* Use the dark text color for regular rows */
+}
+
+/* Table row with dark background */
+table tr.dark-background {
+    background-color: var(--primary-color);
+    color: var(--light-text-color); /* Use the light text color for better contrast */
+}
+
+/* Table data in the dark background row */
+table tr.dark-background td {
+    color: var(--light-text-color); /* Use the light text color for better contrast */
+}
+
+
+/* Add plant */
+.add-plant-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.table-title-container {
+    padding-top: 20px;
+    justify-items: left;
+}
+
+.title-container {
+    padding-top: 20px;
+}
+
+/* Typewriter */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 22ch;
   }
 }
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typewriter-wrapper {
+  height: 15vh;
+  display: inline-block;
+  place-items: center;
+}
+
+.typing {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: roboto, monospace;
+  font-size: 2em;
+}
+
+/* ... other styles ... */

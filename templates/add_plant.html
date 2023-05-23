@@ -2,165 +2,24 @@
 
 {% block title %}Add a Plant{% endblock %}
 
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
 {% block content %}
-<h1>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/add_plant.css') }}">
-    <script src="{{ url_for('static', filename='js/plantFunctions.js') }}"></script>
-</h1>
-
-<form id="search-form" class="form-inline d-flex flex-column justify-content-center align-items-center" method="POST"
-action="{{ url_for('search_plant') }}">
-    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-    <div class="form-group">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Type a plant's common name..."
-            style="min-width: 250px; font-style: italic;">
-    </div>
-    <button type="submit" class="btn btn-primary" id="search-button">Search</button>
-</form>
-
-<div class="mt-5" id="search-results" style="display: none;">
-    <h2>Search Results:</h2>
-    <ul class="list-group" id="search-results-list"></ul>
-</div>
-
-{% if plant_info %}
-
-<div class="container d-flex flex-column justify-content-center align-items-center" id="plant-info">
-
-    <h1 class="mt-5 mb-4" style="font-size: 32px; font-family: courier;">Plant Information</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Common Name</th>
-                <th>Scientific Name</th>
-                <th>Family</th>
-                <th>Genus</th>
-                <th>Sunlight Care</th>
-                <th>Water Care</th>
-                <th>Temperature Care</th>
-                <th>Humidity Care</th>
-                <th>Growing Tips</th>
-                <th>Propagation Tips</th>
-                <th>Common Pests</th>
-                <th>Image URL</th>
-            </tr>
-        </thead>
-        <tbody id="plant-info-body">
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-center mt-3">
-        <a href="#" class="btn btn-primary mr-3" onclick="reviewPlant()">Modify</a>
-        <form id="submit-form" action="{{ url_for('add_to_database') }}" method="POST" onsubmit="return false;">
-            <input type="hidden" name="id" value="{{ next_id }}">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <input type="hidden" name="plant_info[scientific_name]" value="{{ plant_info.scientific_name }}">
-            <input type="text" name="plant_info[common_name]"
-                value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}">
-            <input type="text" name="plant_info[sunlight_care]" value="{{ request.form.get('sunlight') }}">
-            <input type="text" name="plant_info[water_care]" value="{{ request.form.get('water') }}">
-            <input type="text" name="plant_info[temperature_care]" value="{{ request.form.get('temperature') }}">
-            <input type="text" name="plant_info[image_url]" value="{{ plant_info.get('image_url') }}">
-            <input type="text" name="plant_info[family]" value="{{ plant_info.get('family') }}">
-            <input type="text" name="plant_info[genus]" value="{{ plant_info.get('genus') }}">
-            <input type="text" name="plant_info[year]" value="{{ plant_info.get('year') }}">
-            <input type="text" name="plant_info[edible]" value="{{ plant_info.get('edible') }}">
-            <input type="text" name="plant_info[edible_part]" value="{{ plant_info.get('edible_part') }}">
-            <input type="text" name="plant_info[edible_notes]" value="{{ plant_info.get('edible_notes') }}">
-            <input type="text" name="plant_info[medicinal]" value="{{ plant_info.get('medicinal') }}">
-            <input type="text" name="plant_info[medicinal_notes]" value="{{ plant_info.get('medicinal_notes') }}">
-            <input type="text" name="plant_info[toxicity]" value="{{ plant_info.get('toxicity') }}">
-            <input type="text" name="plant_info[synonyms]" value="{{ plant_info.get('synonyms') }}">
-            <input type="text" name="plant_info[native_status]" value="{{ plant_info.get('native_status') }}">
-            <input type="text" name="plant_info[conservation_status]"
-                value="{{ plant_info.get('conservation_status') }}">
+    <div class="add-plant-container">
+        <div class="typewriter-wrapper">
+            <h1 class="search-title typing">type in a plant name here...</h1>
+        </div>
+        <form class="search-form" action="{{ url_for('search_plant') }}" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="typewriter">
+                <input type="text" class="form-control" id="query" name="query"
+                       placeholder="enter a plant's name...">
+            </div>
+            <button class="search-button" type="submit">Search</button>
         </form>
     </div>
-    <div class="modal fade" id="review-modal" tabindex="-1" role="dialog" aria-labelledby="review-modal-label"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="review-modal-label">Review Plant Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Review the following information for the plant:</p>
-                    <table class="table">
-                        {% if plant_info %}
-                        <tr>
-                            <td>{{ plant_info['common_name'] }}</td>
-                            <td>{{ plant_info['scientific_name'] }}</td>
-                            <td>{{ plant_info['family'] }}</td>
-                            <td>{{ plant_info['genus'] }}</td>
-                            <td>{{ request.form.get('sunlight') }}</td>
-                            <td>{{ request.form.get('water') }}</td>
-                            <td>{{ request.form.get('temperature') }}</td>
-                            <td>{{ request.form.get('humidity') }}</td>
-                            <td>{{ plant_info.get('growing_tips') }}</td>
-                            <td>{{ plant_info.get('propagation_tips') }}</td>
-                            <td>{{ plant_info.get('common_pests') }}</td>
-                            <td><img src="{{ plant_info.get('image_url') }}" alt="{{ plant_info['scientific_name'] }}"
-                                    style="max-width: 100px;"></td>
-                        </tr>
-                        {% endif %}
-                    </table>
-                    <hr>
-                    <p>If any information is incorrect or missing, please make the necessary changes:</p>
-                    <form id="review-form">
-                        <form id="review-form">
-                            <div class="form-group">
-                                <label for="common-name">Common Name:</label>
-                                <input type="text" class="form-control" id="common-name" name="common_name"
-                                    value="{{ plant_info.get('common_name', plant_info['scientific_name']) }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="sunlight-care">Sunlight Care:</label>
-                                <input type="text" class="form-control" id="sunlight-care" name="sunlight_care"
-                                    value="{{ request.form.get('sunlight') }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="water-care">Water Care:</label>
-                                <input type="text" class="form-control" id="water-care" name="water_care"
-                                    value="{{ request.form.get('water') }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="temperature-care">Temperature Care:</label>
-                                <input type="text" class="form-control" id="temperature-care" name="temperature_care"
-                                    value="{{ request.form.get('temperature') }}" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="growing-tips">Growing Tips:</label>
-                                <textarea class="form-control" id="growing-tips" name="growing_tips"
-                                    required>{{ plant_info.get('growing_tips') }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="propagation-tips">Propagation Tips:</label>
-                                <textarea class="form-control" id="propagation-tips" name="propagation_tips"
-                                    required>{{ plant_info.get('propagation_tips') }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="common-pests">Common Pests:</label>
-                                <textarea class="form-control" id="common-pests"
-                                    name="common_pests">{{ plant_info.get('common_pests') }}</textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="image-url">Image URL:</label>
-                                <input type="text" class="form-control" id="image-url" name="image_url"
-                                    value="{{ plant_info.get('image_url') }}">
-                            </div>
-                        </form>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="submitPlant()">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{% endif %}
 
 {% endblock %}
+
