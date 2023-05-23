@@ -27,9 +27,14 @@ def get_plant_info(query, get_detailed_info=False):
 
     # Map the Perenual API fields to the desired schema
     extracted_info = {
-        'id': first_result['id'],  # Add the plant ID to the extracted_info dictionary
-
-        'watering'': '
+        'id': first_result['id'],
+        'common_name': first_result['common_name'],
+        'scientific_name': ', '.join(first_result.get('scientific_name', [])),
+        'other_name': ', '.join(first_result.get('other_name', [])),
+        'cycle': first_result['cycle'],
+        'watering': first_result['watering'],
+        'sunlight': ', '.join(first_result.get('sunlight', [])),
+        'default_image': first_result['default_image']['regular_url']
     }
 
     if get_detailed_info:
@@ -38,7 +43,8 @@ def get_plant_info(query, get_detailed_info=False):
         detail_response = requests.get(detail_url)
 
         if detail_response.status_code != 200:
-            print(f"Error fetching detailed information: {detail_response.status_code}")
+            print(
+                f"Error fetching detailed information: {detail_response.status_code}")
             return extracted_info
 
         detail_result = detail_response.json()
@@ -46,9 +52,7 @@ def get_plant_info(query, get_detailed_info=False):
         # add detailed information to the extracted_info dictionary
         extracted_info.update({
             'family': detail_result['family'],
-            'scientific_name': ', '.join(detail_result.get('scientific_name', [])),
             'origin': ', '.join(detail_result.get('origin', [])),
-            'sunlight': ', '.join(detail_result.get('sunlight', [])),
             'soil': ', '.join(detail_result.get('soil', [])),
             'pest_susceptibility': ', '.join(detail_result.get('pest_susceptibility', [])),
             'type': detail_result['type'],
