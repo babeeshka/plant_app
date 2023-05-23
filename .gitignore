@@ -7,4 +7,6 @@ app.log.2
 app.log.3
 app.log.4
 app.log.5
-
+*.pyc
+.DS_Store
+__pycache__/
