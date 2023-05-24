@@ -1,5 +1,25 @@
-DATABASE_URL
+# IDE or editor-specific files
+.idea/
+
+# Compiled or built files
+bin/
+lib/
+*.mo
+*.po
+
+# Temporary or generated files
+static/
+templates/
+share/
+
+# Other exclusions
+*.pyc
+.DS_Store
+__pycache__/
+venv/
 .env
+
+# Log files
 app.log
 app.log.*
 app.log.1
@@ -7,14 +27,6 @@ app.log.2
 app.log.3
 app.log.4
 app.log.5
-*.pyc
-.DS_Store
-__pycache__/
-lib/
-*.mo
-*.po
-app.log*
-.ipynb_checkpoints/
-.ipynb*
-*.ipynb
-venv/
+
+# Optional: Exclude migration files if applicable
+# migrations/
