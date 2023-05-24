@@ -8,8 +8,8 @@ lib/
 *.po
 
 # Temporary or generated files
-static/
-templates/
+#static/
+#templates/
 share/
 
 # Other exclusions
