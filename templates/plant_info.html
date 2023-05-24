@@ -7,6 +7,7 @@
     <div class="container mt-5">
         <table class="table table-striped">
             <thead>
+                <!-- TODO: update table headers to match list_plants.html and new plant class -->
             <tr>
                 <th>Common Name</th>
                 <th>Scientific Name</th>
@@ -22,6 +23,7 @@
             <tbody>
             {% for plant in plants %}
                 <tr>
+                    <!-- TODO: update table row fields to match list_plants.html and new plant class -->
                     <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
                     <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
                     <td>{{ plant.sunlight_care if plant.sunlight_care else "No data" }}</td>

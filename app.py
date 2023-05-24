@@ -40,7 +40,8 @@ log_file = 'app.log'
 file_handler = RotatingFileHandler(
     log_file, maxBytes=1024 * 1024, backupCount=5)
 file_handler.setLevel(logging.DEBUG)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+formatter = logging.Formatter(
+    '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(formatter)
 app.logger.addHandler(file_handler)
 
@@ -92,19 +93,24 @@ def search_plant():
         plants = db_session.query(Plant).filter(
             or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).all()
         if plants:
-            print("Plants found in the database:", plants)  # Debugging print statement
+            # Debugging print statement
+            print("Plants found in the database:", plants)
             # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
-            print("No plants found in the database, fetching data from the Perenual API")  # Debugging print statement
+            # Debugging print statement
+            print("No plants found in the database, fetching data from the Perenual API")
             # If the plant is not found in the database, fetch the data from the Perenual API
-            fetched_plant_info = get_plant_info(query.strip(), get_detailed_info)
+            fetched_plant_info = get_plant_info(
+                query.strip(), get_detailed_info)
             if fetched_plant_info:
-                print("Plant data found in the Perenual API:", fetched_plant_info)  # Debugging print statement
+                print("Plant data found in the Perenual API:",
+                      fetched_plant_info)  # Debugging print statement
                 # If the plant data is found in the Perenual API, show the search results
                 return render_template('search_results.html', plant=fetched_plant_info)
             else:
-                print("No plant data found in the Perenual API")  # Debugging print statement
+                # Debugging print statement
+                print("No plant data found in the Perenual API")
                 # If the plant data is not found in the Perenual API, show a message to the user
                 flash(f'No plant named "{query}" found.')
     else:
@@ -190,6 +196,7 @@ def add_to_database():
 
     print("Form data retrieved successfully")  # Debugging print statement
 
+    # TODO: update the new_plant object to match the Plant class in models.py. different params now
     # Create a new Plant object with the retrieved data
     new_plant = Plant(
         common_name=common_name,
@@ -229,6 +236,7 @@ def add_to_database():
     return redirect(url_for('home'))
 
 
+# TODO: Change the request params to match Plant class in models.py
 @app.route('/plant/edit/<int:plant_id>', methods=['GET', 'POST'])
 def edit_plant(plant_id):
     plant = Plant.query.get_or_404(plant_id)

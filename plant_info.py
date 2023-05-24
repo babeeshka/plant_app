@@ -26,7 +26,6 @@ def get_plant_info(query, get_detailed_info=False):
     first_result = results['data'][0]
 
     # Map the Perenual API fields to the desired schema
-# Map the Perenual API fields to the desired schema
     extracted_info = {
         'id': first_result['id'],
         'common_name': first_result['common_name'],
@@ -38,6 +37,7 @@ def get_plant_info(query, get_detailed_info=False):
         'default_image': first_result['default_image']['regular_url'],  # adjust as needed
     }
 
+    # TODO: debug get_detailed_info to confirm this works as expected
     if get_detailed_info:
         plant_id = first_result['id']
         detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
@@ -68,7 +68,7 @@ def get_plant_info(query, get_detailed_info=False):
             'salt_tolerant': detail_result['salt_tolerant'],
             'flowering_season': detail_result['flowering_season'],
             'flower_color': detail_result['flower_color'],
-            # add more fields as needed - some are "coming soon" in the API broker
+            # TODO: add more fields as needed - some are "coming soon" in the API broker
         })
 
     return extracted_info

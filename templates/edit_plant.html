@@ -4,6 +4,7 @@
     <div class="typewriter-wrapper title-container">
         <h1 class="typing">edit a plant's details</h1>
     </div>
+    <!-- TODO: Update the edit form to match the new plant class -->
     <form action="{{ url_for('edit_plant', plant_id=plant.id) }}" method="post">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="form-group">

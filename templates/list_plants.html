@@ -28,6 +28,7 @@
                 </colgroup>
                 <thead>
                 <tr>
+                    <!-- TODO: Update initial table headers based on new plant class -->
                     <th>Common Name</th>
                     <th>Scientific Name</th>
                     <th>Light</th>
@@ -43,11 +44,12 @@
                 <tbody>
                 {% for plant in plants %}
                     <tr class="detail-toggle">
+                        <!-- TODO: update the plant fields being pulled to match new plant -->
                         <td>{{ plant.common_name if plant.common_name else "No data" }}</td>
                         <td>{{ plant.scientific_name if plant.scientific_name else "No data" }}</td>
                         <td>{{ plant.sunlight if plant.sunlight else "No data" }}</td>
                         <td>{{ plant.watering if plant.watering else "No data" }}</td>
-                        <!-- Add other columns as needed -->
+                        <!-- TODO: Add other columns as needed -->
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-secondary btn-sm dropdown-toggle" type="button"
@@ -72,7 +74,7 @@
                             <strong>Type:</strong> {{ plant.type }}<br>
                             <strong>Cycle:</strong> {{ plant.cycle }}<br>
                             <strong>Propagation:</strong> {{ plant.propagation }}<br>
-                            <!-- Add other details as needed -->
+                            <!-- TODO: Add other details as needed -->
                         </td>
                     </tr>
                 {% endfor %}

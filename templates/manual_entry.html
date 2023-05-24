@@ -13,6 +13,7 @@
         <div class="typewriter-wrapper title-container">
             <h1 class="typing">manually enter a plant...</h1>
         </div>
+        <!-- TODO: update the manual entry fields to match desired fields from new plant class  -->
         <form action="{{ url_for('add_to_database') }}" method="post">
             <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
             <div class="form-row">
