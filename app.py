@@ -1,3 +1,4 @@
+from sqlalchemy import or_, any_, text, func
 import os
 import logging
 from logging.handlers import RotatingFileHandler
@@ -7,13 +8,14 @@ import secrets
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
-from sqlalchemy import or_
 
 from database import configure_database, db
 from models import Plant
 from plant_info import get_plant_info
 from dotenv import load_dotenv
 from forms import SearchForm
+
+PERENUAL_API_KEY = os.getenv('PERENUAL_API_KEY')
 
 # Import db_session after configure_database
 from database import db_session
@@ -90,29 +92,27 @@ def search_plant():
     if query:
         print("Search query received:", query)  # Debugging print statement
         # Search the database for plants that match the query
-        plants = db_session.query(Plant).filter(
-            or_(Plant.common_name.ilike(f'%{query}%'), Plant.scientific_name.ilike(f'%{query}%'))).all()
+        plants = db.session.query(Plant).filter(or_(
+            Plant.common_name.ilike(f'%{query}%'),
+            func.array_to_string(Plant.scientific_name, ' ').ilike(f'%{query}%')
+        )).all()
         if plants:
-            # Debugging print statement
-            print("Plants found in the database:", plants)
+            print("Plants found in the database:", plants)  # Debugging print statement
             # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
-            # Debugging print statement
-            print("No plants found in the database, fetching data from the Perenual API")
+            print("No plants found in the database, fetching data from the Perenual API")  # Debugging print statement
             # If the plant is not found in the database, fetch the data from the Perenual API
-            fetched_plant_info = get_plant_info(
-                query.strip(), get_detailed_info)
+            fetched_plant_info = get_plant_info(query.strip(), get_detailed_info)
             if fetched_plant_info:
-                print("Plant data found in the Perenual API:",
-                      fetched_plant_info)  # Debugging print statement
-                # If the plant data is found in the Perenual API, show the search results
-                return render_template('search_results.html', plant=fetched_plant_info)
+                # Process the fetched plant info and display the search results
+                # Instead of rendering the search_results.html template, redirect to the get_detailed_info route
+                return redirect(url_for('get_detailed_info', plant_id=fetched_plant_info['id']))
             else:
-                # Debugging print statement
-                print("No plant data found in the Perenual API")
+                print("No plant data found in the Perenual API")  # Debugging print statement
                 # If the plant data is not found in the Perenual API, show a message to the user
                 flash(f'No plant named "{query}" found.')
+                return redirect(url_for('home'))
     else:
         print("No query parameter received")  # Debugging print statement
 
@@ -134,15 +134,26 @@ def search_results():
     return render_template('search_plant.html', form=form)
 
 
+@app.route('/get_detailed_info', methods=['POST'])
+def get_detailed_info():
+    plant_id = request.form['plant_id']
+    detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
+    response = request.get(detail_url)
+
+    if response.status_code == 200:
+        plant_details = response.json()
+        return render_template('detailed_search_results.html', plant_details=plant_details)
+    else:
+        # Handle error case
+        return f"Failed to retrieve plant details for plant ID: {plant_id}"
+
+
+
 @app.route('/plant_information/<int:plant_id>')
 def plant_information(plant_id):
     # Get the plant information from the database
     plant = db_session.query(Plant).filter(Plant.id == plant_id).first()
-
-    # Get additional plant information from the Trefle API
-    plant_info = get_plant_info(plant.trefle_id)
-
-    return render_template('plant_info.html', plant=plant, plant_info=plant_info)
+    return render_template('plant_info.html', plant=plant)
 
 
 # Define the route for adding a new plant
@@ -164,35 +175,39 @@ def manual_entry():
 @app.route('/add_to_database', methods=['POST'])
 def add_to_database():
     print("add_to_database route reached")  # Debugging print statement
-    #  print(request.form.get('csrf_token'))
 
-    app.logger.debug('Request headers: %s', request.headers)
-    app.logger.debug('Request body: %s', request.get_data())
+    # app.logger.debug('Request headers: %s', request.headers)
+    # app.logger.debug('Request body: %s', request.get_data())
     print(request.form)
 
+    # TODO: update the request params to match Plant class in models.py
     # Retrieve the data for the new plant from the form
     common_name = request.form.get('common_name') or None
     scientific_name = request.form.get('scientific_name') or None
-    sunlight_care = request.form.get('sunlight_care') or None
-    water_care = request.form.get('water_care') or None
-    temperature_care = request.form.get('temperature_care') or None
-    humidity_care = request.form.get('humidity_care') or None
-    growing_tips = request.form.get('growing_tips') or None
-    propagation_tips = request.form.get('propagation_tips') or None
-    common_pests = request.form.get('common_pests') or None
-    image_url = request.form.get('image_url') or None
+    other_name = request.form.get('other_name') or None
     family = request.form.get('family') or None
-    genus = request.form.get('genus') or None
-    year = request.form.get('year') or None
-    edible = request.form.get('edible') or None
-    edible_part = request.form.get('edible_part') or None
-    edible_notes = request.form.get('edible_notes') or None
+    type = request.form.get('type') or None
+    sunlight = request.form.get('sunlight') or None
+    watering = request.form.get('watering') or None
+    drought_tolerant = request.form.get('drought_tolerant') or None
+    origin = request.form.get('origin') or None
+    soil = request.form.get('soil') or None
+    growth_rate = request.form.get('growth_rate') or None
+    propagation = request.form.get('propagation') or None
+    pest_susceptibility = request.form.get('pest_susceptibility') or None
+    description = request.form.get('description') or None
+    type = request.form.get('type') or None
+    cycle = request.form.get('cycle') or None
+    attracts = request.form.get('attracts') or None
+    invasive = request.form.get('invasive') or None
+    tropical = request.form.get('tropical') or None
+    edible_fruit = request.form.get('edible_fruit') or None
+    edible_leaf = request.form.get('edible_leaf') or None
     medicinal = request.form.get('medicinal') or None
-    medicinal_notes = request.form.get('medicinal_notes') or None
-    toxicity = request.form.get('toxicity') or None
-    synonyms = request.form.get('synonyms') or None
-    native_status = request.form.get('native_status') or None
-    conservation_status = request.form.get('conservation_status') or None
+    harvest_season = request.form.get('harvest_season') or None
+    poisonous_to_humans = request.form.get('poisonous_to_humans') or None
+    poisonous_to_pets = request.form.get('poisonous_to_pets') or None
+    rare = request.form.get('rare') or None
 
     print("Form data retrieved successfully")  # Debugging print statement
 
@@ -201,26 +216,29 @@ def add_to_database():
     new_plant = Plant(
         common_name=common_name,
         scientific_name=scientific_name,
-        sunlight_care=sunlight_care,
-        water_care=water_care,
-        temperature_care=temperature_care,
-        humidity_care=humidity_care,
-        growing_tips=growing_tips,
-        propagation_tips=propagation_tips,
-        common_pests=common_pests,
-        image_url=image_url,
+        other_name=other_name,
+        description=description,
+        sunlight=sunlight,
+        watering=watering,
+        origin=origin,
+        type=type,
         family=family,
-        genus=genus,
-        year=year,
-        edible=edible,
-        edible_part=edible_part,
-        edible_notes=edible_notes,
+        soil=soil,
+        drought_tolerant=drought_tolerant,
+        growth_rate=growth_rate,
+        propagation=propagation,
+        pest_susceptibility=pest_susceptibility,
+        cycle=cycle,
+        attracts=attracts,
+        invasive=invasive,
+        tropical=tropical,
+        edible_fruit=edible_fruit,
+        edible_leaf=edible_leaf,
         medicinal=medicinal,
-        medicinal_notes=medicinal_notes,
-        toxicity=toxicity,
-        synonyms=synonyms,
-        native_status=native_status,
-        conservation_status=conservation_status
+        harvest_season=harvest_season,
+        poisonous_to_humans=poisonous_to_humans,
+        poisonous_to_pets=poisonous_to_pets,
+        rare=rare
     )
 
     print("New plant object created successfully")  # Debugging print statement
@@ -236,33 +254,64 @@ def add_to_database():
     return redirect(url_for('home'))
 
 
-# TODO: Change the request params to match Plant class in models.py
 @app.route('/plant/edit/<int:plant_id>', methods=['GET', 'POST'])
 def edit_plant(plant_id):
     plant = Plant.query.get_or_404(plant_id)
     if request.method == 'POST':
+        # TODO: Updatethe edit plant fields to match the incoming edit_plant.html form fields
         plant.common_name = request.form['common_name']
         plant.scientific_name = request.form['scientific_name']
-        plant.sunlight_care = request.form['sunlight_care']
-        plant.water_care = request.form['water_care']
-        plant.temperature_care = request.form['temperature_care']
-        plant.humidity_care = request.form['humidity_care']
-        plant.growing_tips = request.form['growing_tips']
-        plant.propagation_tips = request.form['propagation_tips']
-        plant.common_pests = request.form['common_pests']
-        plant.image_url = request.form['image_url']
+        plant.other_name = request.form['other_name']
         plant.family = request.form['family']
-        plant.genus = request.form['genus']
-        plant.year = request.form['year']
-        plant.edible = request.form['edible']
-        plant.edible_part = request.form['edible_part']
-        plant.edible_notes = request.form['edible_notes']
+        plant.origin = request.form['origin']
+        plant.type = request.form['type']
+        plant.dimension = request.form['dimension']
+        plant.cycle = request.form['cycle']
+        plant.attracts = request.form['attracts']
+        plant.propagation = request.form['propagation']
+        plant.hardiness = request.form['hardiness']
+        plant.hardiness_location = request.form['hardiness_location']
+        plant.watering = request.form['watering']
+        plant.sunlight = request.form['sunlight']
+        plant.maintenance = request.form['maintenance']
+        plant.care_guides = request.form['care_guides']
+        plant.soil = request.form['soil']
+        plant.growth_rate = request.form['growth_rate']
+        plant.drought_tolerant = request.form['drought_tolerant']
+        plant.salt_tolerant = request.form['salt_tolerant']
+        plant.thorny = request.form['thorny']
+        plant.invasive = request.form['invasive']
+        plant.tropical = request.form['tropical']
+        plant.indoor = request.form['indoor']
+        plant.care_level = request.form['care_level']
+        plant.pest_susceptibility = request.form['pest_susceptibility']
+        plant.pest_susceptibility_api = request.form['pest_susceptibility_api']
+        plant.flowers = request.form['flowers']
+        plant.flowering_season = request.form['flowering_season']
+        plant.flower_color = request.form['flower_color']
+        plant.cones = request.form['cones']
+        plant.fruits = request.form['fruits']
+        plant.edible_fruit = request.form['edible_fruit']
+        plant.edible_fruit_taste_profile = request.form['edible_fruit_taste_profile']
+        plant.fruit_nutritional_value = request.form['fruit_nutritional_value']
+        plant.fruit_color = request.form['fruit_color']
+        plant.harvest_season = request.form['harvest_season']
+        plant.harvest_method = request.form['harvest_method']
+        plant.leaf = request.form['leaf']
+        plant.leaf_color = request.form['leaf_color']
+        plant.edible_leaf = request.form['edible_leaf']
+        plant.edible_leaf_taste_profile = request.form['edible_leaf_taste_profile']
+        plant.leaf_nutritional_value = request.form['leaf_nutritional_value']
+        plant.cuisine = request.form['cuisine']
+        plant.cuisine_list = request.form['cuisine_list']
         plant.medicinal = request.form['medicinal']
-        plant.medicinal_notes = request.form['medicinal_notes']
-        plant.toxicity = request.form['toxicity']
-        plant.synonyms = request.form['synonyms']
-        plant.native_status = request.form['native_status']
-        plant.conservation_status = request.form['conservation_status']
+        plant.medicinal_use = request.form['medicinal_use']
+        plant.medicinal_method = request.form['medicinal_method']
+        plant.poisonous_to_humans = request.form['poisonous_to_humans']
+        plant.poison_effects_to_humans = request.form['poison_effects_to_humans']
+        plant.poison_to_humans_cure = request.form['poison_to_humans_cure']
+        plant.poisonous_to_pets = request.form['poisonous_to_pets']
+        plant.rare = request.form['rare']
 
         db.session.commit()
         flash('Plant details have been updated!', 'success')

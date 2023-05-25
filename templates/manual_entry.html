@@ -3,79 +3,100 @@
 {% block title %}Manual Plant Entry{% endblock %}
 
 {% block head %}
-    {{ super() }}
-    {{ get_flashed_messages() }}
+{{ super() }}
+{{ get_flashed_messages() }}
 
 {% endblock %}
 
 {% block content %}
-    <div class="add-plant-container">
-        <div class="typewriter-wrapper title-container">
-            <h1 class="typing">manually enter a plant...</h1>
-        </div>
-        <!-- TODO: update the manual entry fields to match desired fields from new plant class  -->
-        <form action="{{ url_for('add_to_database') }}" method="post">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
-            <div class="form-row">
-                <div class="form-column">
-                    <div>
-                        <label for="common_name">Common Name:</label>
-                        <input type="text" class="form-control" id="common_name" name="common_name"
-                               placeholder="enter common name..." required>
-                    </div>
-                    <div>
-                        <label for="water_care">Water Care:</label>
-                        <input type="text" class="form-control" id="water_care" name="water_care"
-                               placeholder="enter water care..." required>
-                    </div>
-                    <div>
-                        <label for="sunlight_care">Sunlight Care:</label>
-                        <input type="text" class="form-control" id="sunlight_care" name="sunlight_care"
-                               placeholder="enter sunlight care..." required>
-                    </div>
-                </div>
-                <div class="form-column">
-                    <div>
-                        <label for="scientific_name">Scientific Name:</label>
-                        <input type="text" class="form-control" id="scientific_name" name="scientific_name"
-                               placeholder="enter scientific name..." required>
-                    </div>
-                    <div>
-                        <label for="humidity_care">Humidity Care:</label>
-                        <input type="text" class="form-control" id="humidity_care" name="humidity_care"
-                               placeholder="enter humidity care..." required>
-                    </div>
-                    <div>
-                        <label for="temperature_care">Temperature Care:</label>
-                        <input type="text" class="form-control" id="temperature_care" name="temperature_care"
-                               placeholder="enter temperature care..." required>
-                    </div>
-                </div>
-            </div>
-            <div class="form-row-full">
-                <div>
-                    <label for="growing_tips">Growing Tips:</label>
-                    <textarea class="form-control" id="growing_tips" name="growing_tips"
-                              placeholder="enter growing tips..."
-                              required></textarea>
-                </div>
-            </div>
-            <div class="form-row-full">
-                <div>
-                    <label for="propagation_tips">Propagation Tips:</label>
-                    <textarea class="form-control" id="propagation_tips" name="propagation_tips"
-                              placeholder="enter propagation tips..." required></textarea>
-                </div>
-            </div>
-            <div class="form-row-full">
-                <div>
-                    <label for="common_pests">Common Pests:</label>
-                    <textarea class="form-control" id="common_pests" name="common_pests"
-                              placeholder="enter common pests..."
-                              required></textarea>
-                </div>
-            </div>
-            <input type="submit" value="add details to database">
-        </form>
+<div class="add-plant-container">
+    <div class="typewriter-wrapper title-container">
+        <h1 class="typing">manually enter a plant...</h1>
     </div>
+    <!-- [x]: update the manual entry fields to match desired fields from new plant class  -->
+    <form action="{{ url_for('add_to_database') }}" method="post">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+            <label for="common_name">Common Name</label>
+            <input type="text" class="form-control" name="common_name" id="common_name" required>
+        </div>
+        <div class="form-group">
+            <label for="scientific_name">Scientific Name</label>
+            <input type="text" class="form-control" name="scientific_name" id="scientific_name" required>
+        </div>
+        <div class="form-group">
+            <label for="sunlight">Light</label>
+            <input type="text" class="form-control" name="sunlight" id="sunlight" required>
+        </div>
+        <div class="form-group">
+            <label for="watering">Water</label>
+            <input type="text" class="form-control" name="watering" id="watering" required>
+        </div>
+        <div class="form-group">
+            <label for="origin">Origin</label>
+            <input type="text" class="form-control" name="origin" id="origin" required>
+        </div>
+        <div class="form-group">
+            <label for="soil">Soil</label>
+            <input type="text" class="form-control" name="soil" id="soil" required>
+        </div>
+        <div class="form-group">
+            <label for="growth_rate">Growth Rate</label>
+            <input type="text" class="form-control" name="growth_rate" id="growth_rate" required>
+        </div>
+        <div class="form-group">
+            <label for="propagation">Propagation</label>
+            <input type="text" class="form-control" name="propagation" id="propagation" required>
+        </div>
+        <div class="form-group">
+            <label for="pest_susceptibility">Pests</label>
+            <input type="text" class="form-control" name="pest_susceptibility" id="pest_susceptibility" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" name="description" id="description" required>
+        </div>
+        <div class="form-group">
+            <label for="type">Type</label>
+            <input type="text" class="form-control" name="type" id="type" required>
+        </div>
+        <div class="form-group">
+            <label for="cycle">Cycle</label>
+            <input type="text" class="form-control" name="cycle" id="cycle" required>
+        </div>
+        <div class="form-group">
+            <label for="drought_tolerant">Drought</label>
+            <input type="text" class="form-control" name="drought_tolerant" id="drought_tolerant" required>
+        </div>
+        <div class="form-group">
+            <label for="attracts">Attracts</label>
+            <input type="text" class="form-control" name="attracts" id="attracts" required>
+        </div>
+        <div class="form-group">
+            <label for="tropical">Tropical</label>
+            <input type="text" class="form-control" name="tropical" id="tropical" required>
+        </div>
+        <div class="form-group">
+            <label for="edible_fruit">Edible</label>
+            <input type="text" class="form-control" name="edible_fruit" id="edible_fruit" required>
+        </div>
+        <div class="form-group">
+            <label for="medicinal">Medicinal</label>
+            <input type="text" class="form-control" name="medicinal" id="medicinal" required>
+        </div>
+        <div class="form-group">
+            <label for="poisonous_to_humans">Poisonous (Human)</label>
+            <input type="text" class="form-control" name="poisonous_to_humans" id="poisonous_to_humans" required>
+        </div>
+        <div class="form-group">
+            <label for="poisonous_to_pets">Poisonous (Animal)</label>
+            <input type="text" class="form-control" name="poisonous_to_pets" id="poisonous_to_pets" required>
+        </div>
+        <div class="form-group">
+            <label for="rare">Rare</label>
+            <input type="text" class="form-control" name="rare" id="rare" required>
+        </div>
+        <input type="submit" value="add details to database">
+    </form>
+</div>
 {% endblock %}

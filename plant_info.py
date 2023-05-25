@@ -16,59 +16,48 @@ def get_plant_info(query, get_detailed_info=False):
         return None
 
     results = response.json()
-    print(results)
 
-    if not results:
+    if not results or not results['data']:
         print("No results found")
         return None
 
-    # Choose the first result
-    first_result = results['data'][0]
+    extracted_info = []
+    for result in results['data']:
+        info = {
+            'id': result['id'],
+            'common_name': result['common_name'],
+            'scientific_name': ', '.join(result.get('scientific_name', [])),
+            'other_name': ', '.join(result.get('other_name', [])),
+            'cycle': result['cycle'],
+            'watering': result['watering'],
+            'sunlight': ', '.join(result.get('sunlight', [])),
+            'default_image': result['default_image']['regular_url'],
+        }
 
-    # Map the Perenual API fields to the desired schema
-    extracted_info = {
-        'id': first_result['id'],
-        'common_name': first_result['common_name'],
-        'scientific_name': ', '.join(first_result.get('scientific_name', [])),
-        'other_name': ', '.join(first_result.get('other_name', [])),
-        'cycle': first_result['cycle'],
-        'watering': first_result['watering'],
-        'sunlight': ', '.join(first_result.get('sunlight', [])),
-        'default_image': first_result['default_image']['regular_url'],  # adjust as needed
-    }
+        if get_detailed_info:
+            detail_url = f'https://perenual.com/api/species/details/{result["id"]}/?key={PERENUAL_API_KEY}'
+            detail_response = requests.get(detail_url)
 
-    # TODO: debug get_detailed_info to confirm this works as expected
-    if get_detailed_info:
-        plant_id = first_result['id']
-        detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
-        detail_response = requests.get(detail_url)
+            if detail_response.status_code == 200:
+                detail_result = detail_response.json()
+                info.update({
+                    'family': detail_result['family'],
+                    'origin': ', '.join(detail_result.get('origin', [])),
+                    'soil': ', '.join(detail_result.get('soil', [])),
+                    'pest_susceptibility': ', '.join(detail_result.get('pest_susceptibility', [])),
+                    'type': detail_result['type'],
+                    'dimension': detail_result['dimension'],
+                    'propagation': detail_result['propagation'],
+                    'hardiness': detail_result['hardiness'],
+                    'leaf_color': ', '.join(detail_result.get('leaf_color', [])),
+                    'maintenance': detail_result['maintenance'],
+                    'growth_rate': detail_result['growth_rate'],
+                    'drought_tolerant': detail_result['drought_tolerant'],
+                    'salt_tolerant': detail_result['salt_tolerant'],
+                    'flowering_season': detail_result['flowering_season'],
+                    'flower_color': detail_result['flower_color'],
+                })
 
-        if detail_response.status_code != 200:
-            print(f"Error fetching detailed information: {detail_response.status_code}")
-            return extracted_info
-
-        detail_result = detail_response.json()
-
-        # add detailed information to the extracted_info dictionary
-        extracted_info.update({
-            'family': detail_result['family'],
-            'scientific_name': ', '.join(detail_result.get('scientific_name', [])),
-            'origin': ', '.join(detail_result.get('origin', [])),
-            'sunlight': ', '.join(detail_result.get('sunlight', [])),
-            'soil': ', '.join(detail_result.get('soil', [])),
-            'pest_susceptibility': ', '.join(detail_result.get('pest_susceptibility', [])),
-            'type': detail_result['type'],
-            'dimension': detail_result['dimension'],
-            'propagation': detail_result['propagation'],
-            'hardiness': detail_result['hardiness'],
-            'leaf_color': ', '.join(detail_result.get('leaf_color', [])),
-            'maintenance': detail_result['maintenance'],
-            'growth_rate': detail_result['growth_rate'],
-            'drought_tolerant': detail_result['drought_tolerant'],
-            'salt_tolerant': detail_result['salt_tolerant'],
-            'flowering_season': detail_result['flowering_season'],
-            'flower_color': detail_result['flower_color'],
-            # TODO: add more fields as needed - some are "coming soon" in the API broker
-        })
+        extracted_info.append(info)
 
     return extracted_info
