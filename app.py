@@ -1,3 +1,4 @@
+from database import db_session
 from sqlalchemy import or_, any_, text, func
 import os
 import logging
@@ -5,6 +6,7 @@ from logging.handlers import RotatingFileHandler
 from random import randrange
 import secrets
 
+import requests
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_migrate import Migrate
 from flask_wtf.csrf import CSRFProtect
@@ -18,7 +20,6 @@ from forms import SearchForm
 PERENUAL_API_KEY = os.getenv('PERENUAL_API_KEY')
 
 # Import db_session after configure_database
-from database import db_session
 
 # Initiate the Flask app
 app = Flask(__name__)
@@ -94,22 +95,25 @@ def search_plant():
         # Search the database for plants that match the query
         plants = db.session.query(Plant).filter(or_(
             Plant.common_name.ilike(f'%{query}%'),
-            func.array_to_string(Plant.scientific_name, ' ').ilike(f'%{query}%')
+            func.array_to_string(Plant.scientific_name,
+                                 ' ').ilike(f'%{query}%')
         )).all()
         if plants:
-            print("Plants found in the database:", plants)  # Debugging print statement
+            # Debugging print statement
+            print("Plants found in the database:", plants)
             # If the plant is found in the database, show the plant info
             return render_template('plant_info.html', plants=plants, query=query)
         else:
-            print("No plants found in the database, fetching data from the Perenual API")  # Debugging print statement
+            # Debugging print statement
+            print("No plants found in the database, fetching data from the Perenual API")
             # If the plant is not found in the database, fetch the data from the Perenual API
-            fetched_plant_info = get_plant_info(query.strip(), get_detailed_info)
+            fetched_plant_info = get_plant_info(
+                query.strip(), get_detailed_info)
             if fetched_plant_info:
-                # Process the fetched plant info and display the search results
-                # Instead of rendering the search_results.html template, redirect to the get_detailed_info route
-                return redirect(url_for('get_detailed_info', plant_id=fetched_plant_info['id']))
+                return redirect(url_for('get_detailed_info', plant_id=fetched_plant_info[0]['id']))
             else:
-                print("No plant data found in the Perenual API")  # Debugging print statement
+                # Debugging print statement
+                print("No plant data found in the Perenual API")
                 # If the plant data is not found in the Perenual API, show a message to the user
                 flash(f'No plant named "{query}" found.')
                 return redirect(url_for('home'))
@@ -134,18 +138,17 @@ def search_results():
     return render_template('search_plant.html', form=form)
 
 
+from plant_info import get_plant_info
+
 @app.route('/get_detailed_info', methods=['POST'])
 def get_detailed_info():
-    plant_id = request.form['plant_id']
-    detail_url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
-    response = request.get(detail_url)
-
-    if response.status_code == 200:
-        plant_details = response.json()
-        return render_template('detailed_search_results.html', plant_details=plant_details)
+    plant_id = request.form.get('plant_id')
+    plants = get_plant_info(plant_id, get_detailed_info=True)
+    if plants:
+        plant = plants[0]
+        return render_template('detailed_search_results.html', plant=plant)
     else:
-        # Handle error case
-        return f"Failed to retrieve plant details for plant ID: {plant_id}"
+        return "No detailed information found"
 
 
 

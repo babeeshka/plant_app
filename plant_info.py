@@ -13,6 +13,7 @@ def get_plant_info(query, get_detailed_info=False):
 
     if response.status_code != 200:
         print(f"Error searching by common name: {response.status_code}")
+        print(url)
         return None
 
     results = response.json()

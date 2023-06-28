@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="typewriter-wrapper title-container">
+    <h1 class="typing">Detailed Results for {{ plant.common_name }}</h1>
+</div>
+{% if plant.family %}
+<h3>Additional Details:</h3>
+<p><strong>Family:</strong> {{ plant.family }}</p>
+<p><strong>Origin:</strong> {{ plant.origin|join(', ') }}</p>
+<p><strong>Plant Type:</strong> {{ plant.type }}</p>
+<p><strong>Scientific Name:</strong> {{ plant.scientific_name }}</p>
+<p><strong>Watering:</strong> {{ plant.watering }}</p>
+<p><strong>Sunlight:</strong> {{ plant.sunlight|join(', ') }}</p>
+<p><strong>Soil:</strong> {{ plant.soil|join(', ') }}</p>
+<p><strong>Pest Susceptibility:</strong> {{ plant.pest_susceptibility|join(', ') }}</p>
+<p><strong>Dimension:</strong> {{ plant.dimension }}</p>
+<p><strong>Propagation:</strong> {{ plant.propagation }}</p>
+<p><strong>Hardiness:</strong> {{ plant.hardiness }}</p>
+<p><strong>Leaf Color:</strong> {{ plant.leaf_color|join(', ') }}</p>
+<p><strong>Maintenance:</strong> {{ plant.maintenance }}</p>
+<p><strong>Growth Rate:</strong> {{ plant.growth_rate }}</p>
+<p><strong>Drought Tolerant:</strong> {{ plant.drought_tolerant }}</p>
+<p><strong>Salt Tolerant:</strong> {{ plant.salt_tolerant }}</p>
+<p><strong>Flowering Season:</strong> {{ plant.flowering_season }}</p>
+<p><strong>Flower Color:</strong> {{ plant.flower_color }}</p>
+<!-- ... add other details here ... -->
+
+<form action="{{ url_for('add_to_database') }}" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <input type="hidden" name="common_name" value="{{ plant.common_name }}">
+    <input type="hidden" name="scientific_name" value="{{ plant.scientific_name|join(', ') }}">
+    <input type="hidden" name="other_name" value="{{ plant.other_name|join(', ') }}">
+    <input type="hidden" name="family" value="{{ plant.family }}">
+    <input type="hidden" name="origin" value="{{ plant.origin|join(', ') }}">
+    <input type="hidden" name="type" value="{{ plant.type }}">
+    <input type="hidden" name="cycle" value="{{ plant.cycle }}">
+    <input type="hidden" name="sunlight" value="{{ plant.sunlight }}">
+    <input type="hidden" name="watering" value="{{ plant.watering }}">
+    <input type="hidden" name="soil" value="{{ plant.soil }}">
+    <input type="hidden" name="growth_rate" value="{{ plant.growth_rate }}">
+    <input type="hidden" name="propagation" value="{{ plant.propagation }}">
+    <input type="hidden" name="pest_susceptibility" value="{{ plant.pest_susceptibility }}">
+    <input type="hidden" name="description" value="{{ plant.description }}">
+    <input type="hidden" name="invasive" value="{{ plant.invasive }}">
+    <input type="hidden" name="attracts" value="{{ plant.attracts }}">
+    <input type="hidden" name="edible_fruit" value="{{ plant.edible_fruit }}">
+    <input type="hidden" name="edible_leaf" value="{{ plant.edible_leaf }}">
+    <input type="hidden" name="edible_root" value="{{ plant.edible_root }}">
+    <input type="hidden" name="medicinal" value="{{ plant.medicinal }}">
+    <input type="hidden" name="tropical" value="{{ plant.tropical }}">
+    <input type="hidden" name="harvest_season" value="{{ plant.harvest_season }}">
+    <input type="hidden" name="drought_tolerant" value="{{ plant.drought_tolerant }}">
+    <input type="hidden" name="poisonous_to_humans" value="{{ plant.poisonous_to_humans }}">
+    <input type="hidden" name="poisonous_to_pets" value="{{ plant.poisonous_to_pets }}">
+    <input type="hidden" name="rare" value="{{ plant.rare }}">
+    <input type="submit" value="Add to Database">
+</form>
+<form action="{{ url_for('home') }}" method="get">
+    <input type="submit" value="Cancel">
+</form>
+{% else %}
+<p>No detailed results found for {{ plant.common_name }}</p>
+{% endif %}
+{% endblock %}
