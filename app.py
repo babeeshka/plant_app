@@ -13,7 +13,7 @@ from flask_wtf.csrf import CSRFProtect
 
 from database import configure_database, db
 from models import Plant
-from plant_info import get_plant_info
+from plant_info import get_plant_info, get_plant_info_by_id
 from dotenv import load_dotenv
 from forms import SearchForm
 
@@ -138,12 +138,9 @@ def search_results():
     return render_template('search_plant.html', form=form)
 
 
-from plant_info import get_plant_info
-
-@app.route('/get_detailed_info', methods=['POST'])
-def get_detailed_info():
-    plant_id = request.form.get('plant_id')
-    plants = get_plant_info(plant_id, get_detailed_info=True)
+@app.route('/get_detailed_info/<int:plant_id>', methods=['GET', 'POST'])
+def get_detailed_info(plant_id):
+    plants = get_plant_info_by_id(plant_id, get_detailed_info=True)
     if plants:
         plant = plants[0]
         return render_template('detailed_search_results.html', plant=plant)

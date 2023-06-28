@@ -62,3 +62,47 @@ def get_plant_info(query, get_detailed_info=False):
         extracted_info.append(info)
 
     return extracted_info
+
+
+def get_plant_info_by_id(plant_id, get_detailed_info=False):
+    # Fetch by plant id
+    url = f'https://perenual.com/api/species/details/{plant_id}/?key={PERENUAL_API_KEY}'
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        print(f"Error fetching by plant id: {response.status_code}")
+        print(url)
+        return None
+
+    result = response.json()
+    if not result:
+        print("No results found")
+        return None
+
+    info = {
+        'id': result['id'],
+        'common_name': result['common_name'],
+        'scientific_name': ', '.join(result.get('scientific_name', [])),
+        'other_name': ', '.join(result.get('other_name', [])),
+        'cycle': result['cycle'],
+        'watering': result['watering'],
+        'sunlight': ', '.join(result.get('sunlight', [])),
+        'default_image': result['default_image']['regular_url'],
+        'family': result['family'],
+        'origin': ', '.join(result.get('origin', [])),
+        'soil': ', '.join(result.get('soil', [])),
+        'pest_susceptibility': ', '.join(result.get('pest_susceptibility', [])),
+        'type': result['type'],
+        'dimension': result['dimension'],
+        'propagation': result['propagation'],
+        'hardiness': result['hardiness'],
+        'leaf_color': ', '.join(result.get('leaf_color', [])),
+        'maintenance': result['maintenance'],
+        'growth_rate': result['growth_rate'],
+        'drought_tolerant': result['drought_tolerant'],
+        'salt_tolerant': result['salt_tolerant'],
+        'flowering_season': result['flowering_season'],
+        'flower_color': result['flower_color'],
+    }
+
+    return [info]
